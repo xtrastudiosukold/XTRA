@@ -1,55 +1,71 @@
-CreateThread(function()
-    if Config.Framework ~= "standalone" then
-        return
+if Config.Framework ~= "standalone" then
+    return
+end
+
+while not NetworkIsSessionStarted() do
+    Wait(500)
+end
+
+loaded = true
+
+function HasPhoneItem(number)
+    if not Config.Item.Require then
+        return true
     end
 
-    while not NetworkIsSessionStarted() do
-        Wait(500)
+    if Config.Item.Unique then
+        return HasPhoneNumber(number)
     end
 
-    loaded = true
-
-    function HasPhoneItem(number)
-        if not Config.Item.Require then
-            return true
-        end
-        return exports["xtra"]:lbHasPhoneItem(number)
+    if GetResourceState("ox_inventory") == "started" and Config.Item.Inventory == "ox_inventory" then
+        return (exports.ox_inventory:Search("count", Config.Item.Name) or 0) > 0
     end
 
-    function HasJob(jobs)
-        return exports["xtra"]:lbHasJob(jobs)
-    end
+    return true
+end
 
-    function CreateFrameworkVehicle(vehicleData, coords)
-        return exports["xtra"]:lbCreateFrameworkVehicle(vehicleData, coords)
-    end
+function HasJob(jobs)
+    return false
+end
 
-     -- Company app
-    function GetCompanyData(cb)
-        exports["xtra"]:lbGetCompanyData(cb)
-    end
+---Apply vehicle mods
+---@param vehicle number
+---@param vehicleData table
+function ApplyVehicleMods(vehicle, vehicleData)
+end
 
-    function DepositMoney(amount, cb)
-        cb(false)
-    end
+---Create a vehicle and apply vehicle mods
+---@param vehicleData table
+---@param coords vector3
+---@return number? vehicle
+function CreateFrameworkVehicle(vehicleData, coords)
+end
 
-    function WithdrawMoney(amount, cb)
-        cb(false)
-    end
+-- Company app
+function GetCompanyData(cb)
+    cb {}
+end
 
-    function HireEmployee(source, cb)
-        exports["xtra"]:lbHireEmployee(source, cb)
-    end
+function DepositMoney(amount, cb)
+    cb(false)
+end
 
-    function FireEmployee(identifier, cb)
-        exports["xtra"]:lbFireEmployee(identifier, cb)
-    end
+function WithdrawMoney(amount, cb)
+    cb(false)
+end
 
-    function SetGrade(identifier, newGrade, cb)
-        exports["xtra"]:lbSetGrade(identifier, newGrade, cb)
-    end
+function HireEmployee(source, cb)
+    cb(false)
+end
 
-    function ToggleDuty()
-        return exports["xtra"]:lbToggleDuty()
-    end
-end)
+function FireEmployee(identifier, cb)
+    cb(false)
+end
+
+function SetGrade(identifier, newGrade, cb)
+    cb(false)
+end
+
+function ToggleDuty()
+    return false
+end

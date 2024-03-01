@@ -1,7 +1,15 @@
+lib = exports.loaf_lib:GetLib()
+
+local function isResourceStartedOrStarting(resource)
+    local state = GetResourceState(resource)
+    return state == "started" or state == "starting"
+end
+
 function debugprint(...)
     if Config.Debug then
         local data = {...}
         local str = ""
+
         for i = 1, #data do
             if type(data[i]) == "table" then
                 str = str .. json.encode(data[i])
@@ -10,6 +18,7 @@ function debugprint(...)
             else
                 str = str .. data[i]
             end
+
             if i ~= #data then
                 str = str .. " "
             end
@@ -19,14 +28,109 @@ function debugprint(...)
     end
 end
 
+if Config.HouseScript == "auto" then
+    Config.HouseScript = false
+
+    debugprint("Detecting house script")
+
+    local houseScripts = {
+        "loaf_housing",
+        "qb-houses",
+        "qs-housing"
+    }
+
+    for i = 1, #houseScripts do
+        if isResourceStartedOrStarting(houseScripts[i]) then
+            Config.HouseScript = houseScripts[i]
+            debugprint("Detected house script: " .. houseScripts[i])
+            break
+        end
+    end
+
+    if not Config.HouseScript then
+        debugprint("No house script detected")
+    end
+end
+
+if Config.Item.Unique and Config.Item.Inventory == "auto" then
+    debugprint("Detecting inventory script")
+
+    local inventoryScripts = {
+        "ox_inventory",
+        "qb-inventory",
+        "lj-inventory",
+        "core_inventory",
+        "mf-inventory",
+        "qs-inventory",
+        "codem-inventory"
+    }
+
+    for i = 1, #inventoryScripts do
+        if isResourceStartedOrStarting(inventoryScripts[i]) then
+            Config.Item.Inventory = inventoryScripts[i]
+            debugprint("Detected inventory script: " .. inventoryScripts[i])
+            break
+        end
+    end
+
+    if Config.Item.Inventory == "auto" then
+        debugprint("No inventory script detected")
+    end
+end
+
+if Config.Framework == "auto" then
+    debugprint("Detecting framework")
+
+    if isResourceStartedOrStarting("es_extended") then
+        Config.Framework = "esx"
+    elseif isResourceStartedOrStarting("qb-core") then
+        Config.Framework = "qb"
+    elseif isResourceStartedOrStarting("ox_core") then
+        Config.Framework = "ox"
+    else
+        Config.Framework = "standalone"
+    end
+
+    debugprint("Detected framework: " .. Config.Framework)
+end
+
+if Config.Voice.System == "auto" then
+    debugprint("Detecting voice script")
+
+    local voiceScripts = {
+        {"pma-voice", "pma"},
+        {"mumble-voip", "mumble"},
+        {"saltychat", "salty"},
+        {"tokovoip_script", "toko"}
+    }
+
+    for i = 1, #voiceScripts do
+        local resource = voiceScripts[i][1]
+        local system = voiceScripts[i][2]
+
+        if isResourceStartedOrStarting(resource) then
+            Config.Voice.System = system
+            debugprint("Detected voice script: " .. resource)
+            break
+        end
+    end
+
+    if Config.Voice.System == "auto" then
+        debugprint("No voice script detected, defaulting to pma")
+        Config.Voice.System = "pma"
+    end
+end
+
 function table.deep_clone(og)
     local copy = {}
+
     for k, v in pairs(og) do
         if type(v) == "table" then
             v = table.deep_clone(v)
         end
         copy[k] = v
     end
+
     return copy
 end
 
@@ -36,27 +140,54 @@ function contains(t, v)
             return true, i
         end
     end
+
     return false
 end
 
 local function GenerateLocales(localesFile)
     local tempLocals = {}
-    local function FormatLocales(localeTable, prefix)
+
+    local function formatLocales(localeTable, prefix)
         for k, v in pairs(localeTable) do
             if type(v) == "table" then
-                FormatLocales(v, prefix .. k .. ".")
+                formatLocales(v, prefix .. k .. ".")
             else
                 tempLocals[prefix .. k] = v
             end
         end
     end
 
-    FormatLocales(localesFile, "")
+    formatLocales(localesFile, "")
     return tempLocals
 end
 
-local locales = GenerateLocales(json.decode(LoadResourceFile(GetCurrentResourceName(), "config/locales/" .. (Config.DefaultLocale or "en") .. ".json")))
-local defaultLocales = GenerateLocales(json.decode(LoadResourceFile(GetCurrentResourceName(), "config/locales/en.json")))
+local function loadLocales(locale)
+    if not locale then
+        return {}
+    end
+
+    local fileContent = LoadResourceFile(GetCurrentResourceName(), "config/locales/" .. locale .. ".json")
+    if not fileContent then
+        print("^6[LB Phone] ^1[ERROR]^7: Invalid locale '" .. locale .. "' (file not found)")
+        return {}
+    end
+
+    local decoded = json.decode(fileContent)
+    if not decoded then
+        print("^6[LB Phone] ^1[ERROR]^7: Invalid locale '" .. locale .. "' (error in file)")
+        return {}
+    end
+
+    return GenerateLocales(decoded)
+end
+
+local locales = loadLocales(Config.DefaultLocale or "en")
+local defaultLocales
+if Config.DefaultLocale ~= "en" then
+    defaultLocales = loadLocales("en")
+else
+    defaultLocales = {}
+end
 
 function L(path, args)
     assert(type(path) == "string", "path must be a string")
@@ -82,15 +213,6 @@ if not IsDuplicityVersion() then
         lastInteraction = GetGameTimer()
         return true
     end
-end
-
-function SpamError(error)
-    CreateThread(function()
-        while error do
-            Wait(0)
-            print("^6[LB Phone] ^1[ERROR]^7: " .. error)
-        end
-    end)
 end
 
 function SeperateNumber(number)
@@ -140,3 +262,20 @@ function FormatNumber(number)
     return table.concat(result)
 end
 exports("FormatNumber", FormatNumber)
+
+local months = { Jan = 1, Feb = 2, Mar = 3, Apr = 4, May = 5, Jun = 6, Jul = 7, Aug = 8, Sep = 9, Oct = 10, Nov = 11, Dec = 12 }
+local pattern = "%a+%s+(%a+)%s+(%d+)%s+(%d+)%s+(%d+):(%d+):(%d+)"
+
+function ConvertJSTimestamp(timestamp)
+    local month, day, year, hour, min, sec = timestamp:match(pattern)
+    local date = {
+        year = tonumber(year),
+        month = months[month],
+        day = tonumber(day),
+        hour = tonumber(hour),
+        min = tonumber(min),
+        sec = tonumber(sec)
+    }
+
+    return os.time(date) * 1000
+end

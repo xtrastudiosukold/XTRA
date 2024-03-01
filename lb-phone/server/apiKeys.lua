@@ -1,7 +1,7 @@
 -- Webhook for instapic posts, recommended to be a public channel
-INSTAPIC_WEBHOOK = "https://discord.com/api/webhooks/1210394029510885386/0IbZhpexrcBQcKBMwX6fShRvrQ1wzVOO7ABbHOrPR8QFJwITTaJebrRkmpHvG0mZteXx"
+INSTAPIC_WEBHOOK = "https://canary.discord.com/api/webhooks/"
 -- Webhook for birdy posts, recommended to be a public channel
-BIRDY_WEBHOOK = "https://discord.com/api/webhooks/1210393960669905009/iDGSkTesAlmPf66eyV0bAl1TzVoK6MD7zDItdk4NlKYSusMtouYM9-WJdMNojbbIQoqk"
+BIRDY_WEBHOOK = "https://canary.discord.com/api/webhooks/"
 
 -- Discord webhook for server logs
 LOGS = {
@@ -27,6 +27,6 @@ LOGS = {
 -- A video tutorial for how to set up Fivemanage can be found here: https://www.youtube.com/watch?v=y3bCaHS6Moc
 API_KEYS = {
     Video = "AbKyGnoolzvBh9TixLKyBZIIDyGwQvN5",
-    Image = "KY2WADnbOwrCCLzuqSGJY1dKgDO9xM7l",
+    Image = "AbKyGnoolzvBh9TixLKyBZIIDyGwQvN5",
     Audio = "ERBxyJan2vgw4riuHAqIoZtIdmiRX90Q",
 }

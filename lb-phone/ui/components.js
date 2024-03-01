@@ -18,11 +18,20 @@ if (!window.componentsLoaded) {
         });
     }
 
+    let currentPopUpInputCb = null;
+
     function SetPopUp(data) {
+        currentPopUpInputCb = null;
+
         if (!data?.buttons) return;
 
         for (let i = 0; i < data.buttons.length; i++) {
             if (data.buttons[i].cb) data.buttons[i].callbackId = i;
+        }
+
+        if (data.input?.onChange) {
+            currentPopUpInputCb = data.input.onChange;
+            data.input.onChange = true;
         }
 
         fetchNui('SetPopUp', data, 'lb-phone').then((buttonId) => {
@@ -123,8 +132,13 @@ if (!window.componentsLoaded) {
     window.onSettingsChange = OnSettingsChange;
 
     window.addEventListener('message', (event) => {
-        if (event.data.type === 'settingsUpdated') {
-            settingListeners.forEach((cb) => cb(event.data.settings));
+        const data = event.data;
+        const type = data.type;
+
+        if (type === 'settingsUpdated') {
+            settingListeners.forEach((cb) => cb(data.settings));
+        } else if (type === 'popUpInputChanged') {
+            if (currentPopUpInputCb) currentPopUpInputCb(data.value);
         }
     });
 

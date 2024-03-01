@@ -2,35 +2,46 @@ Config = {}
 Config.Debug = false -- Set to true to enable debug mode
 
 --[[ FRAMEWORK OPTIONS ]] --
-Config.Framework = "standalone"
+Config.Framework = "auto"
 --[[
     Supported frameworks:
+        * auto: auto-detect framework (ONLY WORKS WITH THE ONES LISTED BELOW)
         * esx: es_extended, https://github.com/esx-framework/esx-legacy
         * qb: qb-core, https://github.com/qbcore-framework/qb-core
         * ox: ox_core, https://github.com/overextended/ox_core
         * standalone: no framework, note that framework specific apps will not work unless you implement the functions
 ]]
-Config.CustomFramework = true -- if set to true and you use standalone, you will be able to use framework specific apps
-Config.QBMailEvent = false -- if you want this script to listen for qb email events, enable this. NOTE: This allows players to send emails from the client.
+Config.CustomFramework = false -- if set to true and you use standalone, you will be able to use framework specific apps
+Config.QBMailEvent = true -- if you want this script to listen for qb email events, enable this.
 
 Config.Item = {}
-Config.Item.Require = false -- require a phone item to use the phone
+Config.Item.Require = true -- require a phone item to use the phone
 Config.Item.Name = "phone" -- name of the phone item
 
 Config.Item.Unique = false -- should each phone be unique? https://docs.lbphone.com/phone/configuration#unique-phones
-Config.Item.Inventory = "ox_inventory" --[[
-    The inventory you use
+Config.Item.Inventory = "auto" --[[
+    The inventory you use, IGNORE IF YOU HAVE Config.Item.Unique DISABLED.
     Supported:
+        * auto: auto-detect inventory (ONLY WORKS WITH THE ONE LISTED BELOW)
         * ox_inventory - https://github.com/overextended/ox_inventory
         * qb-inventory - https://github.com/qbcore-framework/qb-inventory
         * lj-inventory - https://github.com/loljoshie/lj-inventory
         * core_inventory - https://www.c8re.store/package/5121548
         * mf-inventory - https://modit.store/products/mf-inventory?variant=39985142268087
         * qs-inventory - https://buy.quasar-store.com/package/4770732
+        * codem-inventory - https://codem.tebex.io/package/5900973
 ]]
+
+Config.ServerSideSpawn = false -- should entities be spawned on the server? (phone prop, vehicles)
+
+Config.PhoneModel = `lb_phone_prop` -- the prop of the phone, if you want to use a custom phone model, you can change this here
+Config.PhoneRotation = vector3(0.0, 0.0, 180.0) -- the rotation of the phone when attached to a player
+Config.PhoneOffset = vector3(0.0, -0.005, 0.0) -- the offset of the phone when attached to a player
 
 Config.DynamicIsland = true -- if enabled, the phone will have a Iphone 14 Pro inspired Dynamic Island.
 Config.SetupScreen = true -- if enabled, the phone will have a setup screen when the player first uses the phone.
+
+Config.AutoDeleteNotifications = false -- notifications that are more than X hours old, will be deleted. set to false to disable. if set to true, it will delete 1 week old notifications.
 
 Config.WhitelistApps = {
     -- ["test-app"] = {"police", "ambulance"}
@@ -46,11 +57,11 @@ Config.Companies.MessageOffline = true -- if true, players can message companies
 Config.Companies.Services = {
     {
         job = "police",
-        name = "Met Police",
-        icon = "https://i.imgur.com/pDpuy6o.png",
-        canCall = false, -- if true, players can call the company
-        canMessage = false, -- if true, players can message the company
-        bossRanks = {}, -- ranks that can manage the company
+        name = "Police",
+        icon = "https://cdn-icons-png.flaticon.com/512/7211/7211100.png",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "lieutenant"}, -- ranks that can manage the company
         location = {
             name = "Mission Row",
             coords = {
@@ -58,55 +69,59 @@ Config.Companies.Services = {
                 y = -984.5,
             }
         }
+        -- customIcon = "IoShield", -- if you want to use a custom icon for the company, set it here: https://react-icons.github.io/react-icons/icons?name=io5
+        -- onCustomIconClick = function()
+        --    print("Clicked")
+        -- end
     },
     {
-        job = "nhs",
-        name = "NHS",
-        icon = "https://www.pilgrimshospices.org/wp-content/uploads/2020/04/NHS-logo-square.jpg",
-        canCall = false, -- if true, players can call the company
-        canMessage = false, -- if true, players can message the company
-        bossRanks = {}, -- ranks that can manage the company
-        location = {
-            name = "St Thomas Hospital",
-            coords = {
-                x = 298.49432373047,
-                y = -584.48767089844,
-            }
-        }
-    },
-    {
-        job = "lfb",
-        name = "LFB",
-        icon = "https://media.glassdoor.com/sqll/743850/london-fire-brigade-squarelogo-1393365487307.png",
-        canCall = true, -- if true, players can call the company
-        canMessage = false, -- if true, players can message the company
-        bossRanks = {}, -- ranks that can manage the company
-        location = {
-            name = "Fire HQ",
-            coords = {
-                x = 1188.8081054688,
-                y = -1466.8724365234,
-            }
-        }
-    },
-    {
-        job = "aa",
-        name = "AA Mechanic",
-        icon = "https://www.chcdigital.com/wp-content/uploads/2017/03/aalogo.jpg",
+        job = "ambulance",
+        name = "Ambulance",
+        icon = "https://cdn-icons-png.flaticon.com/128/1032/1032989.png",
         canCall = true, -- if true, players can call the company
         canMessage = true, -- if true, players can message the company
-        bossRanks = {}, -- ranks that can manage the company
+        bossRanks = {"boss", "doctor"}, -- ranks that can manage the company
         location = {
-            name = "AA Autoshop",
+            name = "Pillbox",
             coords = {
-                x = 494.89334106445,
-                y = -1327.9873046875,
+                x = 304.2,
+                y = -587.0
+            }
+        }
+    },
+    {
+        job = "mechanic",
+        name = "Mechanic",
+        icon = "https://cdn-icons-png.flaticon.com/128/10281/10281554.png",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "worker"}, -- ranks that can manage the company
+        location = {
+            name = "LS Customs",
+            coords = {
+                x = -336.6,
+                y = -134.3
+            }
+        }
+    },
+    {
+        job = "taxi",
+        name = "Taxi",
+        icon = "https://cdn-icons-png.flaticon.com/128/433/433449.png",
+        canCall = true, -- if true, players can call the company
+        canMessage = true, -- if true, players can message the company
+        bossRanks = {"boss", "driver"}, -- ranks that can manage the company
+        location = {
+            name = "Taxi HQ",
+            coords = {
+                x =984.2,
+                y = -219.0
             }
         }
     },
 }
 
-Config.Companies.Contacts = { -- not needed if you use the services app
+Config.Companies.Contacts = { -- not needed if you use the services app, this will add the contact to the contacts app
     -- ["police"] = {
     --     name = "Police",
     --     photo = "https://cdn-icons-png.flaticon.com/512/7211/7211100.png"
@@ -125,24 +140,28 @@ Config.Companies.Management = {
     Promote = true, -- if true, the boss can promote employees
 }
 
-Config.CustomApps = { -- https://docs.lbphone.com/phone/custom-apps
-
-}
+Config.CustomApps = {} -- https://docs.lbphone.com/phone/custom-apps
 
 Config.Valet = {}
 Config.Valet.Enabled = true -- allow players to get their vehicles from the phone
-Config.Valet.Price = nil -- price to get your vehicle
+Config.Valet.Price = 100 -- price to get your vehicle
+Config.Valet.Model = `S_M_Y_XMech_01`
+Config.Valet.Drive = true -- should a ped bring the car, or should it just spawn in front of the player?
+Config.Valet.DisableDamages = false -- disable vehicle damages (engine & body health) on esx
+Config.Valet.FixTakeOut = false -- repair the vehicle after taking it out?
 
-Config.HouseScript = "loaf_housing" --[[
+Config.HouseScript = "auto" --[[
     The housing script you use on your server
     Supported:
         * loaf_housing - https://store.loaf-scripts.com/package/4310850
+        * qb-houses - https://github.com/qbcore-framework/qb-houses
+        * qs-housing - https://buy.quasar-store.com/package/5677308
 ]]
 
 --[[ VOICE OPTIONS ]] --
 Config.Voice = {}
-Config.Voice.CallEffects = true
-Config.Voice.System = "pma"
+Config.Voice.CallEffects = false -- enable call effects while on speaker mode? (NOTE: This may create sound-issues if you have too many submixes registered in your server)
+Config.Voice.System = "auto"
 --[[
     Supported voice systems:
         * pma: pma-voice - HIGHLY RECOMMENDED
@@ -171,255 +190,16 @@ Config.Voice.RecordNearby = true --[[
 --[[ PHONE OPTIONS ]] --
 Config.Locations = { -- Locations that'll appear in the maps app.
     {
-        name = "City Hall",
-        position = vector2(-549.6, -196.3),
-        description = "Find jobs or change your identity",
-        icon = "https://cdn-icons-png.flaticon.com/128/1838/1838419.png",
+        position = vector2(428.9, -984.5),
+        name = "LSPD",
+        description = "Los Santos Police Department",
+        icon = "https://cdn-icons-png.flaticon.com/512/7211/7211100.png",
     },
     {
-        name = "St Thomas",
-        position = vector2(359.0, -607.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2749/2749678.png",
-    },
-    {
-        name = "Legion",
-        position = vector2(200.0, -1000.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/1828/1828884.png"
-    },
-    {
-        name = "Simeons",
-        position = vector2(-40.0, -1113.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/3097/3097180.png"
-    },
-    {
-        name = "Job Centre",
-        position = vector2(-258.0, -977.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/870/870124.png"
-    },
-    {
-        name = "Arena",
-        position = vector2(-250.0, -2031.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/6941/6941697.png"
-    },
-    {
-        name = "Bennys",
-        position = vector2(-204.0, -1307.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/1995/1995470.png"
-    },
-    {
-        name = "Bank of England",
-        position = vector2(228.0, 213.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2830/2830284.png"
-    },
-    {
-        name = "Santander",
-        position = vector2(316.0, -274.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2830/2830284.png"
-    },
-    {
-        name = "Fleeca",
-        position = vector2(-2968.0, 483.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2830/2830284.png"
-    },
-    {
-        name = "Ranch",
-        position = vector2(1307.0, 1104.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/5445/5445001.png"
-    },
-    {
-        name = "Casino",
-        position = vector2(922.0, 520.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/1055/1055814.png"
-    },
-    {
-        name = "Stage",
-        position = vector2(677.0, 560.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/9104/9104968.png"
-    },
-    {
-        name = "Pier",
-        position = vector2(-1800.0, -1187.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/9096/9096011.png"
-    },
-    {
-        name = "Sandy Airfield",
-        position = vector2(1771.0, 3297.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2084/2084175.png"
-    },
-    {
-        name = "Trevor's Airfield",
-        position = vector2(2105.0, 4795.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2084/2084175.png"
-    },
-    {
-        name = "Vespucci Police Station",
-        position = vector2(-1069.0, -800.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/1138/1138048.png"
-    },
-    {
-        name = "Mission Row Police Station",
-        position = vector2(400.0, -1000.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/1138/1138048.png"
-    },
-    {
-        name = "Sandy Police Station",
-        position = vector2(1869.0, 3696.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/1138/1138048.png"
-    },
-    {
-        name = "Sandy Hospital",
-        position = vector2(1833.0, 3661.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2895/2895071.png"
-    },
-    {
-        name = "Paleto Police Station",
-        position = vector2(-477.0, 6027.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/1138/1138048.png"
-    },
-    {
-        name = "Paleto Hospital",
-        position = vector2(-256.0, 6346.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2895/2895071.png"
-    },
-    {
-        name = "Knife Store",
-        position = vector2(190.0, -1111.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2872/2872617.png"
-    },
-    {
-        name = "Small Arms",
-        position = vector2(-1490,-199.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/3836/3836742.png"
-    },
-    {
-        name = "Large Arms",
-        position = vector2(-1100.0, 4960.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/886/886645.png"
-    },
-    {
-        name = "Rebel",
-        position = vector2(1474.0, 6359.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/3863/3863108.png"
-    },
-    {
-        name = "Mineral Trader",
-        position = vector2(1220.0, -2993.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/6774/6774980.png"
-    },
-    {
-        name = "Gold Gather",
-        position = vector2(-609.0, 2113.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/1473/1473504.png"
-    },
-    {
-        name = "Gold Process",
-        position = vector2(2711.0, 1520.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/1473/1473504.png"
-    },
-    {
-        name = "Copper Gather",
-        position = vector2(1918.0, 3289.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/9048/9048601.png"
-    },
-    {
-        name = "Copper Process",
-        position = vector2(864.0, 2167.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/9048/9048601.png"
-    },
-    {
-        name = "Limestone Gather",
-        position = vector2(2957.0, 2787.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/6224/6224567.png"
-    },
-    {
-        name = "Limestone Process",
-        position = vector2(2928.1, 4304.5),
-        icon = "https://cdn-icons-png.flaticon.com/128/6224/6224567.png"
-    },
-    {
-        name = "Weed Gather",
-        position = vector2(2218.0, 5596.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/5433/5433954.png"
-    },
-    {
-        name = "Weed Process",
-        position = vector2(2844.0, 4489.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/5433/5433954.png"
-    },
-    {
-        name = "Coke Gather",
-        position = vector2(1543.0, 1724.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/4612/4612345.png"
-    },
-    {
-        name = "Coke Process",
-        position = vector2(345.0, 3409.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/4612/4612345.png"
-    },
-    {
-        name = "Meth Gather",
-        position = vector2(1551.0, 2151.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2464/2464317.png"
-    },
-    {
-        name = "Meth Process",
-        position = vector2(1392.0, 3603.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2464/2464317.png"
-    },
-    {
-        name = "Weed Trader",
-        position = vector2(106.0, -1937.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2464/2464317.png"
-    },
-    {
-        name = "Coke Trader",
-        position = vector2(88.0, -1298.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/4612/4612345.png"
-    },
-    {
-        name = "Meth Trader",
-        position = vector2(-553.0, 5326.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/2464/2464317.png"
-    },
-    {
-        name = "Heroin Trader",
-        position = vector2(3580.0, 3662.0),
-        icon = "https://cdn-icons-png.flaticon.com/128/1685/1685848.png"
-    },
-    {
-        name = "Heroin Mine",
-        position = vector2(2304.9, 5135.8),
-        icon = "https://cdn-icons-png.flaticon.com/128/1685/1685848.png"
-    },
-    {
-        name = "Heroin Processing",
-        position = vector2(1580.9, 3581.8),
-        icon = "https://cdn-icons-png.flaticon.com/128/1685/1685848.png"
-    },
-    {
-        name = "Diamond Mine",
-        position = vector2(382.5, 2893.7),
-        icon = "https://cdn-icons-png.flaticon.com/128/408/408472.png"
-    },
-    {
-        name = "Diamond Processing",
-        position = vector2(2645.3, 2814.1),
-        icon = "https://cdn-icons-png.flaticon.com/128/408/408472.png"
-    },
-    {
-        name = "LSD Harvest",
-        position = vector2(5382.7, -5251.4),
-        icon = "https://cdn-icons-png.flaticon.com/128/4612/4612518.png"
-    },
-    {
-        name = "LSD Processing",
-        position = vector2(-2087.8, 2630.2),
-        icon = "https://cdn-icons-png.flaticon.com/128/4612/4612518.png"
-    },
-    {
-        name = "LSD Refinery",
-        position = vector2(481.5, -3254.2),
-        icon = "https://cdn-icons-png.flaticon.com/128/4612/4612518.png"
+        position = vector2(304.2, -587.0),
+        name = "Pillbox",
+        description = "Pillbox Medical Hospital",
+        icon = "https://cdn-icons-png.flaticon.com/128/1032/1032989.png",
     },
 }
 
@@ -494,18 +274,21 @@ Config.Locales = { -- languages that the player can choose from when setting up 
     }
 }
 
-
 Config.DefaultLocale = "en"
-Config.DateLocale = "en-GB" -- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
+Config.DateLocale = "en-US" -- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
 
 Config.FrameColor = "#39334d" -- This is the color of the phone frame. Default (#39334d) is SILVER.
 Config.AllowFrameColorChange = true -- Allow players to change the color of their phone frame?
 
 Config.PhoneNumber = {}
-Config.PhoneNumber.Format = "{13}" -- Don't touch unless you know what you're doing. IMPORTANT: The sum of the numbers needs to be equal to the phone number length
-Config.PhoneNumber.Length = 11 -- This is the length of the phone number WITHOUT the prefix.
-Config.PhoneNumber.Prefixes = { -- These are the first numbers of the phone number, usually the area code.
-    "07"
+Config.PhoneNumber.Format = "({3}) {3}-{4}" -- Don't touch unless you know what you're doing. IMPORTANT: The sum of the numbers needs to be equal to the phone number length + prefix length
+Config.PhoneNumber.Length = 7 -- This is the length of the phone number WITHOUT the prefix.
+Config.PhoneNumber.Prefixes = { -- These are the first numbers of the phone number, usually the area code. They all need to be the same length
+    "205",
+    "907",
+    "480",
+    "520",
+    "602"
 }
 
 Config.Battery = {} -- WITH THESE SETTINGS, A FULL CHARGE WILL LAST AROUND 2 HOURS.
@@ -515,21 +298,24 @@ Config.Battery.DischargeInterval = { 50, 60 } -- How many seconds for each perce
 Config.Battery.DischargeWhenInactiveInterval = { 80, 120 } -- How many seconds for each percent to be removed from the battery when the phone is inactive
 Config.Battery.DischargeWhenInactive = true -- Should the phone remove battery when the phone is closed?
 
-Config.CurrencyFormat = "£%s" -- ($100) Choose the formatting of the currency. %s will be replaced with the amount.
-Config.MaxTransferAmount = 500000000 -- The maximum amount of money that can be transferred at once via wallet / messages.
+Config.CurrencyFormat = "$%s" -- ($100) Choose the formatting of the currency. %s will be replaced with the amount.
+Config.MaxTransferAmount = 1000000 -- The maximum amount of money that can be transferred at once via wallet / messages.
 
 Config.EnableMessagePay = true -- Allow players to pay other players via messages?
 Config.EnableVoiceMessages = true -- Allow players to send voice messages?
 
-Config.CityName = "London" -- The name that's being used in the weather app etc.
+Config.CityName = "Los Santos" -- The name that's being used in the weather app etc.
 Config.RealTime = true -- if true, the time will use real life time depending on where the user lives, if false, the time will be the ingame time.
+Config.CustomTime = false -- NOTE: disable Config.RealTime if using this. you can set this to a function that returns custom time, as a table: { hour = 0-24, minute = 0-60 }
 
-Config.EmailDomain = "xtrastudios.net"
+Config.EmailDomain = "lbphone.com"
+Config.AutoCreateEmail = false -- should the phone automatically create an email for the player when they set up the phone?
 
-Config.DeleteMessages = false -- allow players to delete messages in the messages app?
+Config.DeleteMessages = true -- allow players to delete messages in the messages app?
 
 Config.SyncFlash = true -- should flashlights be synced across all players? May have an impact on performance
-Config.EndLiveClose = true -- should IG live end when you close the phone?
+Config.EndLiveClose = false -- should InstaPic live end when you close the phone?
+
 Config.AllowExternal = { -- allow people to upload external images? (note: this means they can upload nsfw / gore etc)
     Twitter = false, -- set to true to enable external images on that specific app, set to false to disable it.
     Instagram = false,
@@ -542,15 +328,43 @@ Config.AllowExternal = { -- allow people to upload external images? (note: this 
     Other = false, -- other apps that don't have a specific setting (ex: setting a profile picture for a contact, backgrounds for the phone etc)
 }
 
+Config.WordBlacklist = {}
+Config.WordBlacklist.Enabled = false
+Config.WordBlacklist.Apps = { -- apps that should use the word blacklist (if Config.WordBlacklist.Enabled is true)
+    Birdy = true,
+    InstaPic = true,
+    Trendy = true,
+    Spark = true,
+    Messages = true,
+    Pages = true,
+    MarketPlace = true,
+    DarkChat = true,
+    Mail = true,
+}
+Config.WordBlacklist.Words = {
+    -- array of blacklisted words, e.g. "badword", "anotherbadword"
+}
+
+Config.AutoFollow = {}
+Config.AutoFollow.Enabled = false
+
+Config.AutoFollow.Birdy = {}
+Config.AutoFollow.Birdy.Enabled = true
+Config.AutoFollow.Birdy.Accounts = {} -- array of usernames to automatically follow when creating an account. e.g. "username", "anotherusername"
+
+Config.AutoFollow.InstaPic = {}
+Config.AutoFollow.InstaPic.Enabled = true
+Config.AutoFollow.InstaPic.Accounts = {} -- array of usernames to automatically follow when creating an account. e.g. "username", "anotherusername"
+
+Config.AutoFollow.TikTok = {}
+Config.AutoFollow.TikTok.Enabled = true
+Config.AutoFollow.TikTok.Accounts = {} -- array of usernames to automatically follow when creating an account. e.g. "username", "anotherusername"
+
 Config.AutoBackup = true -- should the phone automatically create a backup when you get a new phone?
 
-Config.PhoneModel = `lb_phone_prop` -- the prop of the phone, if you want to use a custom phone model, you can change this here
-Config.PhoneRotation = vector3(0.0, 0.0, 180.0) -- the rotation of the phone when attached to a player
-Config.PhoneOffset = vector3(0.0, -0.005, 0.0) -- the offset of the phone when attached to a player
-
 Config.Post = {} -- What apps should send posts to discord? You can set your webhooks in server/webhooks.lua
-Config.Post.Twitter = true -- New tweets
-Config.Post.Instagram = true -- New posts
+Config.Post.Birdy = true -- Announce new posts on Birdy?
+Config.Post.InstaPic = true -- Anmnounce new posts on InstaPic?
 Config.Post.Accounts = {
     Birdy = {
         Username = "Birdy",
@@ -562,16 +376,16 @@ Config.Post.Accounts = {
     }
 }
 
-Config.TwitterTrending = {}
-Config.TwitterTrending.Enabled = true -- show trending hashtags?
-Config.TwitterTrending.Reset = 7 * 24 -- How often should trending hashtags be reset on twitter? (in hours)
+Config.BirdyTrending = {}
+Config.BirdyTrending.Enabled = true -- show trending hashtags?
+Config.BirdyTrending.Reset = 7 * 24 -- How often should trending hashtags be reset on birdy? (in hours)
 
-Config.TwitterNotifications = false -- should everyone get a notification when someone tweets?
+Config.BirdyNotifications = false -- should everyone get a notification when someone posts?
 
-Config.PromoteTwitter = {}
-Config.PromoteTwitter.Enabled = false -- should you be able to promote tweets?
-Config.PromoteTwitter.Cost = 2500 -- how much does it cost to promote a tweet?
-Config.PromoteTwitter.Views = 100 -- how many views does a promoted tweet get?
+Config.PromoteBirdy = {}
+Config.PromoteBirdy.Enabled = true -- should you be able to promote post?
+Config.PromoteBirdy.Cost = 2500 -- how much does it cost to promote a post?
+Config.PromoteBirdy.Views = 100 -- how many views does a promoted post get?
 
 Config.TikTok = {}
 Config.TikTok.TTS = {
@@ -632,6 +446,7 @@ Config.TikTok.TTS = {
 Config.ICEServers = false -- ICE Servers for WebRTC (ig live, facetim). If you don't know what you're doing, leave this as false.
 
 Config.Crypto = {}
+Config.Crypto.Enabled = true
 Config.Crypto.Coins = {"bitcoin","ethereum","tether","binancecoin","usd-coin","ripple","binance-usd","cardano","dogecoin","solana","shiba-inu","polkadot","litecoin","bitcoin-cash"}
 Config.Crypto.Currency = "usd" -- currency to use for crypto prices. https://api.coingecko.com/api/v3/simple/supported_vs_currencies
 Config.Crypto.Refresh = 5 * 60 * 1000 -- how often should the crypto prices be refreshed (client cache)? (Default 5 minutes)
@@ -641,7 +456,7 @@ Config.KeyBinds = {
     -- Find keybinds here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     Open = { -- toggle the phone
         Command = "phone",
-        Bind = "K",
+        Bind = "F1",
         Description = "Open your phone"
     },
     Focus = { -- keybind to toggle the mouse cursor.
@@ -703,12 +518,24 @@ Config.KeepInput = true -- keep input when nui is focused (meaning you can walk 
 -- Set your api keys in lb-phone/server/apiKeys.lua
 Config.UploadMethod = {}
 -- You can edit the upload methods in lb-phone/shared/upload.lua
-Config.UploadMethod.Video = "Discord" -- or "Imgur" or "Custom"
-Config.UploadMethod.Image = "Discord" -- or "Imgur" or "Custom
-Config.UploadMethod.Audio = "Discord" -- or "Custom"
+-- We recommend Fivemanage, https://fivemanage.com
+-- A video tutorial for how to set up Fivemanage can be found here: https://www.youtube.com/watch?v=y3bCaHS6Moc
+-- If you want to host uploads yourself, you can use LBUpload: https://github.com/lbphone/lb-upload
+-- We STRONGLY discourage using Discord as an upload method, as uploaded files may become inaccessible after a while.
+Config.UploadMethod.Video = "Fivemanage" -- "Fivemanage" or "Discord" or "LBUpload" or "Imgur" or "Custom"
+Config.UploadMethod.Image = "Fivemanage" -- "Fivemanage" or "Discord" or "LBUpload" or "Imgur" or "Custom
+Config.UploadMethod.Audio = "Fivemanage" -- "Fivemanage" or "Discord" or "LBUpload" or "Custom"
 
 Config.Video = {}
-Config.Video.Bitrate = 400 -- video bitrate (kbps)
-Config.Video.FrameRate = 24 -- video framerate (fps)
+Config.Video.Bitrate = 400 -- video bitrate (kbps), increase to improve quality, at the cost of file size
+Config.Video.FrameRate = 24 -- video framerate (fps), 24 fps is a good mix between quality and file size used in most movies
 Config.Video.MaxSize = 25 -- max video size (MB)
 Config.Video.MaxDuration = 60 -- max video duration (seconds)
+
+Config.Image = {}
+Config.Image.Mime = "image/webp"
+Config.Image.Quality = 0.95
+if Config.UploadMethod.Image == "Imgur" then
+    Config.Image.Mime = "image/png"
+    Config.Image.Quality = 1.0
+end

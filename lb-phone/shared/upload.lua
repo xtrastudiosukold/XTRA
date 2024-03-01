@@ -4,68 +4,6 @@
 --                                  ASKING FOR HELP WITH THIS WILL RESULT IN AN INSTANT TIMEOUT                                  --
 -----------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 UploadMethods = {
     Custom = {
         Video = {
@@ -177,6 +115,94 @@ UploadMethods = {
             },
             success = {
                 path = "data.link"
+            },
+        },
+    },
+    Fivemanage = {
+        Video = {
+            url = "https://api.fivemanage.com/api/video",
+            field = "video",
+            headers = {
+                ["Authorization"] = "API_KEY"
+            },
+            error = {
+                path = "success",
+                value = false
+            },
+            success = {
+                path = "url"
+            },
+        },
+        Image = {
+            url = "https://api.fivemanage.com/api/image",
+            field = "image",
+            headers = {
+                ["Authorization"] = "API_KEY"
+            },
+            error = {
+                path = "success",
+                value = false
+            },
+            success = {
+                path = "url"
+            }
+        },
+        Audio = {
+            url = "https://api.fivemanage.com/api/audio",
+            field = "recording",
+            headers = {
+                ["Authorization"] = "API_KEY"
+            },
+            error = {
+                path = "success",
+                value = false
+            },
+            success = {
+                path = "url"
+            }
+        },
+    },
+    LBUpload = {
+        Video = {
+            url = "https://BASE_URL/lb-upload/",
+            field = "file",
+            headers = {
+                ["Authorization"] = "API_KEY"
+            },
+            error = {
+                path = "success",
+                value = false
+            },
+            success = {
+                path = "link"
+            },
+        },
+        Image = {
+            url = "https://BASE_URL/lb-upload/",
+            field = "file",
+            headers = {
+                ["Authorization"] = "API_KEY"
+            },
+            error = {
+                path = "success",
+                value = false
+            },
+            success = {
+                path = "link"
+            },
+        },
+        Audio = {
+            url = "https://BASE_URL/lb-upload/",
+            field = "file",
+            headers = {
+                ["Authorization"] = "API_KEY"
+            },
+            error = {
+                path = "success",
+                value = false
+            },
+            success = {
+                path = "link"
             },
         },
     },

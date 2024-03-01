@@ -1,5 +1,3 @@
-local lib = exports.loaf_lib:GetLib()
-
 RegisterNUICallback("Wallet", function(data, cb)
     local action = data.action
     if action == "getData" then

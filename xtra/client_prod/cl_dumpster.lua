@@ -25,10 +25,11 @@ Citizen.CreateThread(function()
                                 tXTRA.notify("~r~Dumpster has recently been searched")
                             else
                                 drawNativeNotification("Press ~INPUT_PICKUP~ to search the dumpster.")
-                                if IsControlJustReleased(0, 38) then
-                                    TriggerServerEvent('XTRA:startDumpsterTimer', dumpster)
-                                    searched[dumpster] = true
-                                    startSearching(searchTime, 'amb@prop_human_bum_bin@base', 'base', 'XTRA:giveDumpsterReward')
+                                    if IsControlJustReleased(0, 38) then
+                                        TriggerServerEvent('XTRA:startDumpsterTimer', dumpster)
+                                        searched[dumpster] = true
+                                        startSearching(searchTime, 'amb@prop_human_bum_bin@base', 'base', 'XTRA:giveDumpsterReward')
+                                    end
                                 end
                             end
                         end
