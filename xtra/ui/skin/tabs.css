@@ -1,0 +1,120 @@
+.skinCreator input[name=css-tabs] {
+  display: none;
+}
+.skinCreator a {
+	color: #F29A77;
+}
+#skin-tabs {
+	padding: 0 0 0 50px;
+	width: 100%;
+	background: #2B2A28;
+	height: 80px;
+	border-bottom: 5px solid #6770DA;
+	box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+#skin-tabs::after {
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: 0;
+	height: 80px;
+	width: 102px;
+	background: #6770DA;
+	transition: transform 400ms;
+}
+#skin-tabs label {
+	position: relative;
+	z-index: 100;
+	display: block;
+	float: left;
+  font-size: 11px;
+	text-transform: uppercase;
+	text-align: center;
+	width: 100px;
+	height: 100%;
+	border-right: 1px dotted #575654;
+	cursor: pointer;
+}
+#skin-tabs label:first-child {
+	border-left: 1px dotted #575654;
+}
+#skin-tabs label::before {
+	content: "";
+	display: block;
+	height: 30px;
+	width: 30px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin: 10px auto;
+}
+#skin-tab1::before {
+	background-image: url(assets/head.png);
+}
+#skin-tab2::before {
+	background-image: url(assets/pilosite.png);
+}
+#skin-tab3::before {
+	background-image: url(assets/clothes.png);
+}
+#skin-tab4::before {
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/106891/mans-silhouette.png);
+}
+#skin-radio1:checked ~ #skin-tabs #skin-tab1::before, #skin-radio2:checked ~ #skin-tabs #skin-tab2::before, #skin-radio3:checked ~ #skin-tabs #skin-tab3::before, #radio4:checked ~ #skin-tabs #skin-tab4::before {
+	filter: invert(100%);
+}
+#skin-radio1:checked ~ #skin-tabs::after {
+	transform: translateX(0);
+}
+#skin-radio2:checked ~ #skin-tabs::after {
+	transform: translateX(101px);
+}
+#skin-radio3:checked ~ #skin-tabs::after {
+	transform: translateX(202px);
+}
+#radio4:checked ~ #skin-tabs::after {
+	transform: translateX(303px);
+}
+#skin-content {
+	position: relative;
+	height: 70vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+#skin-content::before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin-left: -50px;
+	border-top: 8px solid #000;
+	border-right: 10px solid #000;
+	border-left: 10px solid transparent;
+	border-bottom: 8px solid transparent;
+}
+#skin-content::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin-left: calc(100% + 30px);
+	border-top: 8px solid #000;
+	border-left: 10px solid #000;
+	border-right: 10px solid transparent;
+	border-bottom: 8px solid transparent;
+}
+#skin-content section {
+	position: absolute;
+	transform: translateY(50px);
+	opacity: 0;
+	display: none;
+	transition: transform 500ms, opacity 500ms;
+}
+#skin-radio1:checked ~ #skin-content #skin-content1, #skin-radio2:checked ~ #skin-content #skin-content2, #skin-radio3:checked ~ #skin-content #skin-content3, #radio4:checked ~ #skin-content #skin-content4 {
+	transform: translateY(0);
+	opacity: 1;
+	width: 100%;
+	display: block;
+}
