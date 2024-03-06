@@ -242,7 +242,7 @@ AddEventHandler("XTRA:bankTransfer", function(id, amount)
               XTRAclient.notifyPicture(source, {"monzo", "monzo", "You do not have enough money.", "Monzo", "Error"})
           end
       else
-          XTRAclient.notifyPicture(source, {"monzo", "monzo", "Player is not online.", "Monzo", "Error"})
+          XTRAclient.notify(source, "not online test")
       end
     else
       XTRAclient.notifyPicture(source, {"monzo", "monzo", "You are sending money too fast.", "Monzo", "Error"})

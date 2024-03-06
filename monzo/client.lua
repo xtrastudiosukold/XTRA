@@ -1,4 +1,4 @@
-local lastMoneyAmount = 0
+local lastamount = 0
 
 local function AddApp()
     exports["lb-phone"]:AddCustomApp({
@@ -36,31 +36,31 @@ CreateThread(function ()
 
     RegisterNetEvent("XTRA:initMoney", function(_, bank)
         if GetResourceState("lb-phone") == "started" then
-            lastMoneyAmount = bank
+            lastamount = bank
             updateMonzoMoney(bank)
         end
     end)
 
     RegisterNetEvent("XTRA:setDisplayBankMoney", function(value)
         if GetResourceState("lb-phone") == "started" then
-            lastMoneyAmount = value
+            lastamount = value
             updateMonzoMoney(value)
         end
     end)
 
     RegisterNUICallback("transferMonzoMoney", function(data, cb)
-        if data.permId and data.moneyAmount then
-            local permId = tonumber(data.permId)
-            local moneyAmount = tonumber(data.moneyAmount)
-            if permId and moneyAmount then
-                TriggerServerEvent("XTRA:transferMoneyViaPermID", permId, moneyAmount)
+        if data.id and data.amount then
+            local id = tonumber(data.id)
+            local amount = tonumber(data.amount)
+            if id and amount then
+                TriggerServerEvent("XTRA:bankTransfer", id, amount)
             end
         end
         cb("ok")
     end)
 
     RegisterNUICallback("getMoneyMoney", function(data, cb)
-        updateMonzoMoney(lastMoneyAmount)
+        updateMonzoMoney(lastamount)
         cb("ok")
     end)
 end)

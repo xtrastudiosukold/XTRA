@@ -180,11 +180,7 @@ local y = false
 local z = false
 local A = 1
 local B = {"XTRA", "GLife", "Fortnite"}
-local C = {"Discord", "Steam", "Custom", "None"}
-local D = {"Smallest", "Small", "Medium", "Large"}
 local E = {32, 40, 48, 56}
-local F = tonumber(GetResourceKvpString("xtra_pfp_size")) or 1
-local G = tonumber(GetResourceKvpString("xtra_pfp_type")) or 1
 for H = 20, 500, 20 do
     table.insert(s, string.format("%d%%", H))
 end
@@ -308,11 +304,9 @@ Citizen.CreateThread(
             A = _
             tXTRA.setHealthUIType(B[A])
         end
-        Wait(10000)
-        tXTRA.updatePFPType(C[G])
-        tXTRA.updatePFPSize(E[F])
     end
 )
+
 function tXTRA.setDiagonalWeaponSetting(i)
     SetResourceKvp("xtra_diagonalweapons", tostring(i))
 end
@@ -742,15 +736,15 @@ RageUI.CreateWhile(
                     end,
                     RMenu:Get("SettingsMenu", "graphicpresets")
                 )
-                -- RageUI.ButtonWithStyle(
-                --     "Graphic's Packs",
-                --     "",
-                --     {RightLabel = "→→→"},
-                --     true,
-                --     function()
-                --     end,
-                --     RMenu:Get("XTRA", "graphicpacks")
-                -- )
+                RageUI.ButtonWithStyle(
+                    "Graphic Packs",
+                    "Customize the weather and sky to match your prefrence.",
+                    {RightLabel = "→→→"},
+                    true,
+                    function()
+                    end,
+                    RMenu:Get("XTRA", "graphicpacks")
+                )
                 RageUI.ButtonWithStyle(
                     "Kill Effects",
                     "Toggle effects that occur on killing a player.",
@@ -877,21 +871,6 @@ RageUI.CreateWhile(
                         tXTRA.setShowHealthPercentageFlag(false)
                     end
                 )
-                RageUI.List(
-                    "Health UI Type",
-                    B,
-                    A,
-                    "Switch between health UI displays.",
-                    {},
-                    true,
-                    function(at, au, av, aw)
-                        if aw ~= A then
-                            A = aw
-                            tXTRA.setHealthUIType(B[A])
-                            SetResourceKvpInt("xtra_health_ui_type", A)
-                        end
-                    end
-                )
                 RageUI.ButtonWithStyle(
                     "Crosshair",
                     "Create a custom built-in crosshair here.",
@@ -909,17 +888,6 @@ RageUI.CreateWhile(
                     function(an, ao, ap)
                     end,
                     RMenu:Get("scope", "main")
-                )
-                RageUI.ButtonWithStyle(
-                    "Inventory Colour",
-                    "Set inventory colour with RGB values.",
-                    {RightLabel = "→→→"},
-                    true,
-                    function(an, ao, ap)
-                        if ap then
-                            tXTRA.setInventoryColour()
-                        end
-                    end
                 )
                 -- RageUI.ButtonWithStyle(
                 --     "Profile Picture Settings",

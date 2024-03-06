@@ -221,7 +221,7 @@ local function a0(B)
 end
 local function a2(K)
     l = true
-    TriggerServerEvent("xtra:setInVehicleTestingBucket", true)
+    TriggerServerEvent("XTRA:setInVehicleTestingBucket", true)
     z = tXTRA.getPlayerCoords()
     w = 1
     local a3 = GetHashKey(K)
@@ -352,7 +352,7 @@ RageUI.CreateWhile(
                             true,
                             function(X, Y, Z)
                                 if Z then
-                                    TriggerServerEvent("xtra:getStoreLockedVehicleCategories")
+                                    TriggerServerEvent("XTRA:getStoreLockedVehicleCategories")
                                 end
                             end,
                             RMenu:Get("store", "redeem")
@@ -379,7 +379,7 @@ RageUI.CreateWhile(
                             function(X, Y, Z)
                                 if Z then
                                     if isInGreenzone then
-                                        TriggerServerEvent("xtra:startSellStoreItem", d)
+                                        TriggerServerEvent("XTRA:startSellStoreItem", d)
                                     else
                                         notify("~r~You must be in a greenzone to sell.")
                                     end
@@ -442,7 +442,7 @@ RageUI.CreateWhile(
                         function(X, Y, Z)
                             if Z then
                                 if T(U) then
-                                    TriggerServerEvent("xtra:redeemStoreItem", d, e)
+                                    TriggerServerEvent("XTRA:redeemStoreItem", d, e)
                                 else
                                     notify("~r~Unable to redeem, one or more argument is invalid.")
                                 end
@@ -558,7 +558,7 @@ RageUI.CreateWhile(
     end
 )
 RegisterNetEvent(
-    "xtra:sendStoreItems",
+    "XTRA:sendStoreItems",
     function(ak)
         b = ak
     end
@@ -731,7 +731,7 @@ RageUI.CreateWhile(
                                 l = false
                                 DeleteEntity(m)
                                 SetEntityCoordsNoOffset(PlayerPedId(), z.x, z.y, z.z, false, false, false)
-                                TriggerServerEvent("xtra:setInVehicleTestingBucket", false)
+                                TriggerServerEvent("XTRA:setInVehicleTestingBucket", false)
                                 RageUI.Visible(RMenu:Get("store", "vehicleSelection"), true)
                             end
                         end,
@@ -816,7 +816,7 @@ function tXTRA.isInStoreTesting()
     return l
 end
 RegisterNetEvent(
-    "xtra:storeDrawEffects",
+    "XTRA:storeDrawEffects",
     function()
         tXTRA.loadPtfx("scr_xs_celebration")
         tXTRA.loadPtfx("scr_rcpaparazzo1")
@@ -857,14 +857,14 @@ RegisterNetEvent(
     end
 )
 RegisterNetEvent(
-    "xtra:setStoreLockedVehicleCategories",
+    "XTRA:setStoreLockedVehicleCategories",
     function(aB)
         c = aB
     end
 )
-RegisterNetEvent("xtra:OpenStoreMenu")
+RegisterNetEvent("XTRA:OpenStoreMenu")
 AddEventHandler(
-    "xtra:OpenStoreMenu",
+    "XTRA:OpenStoreMenu",
     function()
         RageUI.Visible(RMenu:Get("store", "mainmenu"), true)
     end
@@ -872,17 +872,17 @@ AddEventHandler(
 RegisterCommand(
     "store",
     function()
-        TriggerServerEvent("xtra:OpenStore")
+        TriggerServerEvent("XTRA:OpenStore")
     end
 )
 RegisterNetEvent(
-    "xtra:setStoreRankName",
+    "XTRA:setStoreRankName",
     function(aC)
         i = aC
     end
 )
 RegisterNetEvent(
-    "xtra:storeCloseMenu",
+    "XTRA:storeCloseMenu",
     function()
         RageUI.ActuallyCloseAll()
         RageUI.Visible(RMenu:Get("store", "mainmenu"), false)

@@ -5,7 +5,6 @@ lua54 "yes"
 version "1.4.3"
 
 client_script "client/custom/hooks.lua"
-server_script "server/custom/unsafeblock.lua"
 
 shared_script {
     "config/*.lua",

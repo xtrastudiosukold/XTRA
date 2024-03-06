@@ -552,6 +552,7 @@ CREATE TABLE IF NOT EXISTS xtra_prison (
     CREATE TABLE IF NOT EXISTS xtra_stores (
     code VARCHAR(255) NOT NULL,
     item VARCHAR(255) NOT NULL,
+    date VARCHAR(255) NOT NULL,
     user_id INT(11),
     PRIMARY KEY (code)
     );
