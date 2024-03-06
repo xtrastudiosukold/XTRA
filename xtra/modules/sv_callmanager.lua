@@ -47,7 +47,107 @@ RegisterCommand("calladmin", function(source)
         end
     end)
 end)
+RegisterCommand("calladmin", function(source)
+    local user_id = XTRA.getUserId(source)
+    local user_source = XTRA.getUserSource(user_id)
+    for k,v in pairs(cooldown) do
+        if k == user_id and v.time > 0 then
+            XTRAclient.notify(user_source,{"~r~You have already called an admin, please wait 5 minutes before calling again."})
+            return
+        end
+    end
+    XTRA.prompt(user_source, "Please enter call reason: ", "", function(player, reason)
+        if reason ~= "" then
+            if #reason >= 5 then
+                callID = callID + 1
+                tickets[callID] = {
+                    name = XTRA.GetPlayerName(user_id),
+                    permID = user_id,
+                    tempID = user_source,
+                    reason = reason,
+                    type = 'admin',
+                }
+                cooldown[user_id] = {time = 5}
+                for k, v in pairs(XTRA.getUsers({})) do
+                    TriggerClientEvent("XTRA:addEmergencyCall", v, callID, XTRA.GetPlayerName(user_id), user_id, GetEntityCoords(GetPlayerPed(user_source)), reason, 'admin')
+                end
+                XTRAclient.notify(user_source,{"~b~Your request has been sent."})
+            else
+                XTRAclient.notify(user_source,{"~r~Please enter a minimum of 5 characters."})
+            end
+        else
+            XTRAclient.notify(user_source,{"~r~Please enter a valid reason."})
+        end
+    end)
+end)
 
+RegisterCommand("help", function(source)
+    local user_id = XTRA.getUserId(source)
+    local user_source = XTRA.getUserSource(user_id)
+    for k,v in pairs(cooldown) do
+        if k == user_id and v.time > 0 then
+            XTRAclient.notify(user_source,{"~r~You have already called an admin, please wait 5 minutes before calling again."})
+            return
+        end
+    end
+    XTRA.prompt(user_source, "Please enter call reason: ", "", function(player, reason)
+        if reason ~= "" then
+            if #reason >= 5 then
+                callID = callID + 1
+                tickets[callID] = {
+                    name = XTRA.GetPlayerName(user_id),
+                    permID = user_id,
+                    tempID = user_source,
+                    reason = reason,
+                    type = 'admin',
+                }
+                cooldown[user_id] = {time = 5}
+                for k, v in pairs(XTRA.getUsers({})) do
+                    TriggerClientEvent("XTRA:addEmergencyCall", v, callID, XTRA.GetPlayerName(user_id), user_id, GetEntityCoords(GetPlayerPed(user_source)), reason, 'admin')
+                end
+                XTRAclient.notify(user_source,{"~b~Your request has been sent."})
+            else
+                XTRAclient.notify(user_source,{"~r~Please enter a minimum of 5 characters."})
+            end
+        else
+            XTRAclient.notify(user_source,{"~r~Please enter a valid reason."})
+        end
+    end)
+end)
+
+RegisterCommand("report", function(source)
+    local user_id = XTRA.getUserId(source)
+    local user_source = XTRA.getUserSource(user_id)
+    for k,v in pairs(cooldown) do
+        if k == user_id and v.time > 0 then
+            XTRAclient.notify(user_source,{"~r~You have already called an admin, please wait 5 minutes before calling again."})
+            return
+        end
+    end
+    XTRA.prompt(user_source, "Please enter call reason: ", "", function(player, reason)
+        if reason ~= "" then
+            if #reason >= 5 then
+                callID = callID + 1
+                tickets[callID] = {
+                    name = XTRA.GetPlayerName(user_id),
+                    permID = user_id,
+                    tempID = user_source,
+                    reason = reason,
+                    type = 'admin',
+                }
+                cooldown[user_id] = {time = 5}
+                for k, v in pairs(XTRA.getUsers({})) do
+                    TriggerClientEvent("XTRA:addEmergencyCall", v, callID, XTRA.GetPlayerName(user_id), user_id, GetEntityCoords(GetPlayerPed(user_source)), reason, 'admin')
+                end
+                XTRAclient.notify(user_source,{"~b~Your request has been sent."})
+            else
+                XTRAclient.notify(user_source,{"~r~Please enter a minimum of 5 characters."})
+            end
+        else
+            XTRAclient.notify(user_source,{"~r~Please enter a valid reason."})
+        end
+    end)
+end)
 
 RegisterCommand("999", function(source)
     local user_id = XTRA.getUserId(source)
@@ -71,18 +171,6 @@ RegisterCommand("999", function(source)
         end
     end)
 end)
-RegisterCommand("help", function()
-    ExecuteCommand("calladmin")
-end, false)
-
-RegisterCommand("report", function()
-    ExecuteCommand("calladmin")
-end, false)
-
-RegisterCommand("support", function()
-    ExecuteCommand("calladmin")
-end, false)
-  
 
 RegisterCommand("111", function(source)
     local user_id = XTRA.getUserId(source)
