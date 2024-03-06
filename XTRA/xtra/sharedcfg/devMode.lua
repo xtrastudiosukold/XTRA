@@ -1,2 +1,0 @@
-
-DevModeMG = false
