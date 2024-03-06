@@ -5,8 +5,6 @@ local d = 3
 proximityIdToString = {[1] = "Whisper", [2] = "Talking", [3] = "Shouting"}
 local e, f = GetActiveScreenResolution()
 local g = {}
-local h = GetResourceKvpString("xtra_custom_pfp") or ""
-g["Custom"] = h
 RegisterNetEvent("XTRA:showHUD")
 AddEventHandler(
     "XTRA:showHUD",
@@ -38,13 +36,6 @@ end
 function showhudUI(i)
     SendNUIMessage({showMoney = i})
 end
-RegisterNetEvent("XTRA:setProfilePictures")
-AddEventHandler(
-    "XTRA:setProfilePictures",
-    function(q)
-        g = q
-    end
-)
 RegisterNetEvent("XTRA:setDisplayMoney")
 RegisterNetEvent(
     "XTRA:setDisplayMoney",
@@ -141,13 +132,3 @@ end)
 -- Request user ID from the server
 TriggerServerEvent('requestUserId')
 
-function tXTRA.updatePFPType(z)
-    if z == "Custom" then
-        SendNUIMessage({setPFP = GetResourceKvpString("xtra_custom_pfp")})
-    else
-        SendNUIMessage({setPFP = g[z]})
-    end
-end
-function tXTRA.updatePFPSize(A)
-    SendNUIMessage({setPFPSize = A})
-end

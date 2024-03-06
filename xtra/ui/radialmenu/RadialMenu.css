@@ -46,7 +46,7 @@ svg.menu > g.sector > use {
 }
 
 svg.menu > g.sector:hover > path {
-    fill: #cc0303d0;
+    fill: #32CD32D0;
 
 }
 
@@ -57,7 +57,7 @@ svg.menu > g.sector.selected > path {
 }
 
 svg.menu > g.center:hover > circle {
-    fill: #cc0303d0;
+    fill: #32CD32D0;
 }
 
 svg.menu > g.center > circle {

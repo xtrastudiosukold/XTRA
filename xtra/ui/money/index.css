@@ -6,7 +6,7 @@ body {
 }
 
 .money-hud {
-  position: relative;
+  position: absolute;
   top: 90%;
   left: 5px;
   width: 168px;
