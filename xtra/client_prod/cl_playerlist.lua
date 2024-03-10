@@ -230,6 +230,8 @@ Citizen.CreateThread(
                 SetDiscordRichPresenceAssetSmall("xtra")
                 SetDiscordRichPresenceAssetSmallText(tXTRA.getPlayerName(PlayerId()))
                 SetRichPresence("[ID:" ..tostring(A) .."] | " .. tostring(m) .. "/" .. tostring(n) .. "\n")
+ --               SetDiscordRichPresenceAction(0, "Join XTRA", "fivem://connect/s1.xtra.city")
+                SetDiscordRichPresenceAction(0, "Join Discord", "https://discord.gg/wcrZ7t9U4X")
             end
             Wait(15000)
         end
