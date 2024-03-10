@@ -25,7 +25,7 @@ local n = {
     ["Police Issued 9mm"] = true,
     ["Police Issued 12 Gauge"] = true
 }
-local o = json.decode(GetResourceKvpString("xtra_gang_inv_colour")) or {r = 0, g = 50, b = 142}
+local o = json.decode(GetResourceKvpString("xtra_gang_inv_colour")) or {r = 156, g = 92, b = 180}
 local p = nil
 local q = nil
 local r = nil
