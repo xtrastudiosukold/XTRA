@@ -16,7 +16,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
             },
             {
                 "name": "How to Join the Prison Service:",
-                "value": "To join the Prison Service, you need to create an account on xtrastudios.net and use the [application](https://soon). Make sure to be in the XTRA HMPS Official [Discord](https://discord.gg/aXGMqVQs5d) server.",
+                "value": "To join the Prison Service, you need to create an account on xtrastudios.net and use the [application](https://soon). Make sure to be in the XTRA HMPS Official [Discord](https://discord.gg/JMKm9HQKHg) server.",
             },
             {
                 "name": "Requirements to Join the Prison Service:",
@@ -30,7 +30,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
     };
 
     message.channel.send({embed});
-    message.channel.send("||                                                  https://discord.gg/aXGMqVQs5d                                     ||");
+    message.channel.send("||                                                  https://discord.gg/JMKm9HQKHg                                     ||");
 };
 
 exports.conf = {

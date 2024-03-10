@@ -47,7 +47,7 @@ Citizen.CreateThread(
     function()
         while true do
             if not globalHideUi then
-                if not globalHideEmergencyCallUI and not glifeheathui and not fortnitehealthui then
+                if not globalHideEmergencyCallUI then
                     local x = tXTRA.getPlayerPed()
                     local y, z = GetActiveScreenResolution()
                     if y ~= i or z ~= j then
@@ -69,7 +69,7 @@ Citizen.CreateThread(
                         C = 1.0
                     end
                     o(A.leftX + 0.0045, A.bottomY - 0.004, A.Width, 0.009, 88, 88, 88, 200)
-                    o(A.leftX + 0.0045, A.bottomY - 0.004, A.Width * B, 0.009, 86, 215, 64, 200)
+                    o(A.leftX + 0.0045, A.bottomY - 0.004, A.Width * B, 0.009, 156, 92, 180, 200)
                     o(A.leftX + 0.0045, A.bottomY + 0.009, A.Width, 0.009, 88, 88, 88, 200)
                     if E then
                         tXTRA.DrawText(
@@ -118,27 +118,10 @@ Citizen.CreateThread(function()
             local healthui = {
                 health = health, 
                 armor = armor, 
-                showGlife = glifeheathui, 
-                showFortnite = fortnitehealthui
             }
 
             SendNUIMessage(healthui)
         end
     end
 end)
-
-
-function tXTRA.setHealthUIType(a)
-    F = true
-    if a == "XTRA" then
-        glifeheathui = false
-        fortnitehealthui = false
-    elseif a == "GLife" then
-        glifeheathui = true
-        fortnitehealthui = false
-    elseif a == "Fortnite" then
-        glifeheathui = false
-        fortnitehealthui = true
-    end
-end
 

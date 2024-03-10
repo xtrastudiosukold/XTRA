@@ -268,7 +268,7 @@ Citizen.CreateThread(function()
                     end
                     a1.leaveArea(a1.metaData)
                 else
-                    FRserver.leaveArea({a0})
+                    XTRAserver.leaveArea({a0})
                 end
             elseif not a1.player_in and a3 then
                 if a1.enterArea then
@@ -277,7 +277,7 @@ Citizen.CreateThread(function()
                     end
                     a1.enterArea(a1.metaData)
                 else
-                    FRserver.enterArea({a0})
+                    XTRAserver.enterArea({a0})
                 end
             end
             a1.player_in = a3

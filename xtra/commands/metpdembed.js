@@ -12,7 +12,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
         "fields": [
             {
                 "name": "Official XTRA MetPD Discord",
-                "value": "[Discord](https://discord.gg/7A2ggWDFm9)",
+                "value": "[Discord](https://discord.gg/5g3NzjDQ)",
             },
             {
                 "name": "How do I make a complaint on an officer?",
@@ -22,7 +22,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
     };
 
     message.channel.send({ embed });
-    message.channel.send("||                              https://discord.gg/7A2ggWDFm9                                 ||");
+    message.channel.send("||                              https://discord.gg/5g3NzjDQ                                 ||");
 };
 
 exports.conf = {

@@ -75,7 +75,7 @@ function tXTRA.takeClientVideoAndUploadKills(a)
         "files[]",
         {headers = {}, isVideo = true, isManual = true, encoding = "mp4"},
         function(n)
-            FRserver.killProcessed()
+            XTRAserver.killProcessed()
         end
     )
 end

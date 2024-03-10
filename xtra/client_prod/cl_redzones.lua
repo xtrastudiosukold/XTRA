@@ -14,7 +14,6 @@ local d = {
     ["RebelCayo"] = {type = "radius", pos = vector3(4982.5634765625, -5175.1079101562, 2.4887988567352), radius = 120.0},
     ["LSDNorth"] = {type = "radius", pos = vector3(1317.0300292969, 4309.8359375, 38.005485534668), radius = 90.0},
     ["LSDSouth"] = {type = "radius", pos = vector3(2539.0964355469, -376.51586914063, 92.986785888672), radius = 120.0},
-    ["LargeArmsCity"] = {type = "radius", pos = vector3(-2281.55859375,324.55404663086,174.60173034668), radius = 100.0},
     ["OilRig"] = {type = "radius", pos = vector3(-2541.2580566406, 5144.1538085938, 33.08895111084), radius = 200.0}
 }
 function tXTRA.setRedzoneTimerDisabled(e)

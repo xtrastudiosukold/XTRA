@@ -1,7 +1,7 @@
 PlayerIsInGang = false
 GangBalance = 0
-FRGangInvites = {}
-FRGangInviteIndex = 0
+XTRAGangInvites = {}
+XTRAGangInviteIndex = 0
 selectedGangInvite = nil
 selectedMember = nil
 gangID = nil
@@ -12,7 +12,7 @@ local c = 1
 local d = 1
 local e = 1
 local f = 1
-FRGangMembers = {}
+XTRAGangMembers = {}
 local g = false
 local h = nil
 local i = nil
@@ -32,7 +32,7 @@ local j = {
 local k = j["Red"]
 local l = GetResourceKvpString("xtra_gang_colour") or "Red"
 local function m()
-    return FRGangMembers
+    return XTRAGangMembers
 end
 AddEventHandler(
     "XTRA:onClientSpawn",
@@ -61,7 +61,7 @@ AddEventHandler(
             gangMaxWithdraw = r
             gangLimitWithdrawDeposit = s
             if o ~= nil then
-                FRGangMembers = o
+                XTRAGangMembers = o
                 local t = 1
                 b[t] = {}
                 for n, u in ipairs(o) do
@@ -95,7 +95,7 @@ AddEventHandler(
     function()
         a = "none"
         PlayerIsInGang = false
-        FRGangMembers = {}
+        XTRAGangMembers = {}
         TriggerEvent("XTRA:ForceRefreshData")
     end
 )
@@ -110,8 +110,8 @@ RegisterNetEvent("XTRA:InviteReceived")
 AddEventHandler(
     "XTRA:InviteReceived",
     function(v, w)
-        FRGangInvites[FRGangInviteIndex] = w
-        FRGangInviteIndex = FRGangInviteIndex + 1
+        XTRAGangInvites[XTRAGangInviteIndex] = w
+        XTRAGangInviteIndex = XTRAGangInviteIndex + 1
         tXTRA.notify(v)
     end
 )
@@ -144,7 +144,7 @@ function func_drawGangUI()
         DrawAdvancedText(0.564, 0.443, 0.005, 0.0028, 0.473, "Join Gang", 255, 255, 255, 255, 4, 0)
         DrawRect(0.561, 0.377, 0.065, -0.003, 0, 168, 255, 204)
         DrawAdvancedText(0.654, 0.37, 0.005, 0.0028, 0.364, "Invite list", 255, 255, 255, 255, 4, 0)
-        for x, y in pairs(FRGangInvites) do
+        for x, y in pairs(XTRAGangInvites) do
             DrawAdvancedText(0.656, 0.398 + 0.020 * x, 0.005, 0.0028, 0.234, y, 255, 255, 255, 255, 0, 0)
             if CursorInArea(0.525, 0.59, 0.38 + 0.02 * x, 0.396 + 0.02 * x) and x ~= selectedGangInvite then
                 DrawRect(0.56, 0.39 + 0.02 * x, 0.062, 0.019, 0, 168, 255, 150)
@@ -180,11 +180,11 @@ function func_drawGangUI()
             if IsControlJustPressed(1, 329) or IsDisabledControlJustPressed(1, 329) then
                 PlaySound(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
                 if selectedGangInvite ~= nil then
-                    selectedGangInvite = FRGangInvites[selectedGangInvite]
+                    selectedGangInvite = XTRAGangInvites[selectedGangInvite]
                     TriggerServerEvent("XTRA:addUserToGang", selectedGangInvite)
-                    FRGangInvites = {}
+                    XTRAGangInvites = {}
                     a = "main"
-                    FRGangInviteIndex = 0
+                    XTRAGangInviteIndex = 0
                     PlayerIsInGang = true
                 else
                     tXTRA.notify("~r~No gang invite selected")
@@ -198,7 +198,7 @@ function func_drawGangUI()
     end
     if a == "funds" then
         DrawRect(0.501, 0.558, 0.421, 0.326, 0, 0, 0, 150)
-        DrawRect(0.501, 0.374, 0.421, 0.047, h.theme.r, h.theme.g, h.theme.b, 248)
+        DrawRect(0.501, 0.374, 0.421, 0.047, h.theme.r, h.theme.g, 82, 248)
         DrawAdvancedText(0.591, 0.378, 0.005, 0.0028, 0.48, "XTRA Gang - Funds", 255, 255, 255, 255, 7, 0)
         DrawAdvancedText(0.581, 0.464, 0.005, 0.0028, 0.5, "Gang Funds", 255, 255, 255, 255, 0, 0)
         DrawAdvancedText(0.581, 0.502, 0.005, 0.0028, 0.4, "£" .. GangBalance, 25, 199, 65, 255, 0, 0)
@@ -1107,7 +1107,7 @@ function func_drawGangUI()
             DrawRect(0.651, 0.443, 0.065, 0.056, h.theme.r, h.theme.g, h.theme.b, 150)
             if IsControlJustPressed(1, 329) or IsDisabledControlJustPressed(1, 329) then
                 PlaySound(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
-                tXTRA.gangMenuTheme(18, 82, 228)
+                tXTRA.gangMenuTheme(156, 92, 180)
             end
         else
             DrawRect(0.651, 0.443, 0.065, 0.056, 0, 0, 0, 150)
@@ -1140,7 +1140,7 @@ function func_drawGangUI()
             DrawRect(0.326, 0.689, 0.045, 0.036, h.theme.r, h.theme.g, h.theme.b, 150)
             if IsControlJustPressed(1, 329) or IsDisabledControlJustPressed(1, 329) then
                 PlaySound(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
-                tXTRA.gangMenuTheme(18, 82, 228)
+                tXTRA.gangMenuTheme(156, 92, 180)
             end
         else
             DrawRect(0.326, 0.689, 0.045, 0.036, 0, 0, 0, 150)
@@ -1390,9 +1390,9 @@ RegisterNetEvent(
 RegisterNetEvent(
     "XTRA:setGangMemberColour",
     function(P, K)
-        for h, k in pairs(FRGangMembers) do
+        for h, k in pairs(XTRAGangMembers) do
             if k[2] == P then
-                FRGangMembers[h].colour = K
+                XTRAGangMembers[h].colour = K
             end
         end
     end
@@ -1414,7 +1414,7 @@ function tXTRA.isPlayerInSelectedGang(O)
     if M then
         local P = tXTRA.clientGetUserIdFromSource(O)
         if P and tXTRA.getJobType(P) == "" then
-            for T, U in pairs(FRGangMembers) do
+            for T, U in pairs(XTRAGangMembers) do
                 if P == U[2] then
                     return true, j[U.colour] or k
                 end
@@ -1596,8 +1596,8 @@ local function al()
         if M and not tXTRA.isEmergencyService() and not globalHideUi and not tXTRA.inEvent() then
             local an = 0
             local ao = tXTRA.getShowHealthPercentageFlag()
-            if FRGangMembers ~= nil then
-                for ap, aq in pairs(FRGangMembers) do
+            if XTRAGangMembers ~= nil then
+                for ap, aq in pairs(XTRAGangMembers) do
                     name, id, rank, lastseen, playtime = table.unpack(aq)
                     if lastseen == "~g~Online" and tXTRA.getJobType(id) == "" and h.pinnedPlayers[id] then
                         local ar = true
@@ -1637,7 +1637,7 @@ local function al()
                             if az < 0.0 then
                                 az = 0.0
                             end
-                            ag(ad + 0.0011, ax + 0.032, az, 0.009, 104, 212, 73, 255)
+                            ag(ad + 0.0011, ax + 0.032, az, 0.009, 156, 92, 180, 255)
                             if ao then
                                 local aA = math.floor((as - 100) / 100.0 * 100)
                                 if aA < 0 then

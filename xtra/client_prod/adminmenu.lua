@@ -60,13 +60,13 @@ local H = {
     vector3(-39.604099273682, -1111.8635253906, 26.438835144043)
 }
 local I = 1
-menuColour = "~w~"
+menuColour = "~b~"
 RMenu.Add(
     "adminmenu",
     "main",
     RageUI.CreateMenu(
         "",
-        "Admin Menu",
+        menuColour .. "Admin Menu",
         tXTRA.getRageUIMenuWidth(),
         tXTRA.getRageUIMenuHeight(),
         "banners",

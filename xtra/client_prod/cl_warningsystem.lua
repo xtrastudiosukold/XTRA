@@ -13,7 +13,7 @@ function func_f10warnings()
     end
 end
 RegisterNUICallback(
-    "closeFRF10",
+    "closeXTRAF10",
     function(b, d)
         TriggerScreenblurFadeOut(100.0)
         SetNuiFocus(false, false)

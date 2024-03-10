@@ -480,7 +480,7 @@ cfg.random_first_names = {
   'Alberto',
   'Andres',
   'Olivia',
-  'FRndo',
+  'Armando',
   'Paula',
   'Amelia',
   'Sheila',

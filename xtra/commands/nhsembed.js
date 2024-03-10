@@ -4,7 +4,7 @@ const settingsjson = require(resourcePath + '/settings.js')
 exports.runcmd = (fivemexports, client, message, params) => {
     let embed = {
         "title": "XTRA National Health Service",
-        "description": "**Command Structure**\n- N/A: Chief Medical Director\n- N/A: Deputy Medical Director\n- N/A_Mystic: Assistant Medical Director",
+        "description": "**Command Structure**\n- N/A: Chief Medical Director\n- N/A: Deputy Medical Director\n- N/A: Assistant Medical Director",
         "color": settingsjson.settings.botColour,
         "image": {
             "url": "https://i.imgur.com/nhDR4CI.png",
@@ -12,7 +12,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
         "fields": [
             {
                 "name": "How to become part of the NHS?",
-                "value": "To become part of the NHS, you must have an account on xtrastudios.net and use this [link](https://soon). Make sure to fill out everything on the form correctly; failure to do so will result in denial of the application. Also, make sure to be in the XTRA NHS [Discord](https://discord.gg/qGWVtSa26K) Server",
+                "value": "To become part of the NHS, you must have an account on xtrastudios.net and use this [link](https://soon). Make sure to fill out everything on the form correctly; failure to do so will result in denial of the application. Also, make sure to be in the XTRA NHS [Discord](https://discord.gg/zh6vpmKby3) Server",
             },
             {
                 "name": "Requirements to Join the NHS:",
@@ -26,7 +26,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
     };
 
     message.channel.send({embed});
-    message.channel.send("||                              https://discord.gg/tKsyaEdGqn                             ||");
+    message.channel.send("||                              https://discord.gg/zh6vpmKby3                             ||");
 };
 
 exports.conf = {

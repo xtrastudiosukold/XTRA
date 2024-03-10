@@ -229,7 +229,7 @@ Citizen.CreateThread(
                 SetDiscordRichPresenceAssetText("https://discord.gg/gKuGVFKmmN")
                 SetDiscordRichPresenceAssetSmall("xtra")
                 SetDiscordRichPresenceAssetSmallText(tXTRA.getPlayerName(PlayerId()))
-                SetRichPresence("[ID:" ..tostring(A) .."] | " .. tostring(m) .. "/" .. tostring(n) .. "\n" .. tXTRA.getPlayerName(PlayerId()))
+                SetRichPresence("[ID:" ..tostring(A) .."] | " .. tostring(m) .. "/" .. tostring(n) .. "\n")
             end
             Wait(15000)
         end

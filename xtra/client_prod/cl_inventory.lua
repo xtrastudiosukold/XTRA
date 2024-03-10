@@ -458,7 +458,7 @@ Citizen.CreateThread(function()
                                 if a then
                                     TriggerServerEvent("XTRA:UseItem", a, "Plr")
                                 elseif b and g ~= nil and c then
-                                    FRserver.useInventoryItem({b})
+                                    XTRAserver.useInventoryItem({b})
                                 else
                                     tXTRA.notify("~r~No item selected!")
                                 end
@@ -482,7 +482,7 @@ Citizen.CreateThread(function()
                                 if a then
                                     TriggerServerEvent("XTRA:UseAllItem", a, "Plr")
                                 elseif b and g ~= nil and c then
-                                    FRserver.useInventoryItem({b})
+                                    XTRAserver.useInventoryItem({b})
                                 else
                                     tXTRA.notify("~r~No item selected!")
                                 end
@@ -532,7 +532,7 @@ Citizen.CreateThread(function()
                                 if a then
                                     TriggerServerEvent("XTRA:GiveItem", a, "Plr")
                                 elseif b then
-                                    FRserver.giveToNearestPlayer({b})
+                                    XTRAserver.giveToNearestPlayer({b})
                                 else
                                     tXTRA.notify("~r~No item selected!")
                                 end
@@ -744,7 +744,7 @@ Citizen.CreateThread(function()
                                 if a then
                                     TriggerServerEvent("XTRA:GiveItem", a, "Plr")
                                 elseif b then
-                                    FRserver.giveToNearestPlayer({b})
+                                    XTRAserver.giveToNearestPlayer({b})
                                 else
                                     tXTRA.notify("~r~No item selected!")
                                 end
@@ -770,7 +770,7 @@ Citizen.CreateThread(function()
                                 if a then
                                     TriggerServerEvent("XTRA:GiveItemAll", a, "Plr")
                                 elseif b then
-                                    FRserver.giveToNearestPlayer({b})
+                                    XTRAserver.giveToNearestPlayer({b})
                                 else
                                     tXTRA.notify("~r~No item selected!")
                                 end

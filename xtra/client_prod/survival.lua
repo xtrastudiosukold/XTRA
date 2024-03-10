@@ -292,7 +292,7 @@ RegisterNetEvent(
                 if not tXTRA.globalOnPoliceDuty() and not tXTRA.globalNHSOnDuty() then
                     TriggerServerEvent("XTRA:InComa")
                 end
-                FRserver.MoneyDrop()
+                XTRAserver.MoneyDrop()
             end
         end
         CreateThread(
@@ -321,7 +321,7 @@ RegisterNetEvent(
                 if not tXTRA.globalOnPoliceDuty() and not tXTRA.globalNHSOnDuty() then
                     TriggerServerEvent("XTRA:InComa")
                 end
-                FRserver.MoneyDrop()
+                XTRAserver.MoneyDrop()
             end
         end
     end

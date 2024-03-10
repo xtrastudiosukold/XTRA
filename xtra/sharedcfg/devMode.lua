@@ -1,2 +1,2 @@
 
-DevModeMG = false
+DevModeXTRA = false

@@ -2,7 +2,7 @@ local a = module("cfg/cfg_emotes")
 RMenu.Add(
     "emotesmenu",
     "mainmenu",
-    RageUI.CreateMenu("", "Main Menu", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight(), "banners", "emotes")
+    RageUI.CreateMenu("Emotes Menu", "XTRA Emotes", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight())
 )
 RMenu.Add(
     "emotesmenu",

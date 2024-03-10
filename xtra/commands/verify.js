@@ -60,7 +60,7 @@ exports.runcmd = async (fivemexports, client, message, params) => {
                     if (updateResult) {
                         const embed = new Discord.RichEmbed()
                             .setTitle("Verify")
-                            .setDescription(`:white_check_mark: Great you're verified, head back in-game and press connect.`)
+                            .setDescription(`<a:verify:1216432015511916666> Great you're verified, head back in-game and press connect.`)
                             .setColor(settingsjson.settings.botColour);
                         hook.send(verifyLog);
                         message.channel.send({ embed }).then(msg => {
@@ -78,8 +78,8 @@ exports.runcmd = async (fivemexports, client, message, params) => {
                 if (userAttempts + 1 === 3) {
                     const embed = new Discord.RichEmbed()
                         .setTitle("It seems you are struggling to verify")
-                        .setDescription("When it's your first time connecting to **XTRA**, you will be prompted with a box telling you how to verify. \n If you are still struggling, enter the red text into https://discord.com/channels/1195851569472741437/1184282144403640390 \nMake sure you include `!verify`. Here's an example of how it's used")
-                        .setImage("https://cdn.discordapp.com/attachments/1196137757219762256/1196166502106275910/FRLOGO1.png?ex=65b6a3dd&is=65a42edd&hm=f685e229e53e447d0a3ef77084732ef5723710a54a1d517d28918f060434aa2b&")
+                        .setDescription("When it's your first time connecting to **XTRA**, you will be prompted with a box telling you how to verify. \n If you are still struggling, enter the red text into https://discord.com/channels/1195851569472741437/1195851569938321423 \nMake sure you include `!verify`. Here's an example of how it's used")
+                        .setImage("https://cdn.discordapp.com/attachments/1195851571150467097/1209909033067089981/XTRA_Banner.png?ex=65fb1798&is=65e8a298&hm=472665563bf5fdb4b4ffea3ebb6ada6883328f242a618f6c498067d4338c3f2e&")
                         .setColor(settingsjson.settings.botErrorColour);
                     message.author.send({ embed });
                     failedAttempts.delete(message.author.id);

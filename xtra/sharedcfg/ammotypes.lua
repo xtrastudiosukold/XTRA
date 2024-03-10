@@ -1,4 +1,4 @@
-FRAmmoTypes = {
+XTRAAmmoTypes = {
     [".357 Bullets"] = {},
     ["12 Gauge Bullets"] = {},
     ["5.56mm NATO"] = {},

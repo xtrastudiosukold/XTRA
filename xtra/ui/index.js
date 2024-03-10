@@ -256,7 +256,7 @@ $(document).ready(function(){
     $(document).keydown(function (e) {
         if (e.which == 36) {
             $('#playerlist').fadeOut();
-            $.post('https://xtra/closeFRPlayerList', JSON.stringify({}));
+            $.post('https://xtra/closeXTRAPlayerList', JSON.stringify({}));
         }
     });
     window.addEventListener('message', function (event) {
@@ -305,7 +305,7 @@ $(document).ready(function () {
     $(document).keydown(function (e) {
         if (e.which == 121) {
             $('#warningscontainer').fadeOut();
-            $.post('https://xtra/closeFRF10', JSON.stringify({}));
+            $.post('https://xtra/closeXTRAF10', JSON.stringify({}));
         }
     });
 

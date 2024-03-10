@@ -19,7 +19,7 @@ Citizen.CreateThread(
             if IsPlayerPlaying(PlayerId()) and a then
                 if json.encode(b) ~= json.encode(tXTRA.getWeapons()) then
                     b = tXTRA.getWeapons()
-                    FRserver.updateWeapons({tXTRA.getWeapons()})
+                    XTRAserver.updateWeapons({tXTRA.getWeapons()})
                 end
             end
         end

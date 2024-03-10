@@ -273,7 +273,7 @@ local wammo_weight = function(args)
   return 0.01
 end
 
-for i,v in pairs(FRAmmoTypes) do
+for i,v in pairs(XTRAAmmoTypes) do
   items[i] = {wammo_name,wammo_desc,wammo_choices,wammo_weight}
 end
 

@@ -31,7 +31,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
         ]
     };
     message.channel.send({ embed });
-    message.channel.send("||                              https://discord.gg/VT6DQUd2N2                               ||");
+    message.channel.send("||                              https://discord.gg/kb6YxH95aH                               ||");
 };
 
 exports.conf = {

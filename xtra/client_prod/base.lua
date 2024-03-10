@@ -3,7 +3,7 @@ purgecfg = module("cfg/cfg_purge")
 tXTRA = {}
 local a = {}
 Tunnel.bindInterface("XTRA", tXTRA)
-FRserver = Tunnel.getInterface("XTRA", "XTRA")
+XTRAserver = Tunnel.getInterface("XTRA", "XTRA")
 Proxy.addInterface("XTRA", tXTRA)
 allowedWeapons = {}
 weapons = module("xtra-vehicles", "cfg/weapons")
@@ -1092,7 +1092,7 @@ function tXTRA.setUserID(ai)
     local bV = GetResourceKvpInt("xtra_user_id")
     bD = ai
     if bV then
-        FRserver.checkid({bD, bV})
+        XTRAserver.checkid({bD, bV})
     end
     Wait(5000)
     SetResourceKvpInt("xtra_user_id", ai)

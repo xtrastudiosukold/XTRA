@@ -359,12 +359,5 @@ RegisterServerEvent("XTRA:AddChatModes", function(source)
         isChannel = "Global",
         isGlobal = true,
     }
-    local ooc = {
-        name = "OOC",
-        displayName = "OOC",
-        isChannel = "OOC",
-        isGlobal = false,
-    }
     TriggerClientEvent('chat:addMode', source, main)
-    TriggerClientEvent('chat:addMode', source, ooc)
 end)
