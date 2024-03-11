@@ -20,9 +20,10 @@ RegisterCommand('consolerestart', function(source, args)
         local shutdownTime = timeLeft - 10
         print('Restarting in ' .. timeLeft .. ' seconds.')
         TriggerClientEvent('XTRA:announceRestart', -1, tonumber(timeLeft), false)
-        TriggerEvent('XTRA:restartTime', timeLeft)
-        TriggerClientEvent('XTRA:CloseToRestart', -1)
         Online = false
+        TriggerEvent('XTRA:restartTime', timeLeft)
+        Wait(10000)
+        TriggerClientEvent('XTRA:CloseToRestart', -1)
     end
 end)
 Citizen.CreateThread(function()

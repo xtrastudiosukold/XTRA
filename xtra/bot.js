@@ -162,10 +162,10 @@ if (settingsjson.settings.StatusEnabled) {
         exports.xtra.getServerStatus([], function(result) {
             serverStatus = result; // Assuming result is either 'online' or 'offline'
         });
-        // Assuming you have the 'serverStatus' variable set to either '🛑Offline' or '✅Online'
+        // Assuming you have the 'serverStatus' variable set to either '🛑 Offline' or '✅ Online'
         let embedColor;
 
-        if (serverStatus === '🛑 Offline') {
+        if (serverStatus === '❌ Offline') {
           embedColor = 0xff0001; // Red color
         } else if (serverStatus === '✅ Online') {
           embedColor = 0x9c5cb4; // Dark gray color
