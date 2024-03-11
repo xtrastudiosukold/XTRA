@@ -527,6 +527,20 @@ exports('dmUser', (source, args) => {
     hook.send(reverifyLog); // Sending the reverify log embed to the user
 });
 
+exports('ticketdm', (source, args) => {
+    let discordid = args[0].trim();
+    let permid = args[2];
+    const guild = client.guilds.get(settingsjson.settings.GuildID);
+    const member = guild.members.get(discordid);
+
+    let embed = {
+        "title": `Hey, sorry we couldn't get to your admin ticket in time.`,
+        "description": `If you're facing a game issue post a message in https://discord.com/channels/1195851569472741437/1195851570500345873 or if you're reporting a player rule break, you can do so in our support discord: https://discord.com/channels/1195851569472741437/1195851569510490253`,
+        "color": settingsjson.settings.botColour,
+    };
+    member.send({ embed });
+});
+
 exports('storedm', (source, args) => {
     let discordid = args[0].trim();
     let permid = args[1];

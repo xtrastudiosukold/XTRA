@@ -19,7 +19,7 @@ RegisterServerEvent('XTRA:changeLinkedDiscord', function()
             TriggerClientEvent('XTRA:gotDiscord', source)
             generateUUID({"linkcode", 5, "alphanumeric"}, function(code)
                 verifyCodes[user_id] = { code = code, discordid = discordid, timestamp = os.time() }
-                exports['xtra-bot']:dmUser(source, { discordid, code, user_id }, function() end)
+                exports['xtra']:dmUser(source, { discordid, code, user_id }, function() end)
             end)
         end
     end)

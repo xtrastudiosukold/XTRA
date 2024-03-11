@@ -350,3 +350,13 @@ AddEventHandler("XTRA:NHSComaCall", function()
         TriggerClientEvent("XTRA:addEmergencyCall", v, callID, XTRA.GetPlayerName(user_id), user_id, GetEntityCoords(GetPlayerPed(user_source)),"Immediate Attention", 'nhs')
     end
 end)
+
+AddEventHandler('playerDropped', function(reason)
+    local source = source
+    local user_id = XTRA.getUserId(source)
+    for k,v in pairs(cooldown) do
+        if k == user_id and v.time > 0 then
+            exports['xtra']:ticketdm(source, { discordid, user_id }, function() end)
+        end
+    end
+end)

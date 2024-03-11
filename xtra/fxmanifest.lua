@@ -187,6 +187,7 @@ server_exports {
     "CheckEqual",
     "SetNickname",
     'dmUser',
+    'ticketdm',
     'storedm'
 }
 
