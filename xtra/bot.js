@@ -367,7 +367,7 @@ client.getPerms = function(msg) {
 client.on('message', (message) => {
     if (!message.author.bot){
         if (message.channel.name.includes('auction-')){
-            if (message.channel.name == '・auction-room'){
+            if (message.channel.name == 'auction-room'){
                 return
             }
             else{

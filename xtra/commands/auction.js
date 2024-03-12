@@ -42,7 +42,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
                 carcount = result.length
                 message.guild.createChannel(`auction-${carName}`, 'text')
                 .then(channel => {
-                    let category = message.guild.channels.find(c => c.name == "[AUCTIONS]" && c.type == "category");
+                    let category = message.guild.channels.find(c => c.name == "🔨 [Auctions]" && c.type == "category");
                     channel.setParent(category.id);
                     let embed = {
                         "title": `XTRA Auction`,
