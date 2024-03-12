@@ -28,7 +28,7 @@ AddEventHandler("XTRA:serviceAnnounce", function(announceType)
     local user_id = XTRA.getUserId(source)
     for k,v in pairs(announceTables) do
         if v.info.name == announceType then
-            if XTRA.hasPermission(user_id, v.permission) or XTRA.hasGroup(user_id, 'Founder') or XTRA.hasGroup(user_id, 'Developer') or XTRA.hasGroup(user_id, 'Lead Developer') or XTRA.hasGroup(user_id,"Operations Manager") then
+            if XTRA.hasPermission(user_id, v.permission) or XTRA.getStaffLevel(user_id) >= 5 then
                 if XTRA.tryFullPayment(user_id, v.info.price) then
                     XTRA.prompt(source,"Input text to announce","",function(source,data) 
                         TriggerClientEvent('XTRA:serviceAnnounceCl', -1, v.image, data)

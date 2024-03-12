@@ -1124,9 +1124,6 @@ AddEventHandler('XTRA:getAdminLevel', function()
     elseif XTRA.hasGroup(user_id,"Lead Developer") or XTRA.hasGroup(user_id,"Developer") then
         adminlevel = 12
         TriggerClientEvent("XTRA:SetDev", source)
-    elseif XTRA.hasGroup(user_id,"Operations Manager") then
-        adminlevel = 11
-        TriggerClientEvent("XTRA:SetDev", source)
     elseif XTRA.hasGroup(user_id,"Community Manager") then
         adminlevel = 10
     elseif XTRA.hasGroup(user_id,"Staff Manager") then    

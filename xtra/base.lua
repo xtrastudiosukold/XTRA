@@ -1421,7 +1421,7 @@ end)
 
 local Online = true
 exports("getServerStatus", function(params, cb)
-    if not Online then
+    if Online = false then
         cb("❌ Offline")
     else
         cb("✅ Online")

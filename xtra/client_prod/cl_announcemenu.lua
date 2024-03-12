@@ -1,5 +1,5 @@
 RMenu.Add(
-    "mgannouncements",
+    "xtraannouncements",
     "main",
     RageUI.CreateMenu(
         "",
@@ -15,7 +15,7 @@ RageUI.CreateWhile(
     1.0,
     true,
     function()
-        if RageUI.Visible(RMenu:Get("mgannouncements", "main")) then
+        if RageUI.Visible(RMenu:Get("xtraannouncements", "main")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = false},
                 function()
@@ -47,7 +47,7 @@ RegisterNetEvent(
     "XTRA:buildAnnounceMenu",
     function(i)
         a = i
-        RageUI.Visible(RMenu:Get("mgannouncements", "main"), not RageUI.Visible(RMenu:Get("mgannouncements", "main")))
+        RageUI.Visible(RMenu:Get("xtraannouncements", "main"), not RageUI.Visible(RMenu:Get("xtraannouncements", "main")))
     end
 )
 RegisterCommand(

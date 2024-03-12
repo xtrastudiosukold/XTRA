@@ -7,9 +7,9 @@ RegisterCommand('restartserver', function(source, args)
             local shutdownTime = timeLeft - 10
             print(shutdownTime)
             TriggerClientEvent('XTRA:announceRestart', -1, tonumber(timeLeft), false)
+            Online = false
             TriggerEvent('XTRA:restartTime', timeLeft)
             TriggerClientEvent('XTRA:CloseToRestart', -1)
-            Online = false
         end
     end
 end)

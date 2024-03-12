@@ -442,8 +442,8 @@ client.on('message', (message) => {
                 }
             }
         } else {
-            if (cmd.conf.support && message.guild.id === "1195851569472741437"){
-                if (message.member.roles.has("1195851569472741441")){
+            if (cmd.conf.support && message.guild.id === "1164937688034578473"){
+                if (message.member.roles.has("1164940941526827018")){
                     cmd.runcmd(exports, client, message, params, permissions);
                 }
             } else {
