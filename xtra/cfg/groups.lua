@@ -1097,7 +1097,7 @@ cfg.groups = {
         "aa.menu"
     },
     ["Cinematic"] = {},
-    --["TutorialDone"] = {},
+    ["TutorialDone"] = {},
     ["polblips"] = {},
     -- Default Jobs
     ["Royal Mail Driver"] = {},
