@@ -12,12 +12,12 @@ RMenu.Add(
     "mainmenu",
     RageUI.CreateMenu("", "", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight(), "xtra_wardrobeui", "xtra_wardrobeui")
 )
-RMenu:Get("mgwardrobe", "mainmenu"):SetSubtitle("HOME")
+RMenu:Get("xtrawardrobe", "mainmenu"):SetSubtitle("HOME")
 RMenu.Add(
     "xtrawardrobe",
     "listoutfits",
     RageUI.CreateSubMenu(
-        RMenu:Get("mgwardrobe", "mainmenu"),
+        RMenu:Get("xtrawardrobe", "mainmenu"),
         "",
         "Wardrobe",
         tXTRA.getRageUIMenuWidth(),
@@ -28,7 +28,7 @@ RMenu.Add(
     "xtrawardrobe",
     "equip",
     RageUI.CreateSubMenu(
-        RMenu:Get("mgwardrobe", "listoutfits"),
+        RMenu:Get("xtrawardrobe", "listoutfits"),
         "",
         "Wardrobe",
         tXTRA.getRageUIMenuWidth(),
@@ -39,7 +39,7 @@ RageUI.CreateWhile(
     1.0,
     true,
     function()
-        if RageUI.Visible(RMenu:Get("mgwardrobe", "mainmenu")) then
+        if RageUI.Visible(RMenu:Get("xtrawardrobe", "mainmenu")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = true},
                 function()
@@ -50,7 +50,7 @@ RageUI.CreateWhile(
                         d(),
                         function(e, f, g)
                         end,
-                        RMenu:Get("mgwardrobe", "listoutfits")
+                        RMenu:Get("xtrawardrobe", "listoutfits")
                     )
                     RageUI.Button(
                         "Save Outfit",
@@ -96,7 +96,7 @@ RageUI.CreateWhile(
                 end
             )
         end
-        if RageUI.Visible(RMenu:Get("mgwardrobe", "listoutfits")) then
+        if RageUI.Visible(RMenu:Get("xtrawardrobe", "listoutfits")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = true},
                 function()
@@ -112,7 +112,7 @@ RageUI.CreateWhile(
                                         c = h
                                     end
                                 end,
-                                RMenu:Get("mgwardrobe", "equip")
+                                RMenu:Get("xtrawardrobe", "equip")
                             )
                         end
                     else
@@ -123,7 +123,7 @@ RageUI.CreateWhile(
                             true,
                             function(e, f, g)
                             end,
-                            RMenu:Get("mgwardrobe", "mainmenu")
+                            RMenu:Get("xtrawardrobe", "mainmenu")
                         )
                     end
                 end,
@@ -131,7 +131,7 @@ RageUI.CreateWhile(
                 end
             )
         end
-        if RageUI.Visible(RMenu:Get("mgwardrobe", "equip")) then
+        if RageUI.Visible(RMenu:Get("xtrawardrobe", "equip")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = true},
                 function()
@@ -145,7 +145,7 @@ RageUI.CreateWhile(
                                 TriggerServerEvent("XTRA:equipWardrobeOutfit", c)
                             end
                         end,
-                        RMenu:Get("mgwardrobe", "listoutfits")
+                        RMenu:Get("xtrawardrobe", "listoutfits")
                     )
                     RageUI.Button(
                         "Delete Outfit",
@@ -157,7 +157,7 @@ RageUI.CreateWhile(
                                 TriggerServerEvent("XTRA:deleteWardrobeOutfit", c)
                             end
                         end,
-                        RMenu:Get("mgwardrobe", "listoutfits")
+                        RMenu:Get("xtrawardrobe", "listoutfits")
                     )
                 end,
                 function()
@@ -168,11 +168,11 @@ RageUI.CreateWhile(
 )
 local function j()
     RageUI.ActuallyCloseAll()
-    RageUI.Visible(RMenu:Get("mgwardrobe", "mainmenu"), true)
+    RageUI.Visible(RMenu:Get("xtrawardrobe", "mainmenu"), true)
 end
 local function k()
     RageUI.ActuallyCloseAll()
-    RageUI.Visible(RMenu:Get("mgwardrobe", "mainmenu"), false)
+    RageUI.Visible(RMenu:Get("xtrawardrobe", "mainmenu"), false)
 end
 RegisterNetEvent(
     "XTRA:openOutfitMenu",

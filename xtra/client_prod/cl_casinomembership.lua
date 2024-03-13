@@ -17,12 +17,12 @@ RMenu.Add(
         "shopui_title_casino"
     )
 )
-RMenu:Get("mghighrollers", "casino"):SetSubtitle("MEMBERSHIP")
+RMenu:Get("xtrahighrollers", "casino"):SetSubtitle("MEMBERSHIP")
 RMenu.Add(
     "xtrahighrollers",
     "confirmadd",
     RageUI.CreateSubMenu(
-        RMenu:Get("mghighrollers", "casino"),
+        RMenu:Get("xtrahighrollers", "casino"),
         "",
         "Are you sure?",
         tXTRA.getRageUIMenuWidth(),
@@ -33,7 +33,7 @@ RMenu.Add(
     "xtrahighrollers",
     "confirmremove",
     RageUI.CreateSubMenu(
-        RMenu:Get("mghighrollers", "casino"),
+        RMenu:Get("xtrahighrollers", "casino"),
         "",
         "Are you sure?",
         tXTRA.getRageUIMenuWidth(),
@@ -44,7 +44,7 @@ RageUI.CreateWhile(
     1.0,
     true,
     function()
-        if RageUI.Visible(RMenu:Get("mghighrollers", "casino")) then
+        if RageUI.Visible(RMenu:Get("xtrahighrollers", "casino")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = false},
                 function()
@@ -55,7 +55,7 @@ RageUI.CreateWhile(
                         true,
                         function(b, c, d)
                         end,
-                        RMenu:Get("mghighrollers", "confirmadd")
+                        RMenu:Get("xtrahighrollers", "confirmadd")
                     )
                     RageUI.ButtonWithStyle(
                         "Remove High Rollers Membership (£0)",
@@ -64,12 +64,12 @@ RageUI.CreateWhile(
                         true,
                         function(b, c, d)
                         end,
-                        RMenu:Get("mghighrollers", "confirmremove")
+                        RMenu:Get("xtrahighrollers", "confirmremove")
                     )
                 end
             )
         end
-        if RageUI.Visible(RMenu:Get("mghighrollers", "confirmadd")) then
+        if RageUI.Visible(RMenu:Get("xtrahighrollers", "confirmadd")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = false},
                 function()
@@ -83,7 +83,7 @@ RageUI.CreateWhile(
                                 tXTRA.notify("~y~Cancelled!")
                             end
                         end,
-                        RMenu:Get("mghighrollers", "casino")
+                        RMenu:Get("xtrahighrollers", "casino")
                     )
                     RageUI.ButtonWithStyle(
                         "Yes",
@@ -95,12 +95,12 @@ RageUI.CreateWhile(
                                 TriggerServerEvent("XTRA:purchaseHighRollersMembership")
                             end
                         end,
-                        RMenu:Get("mghighrollers", "casino")
+                        RMenu:Get("xtrahighrollers", "casino")
                     )
                 end
             )
         end
-        if RageUI.Visible(RMenu:Get("mghighrollers", "confirmremove")) then
+        if RageUI.Visible(RMenu:Get("xtrahighrollers", "confirmremove")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = false},
                 function()
@@ -114,7 +114,7 @@ RageUI.CreateWhile(
                                 tXTRA.notify("~y~Cancelled!")
                             end
                         end,
-                        RMenu:Get("mghighrollers", "casino")
+                        RMenu:Get("xtrahighrollers", "casino")
                     )
                     RageUI.ButtonWithStyle(
                         "Yes",
@@ -126,7 +126,7 @@ RageUI.CreateWhile(
                                 TriggerServerEvent("XTRA:removeHighRollersMembership")
                             end
                         end,
-                        RMenu:Get("mghighrollers", "casino")
+                        RMenu:Get("xtrahighrollers", "casino")
                     )
                 end
             )
@@ -134,7 +134,7 @@ RageUI.CreateWhile(
     end
 )
 function showCasinoMembership(e)
-    RageUI.Visible(RMenu:Get("mghighrollers", "casino"), e)
+    RageUI.Visible(RMenu:Get("xtrahighrollers", "casino"), e)
 end
 Citizen.CreateThread(
     function()
