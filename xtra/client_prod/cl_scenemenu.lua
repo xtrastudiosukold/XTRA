@@ -1,5 +1,5 @@
 RMenu.Add(
-    "mgscenemenu",
+    "xtrascenemenu",
     "main",
     RageUI.CreateMenu(
         "",
@@ -11,7 +11,7 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mgscenemenu",
+    "xtrascenemenu",
     "objects",
     RageUI.CreateSubMenu(
         RMenu:Get("mgscenemenu", "main"),
@@ -24,7 +24,7 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mgscenemenu",
+    "xtrascenemenu",
     "speedZone",
     RageUI.CreateSubMenu(
         RMenu:Get("mgscenemenu", "main"),
@@ -37,7 +37,7 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mgscenemenu",
+    "xtrascenemenu",
     "spikes",
     RageUI.CreateSubMenu(
         RMenu:Get("mgscenemenu", "main"),

@@ -8,13 +8,13 @@ local function d()
     return false
 end
 RMenu.Add(
-    "mgwardrobe",
+    "xtrawardrobe",
     "mainmenu",
     RageUI.CreateMenu("", "", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight(), "xtra_wardrobeui", "xtra_wardrobeui")
 )
 RMenu:Get("mgwardrobe", "mainmenu"):SetSubtitle("HOME")
 RMenu.Add(
-    "mgwardrobe",
+    "xtrawardrobe",
     "listoutfits",
     RageUI.CreateSubMenu(
         RMenu:Get("mgwardrobe", "mainmenu"),
@@ -25,7 +25,7 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mgwardrobe",
+    "xtrawardrobe",
     "equip",
     RageUI.CreateSubMenu(
         RMenu:Get("mgwardrobe", "listoutfits"),

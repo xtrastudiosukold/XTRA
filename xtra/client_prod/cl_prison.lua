@@ -559,7 +559,7 @@ RegisterNetEvent(
     end
 )
 RMenu.Add(
-    "mgPrisonItemMenu",
+    "xtraPrisonItemMenu",
     "main",
     RageUI.CreateMenu(
         "",

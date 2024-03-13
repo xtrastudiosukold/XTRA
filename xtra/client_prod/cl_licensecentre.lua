@@ -1,7 +1,7 @@
 licensecentre = module("cfg/cfg_licensecentre")
 local a = {}
 RMenu.Add(
-    "mglicenses",
+    "xtralicenses",
     "main",
     RageUI.CreateMenu(
         "",
@@ -13,12 +13,12 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mglicenses",
+    "xtralicenses",
     "ownedlicenses",
     RageUI.CreateSubMenu(RMenu:Get("mglicenses", "main", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight()))
 )
 RMenu.Add(
-    "mglicenses",
+    "xtralicenses",
     "buyconfirm",
     RageUI.CreateSubMenu(
         RMenu:Get("mglicenses", "main"),
@@ -29,7 +29,7 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mglicenses",
+    "xtralicenses",
     "refundconfirm",
     RageUI.CreateSubMenu(
         RMenu:Get("mglicenses", "ownedlicenses"),
