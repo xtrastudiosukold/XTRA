@@ -1,7 +1,7 @@
 RMenu.Add(
     "XTRAclothing",
     "mainMenu",
-    RageUI.CreateMenu("", "Clothing Store", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight(), "banners", "clothes")
+    RageUI.CreateMenu("", "Clothing Store", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight(), "xtra_clothesui", "xtra_clothesui")
 )
 RMenu.Add("XTRAclothing", "changePed", RageUI.CreateSubMenu(RMenu:Get("XTRAclothing", "mainMenu"), "", "Change Gender"))
 RMenu.Add(
