@@ -170,7 +170,7 @@ Citizen.CreateThread(
                 end
                 if
                     not l and IsControlJustPressed(0, 202) and not g and
-                        not RageUI.Visible(RMenu:Get("xtracoinflip", "confirm"))
+                        not RageUI.Visible(RMenu:Get("mgcoinflip", "confirm"))
                  then
                     local L = tXTRA.loadAnimDict("anim_casino_b@amb@casino@games@shared@player@")
                     TaskPlayAnim(tXTRA.getPlayerPed(), L, "sit_exit_left", 1.0, 1.0, 2500, 0, 0.0, false, false, false)
@@ -354,11 +354,11 @@ function goToCoinflipSeat(o)
 end
 function showHowToCoinflip(X)
     RageUI.ActuallyCloseAll()
-    RageUI.Visible(RMenu:Get("xtracoinflip", "instructions"), X)
+    RageUI.Visible(RMenu:Get("mgcoinflip", "instructions"), X)
 end
 function showCoinflipMenu(X)
     RageUI.ActuallyCloseAll()
-    RageUI.Visible(RMenu:Get("xtracoinflip", "mainmenu"), X)
+    RageUI.Visible(RMenu:Get("mgcoinflip", "mainmenu"), X)
 end
 RMenu.Add(
     "xtracoinflip",
@@ -388,7 +388,7 @@ RMenu.Add(
     "xtracoinflip",
     "confirm",
     RageUI.CreateSubMenu(
-        RMenu:Get("xtracoinflip", "mainmenu"),
+        RMenu:Get("mgcoinflip", "mainmenu"),
         "",
         "~b~COINFLIP",
         tXTRA.getRageUIMenuWidth(),
@@ -402,7 +402,7 @@ RageUI.CreateWhile(
     true,
     function()
         RageUI.IsVisible(
-            RMenu:Get("xtracoinflip", "instructions"),
+            RMenu:Get("mgcoinflip", "instructions"),
             true,
             false,
             true,
@@ -415,7 +415,7 @@ RageUI.CreateWhile(
             end
         )
         RageUI.IsVisible(
-            RMenu:Get("xtracoinflip", "mainmenu"),
+            RMenu:Get("mgcoinflip", "mainmenu"),
             true,
             false,
             true,
@@ -456,7 +456,7 @@ RageUI.CreateWhile(
                                     end
                                 end
                             end,
-                            RMenu:Get("xtracoinflip", "confirm")
+                            RMenu:Get("mgcoinflip", "confirm")
                         )
                     end
                 else
@@ -467,7 +467,7 @@ RageUI.CreateWhile(
             end
         )
         RageUI.IsVisible(
-            RMenu:Get("xtracoinflip", "confirm"),
+            RMenu:Get("mgcoinflip", "confirm"),
             true,
             false,
             true,
@@ -489,7 +489,7 @@ RageUI.CreateWhile(
                                 TriggerServerEvent("XTRA:cancelCoinflip")
                             end
                         end,
-                        RMenu:Get("xtracoinflip", "mainmenu")
+                        RMenu:Get("mgcoinflip", "mainmenu")
                     )
                     RageUI.ButtonWithStyle(
                         "Return",
@@ -500,7 +500,7 @@ RageUI.CreateWhile(
                             if _ then
                             end
                         end,
-                        RMenu:Get("xtracoinflip", "mainmenu")
+                        RMenu:Get("mgcoinflip", "mainmenu")
                     )
                 else
                     RageUI.ButtonWithStyle(
@@ -513,7 +513,7 @@ RageUI.CreateWhile(
                                 TriggerServerEvent("XTRA:acceptCoinflip", i)
                             end
                         end,
-                        RMenu:Get("xtracoinflip", "mainmenu")
+                        RMenu:Get("mgcoinflip", "mainmenu")
                     )
                     RageUI.ButtonWithStyle(
                         "Decline",
@@ -524,7 +524,7 @@ RageUI.CreateWhile(
                             if _ then
                             end
                         end,
-                        RMenu:Get("xtracoinflip", "mainmenu")
+                        RMenu:Get("mgcoinflip", "mainmenu")
                     )
                 end
             end,

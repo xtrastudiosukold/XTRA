@@ -15,13 +15,13 @@ RMenu.Add(
 RMenu.Add(
     "xtralicenses",
     "ownedlicenses",
-    RageUI.CreateSubMenu(RMenu:Get("xtralicenses", "main", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight()))
+    RageUI.CreateSubMenu(RMenu:Get("mglicenses", "main", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight()))
 )
 RMenu.Add(
     "xtralicenses",
     "buyconfirm",
     RageUI.CreateSubMenu(
-        RMenu:Get("xtralicenses", "main"),
+        RMenu:Get("mglicenses", "main"),
         "",
         "Are you sure?",
         tXTRA.getRageUIMenuWidth(),
@@ -32,7 +32,7 @@ RMenu.Add(
     "xtralicenses",
     "refundconfirm",
     RageUI.CreateSubMenu(
-        RMenu:Get("xtralicenses", "ownedlicenses"),
+        RMenu:Get("mglicenses", "ownedlicenses"),
         "",
         "Are you sure?",
         tXTRA.getRageUIMenuWidth(),
@@ -44,7 +44,7 @@ RageUI.CreateWhile(
     nil,
     function()
         RageUI.IsVisible(
-            RMenu:Get("xtralicenses", "main"),
+            RMenu:Get("mglicenses", "main"),
             true,
             false,
             true,
@@ -56,7 +56,7 @@ RageUI.CreateWhile(
                     true,
                     function(b, c, d)
                     end,
-                    RMenu:Get("xtralicenses", "ownedlicenses")
+                    RMenu:Get("mglicenses", "ownedlicenses")
                 )
                 for e, f in pairs(licensecentre.licenses) do
                     local g = not a[f.name]
@@ -71,7 +71,7 @@ RageUI.CreateWhile(
                                 cName = f.name
                             end
                         end,
-                        RMenu:Get("xtralicenses", "buyconfirm")
+                        RMenu:Get("mglicenses", "buyconfirm")
                     )
                 end
             end,
@@ -79,7 +79,7 @@ RageUI.CreateWhile(
             end
         )
         RageUI.IsVisible(
-            RMenu:Get("xtralicenses", "buyconfirm"),
+            RMenu:Get("mglicenses", "buyconfirm"),
             true,
             true,
             true,
@@ -102,7 +102,7 @@ RageUI.CreateWhile(
                                     TriggerServerEvent("XTRA:buyLicense", cGroup, cName)
                                 end
                             end,
-                            RMenu:Get("xtralicenses", "main")
+                            RMenu:Get("mglicenses", "main")
                         )
                         RageUI.ButtonWithStyle(
                             "Decline",
@@ -111,7 +111,7 @@ RageUI.CreateWhile(
                             true,
                             function(b, c, d)
                             end,
-                            RMenu:Get("xtralicenses", "main")
+                            RMenu:Get("mglicenses", "main")
                         )
                     end
                 end
@@ -120,7 +120,7 @@ RageUI.CreateWhile(
             end
         )
         RageUI.IsVisible(
-            RMenu:Get("xtralicenses", "ownedlicenses"),
+            RMenu:Get("mglicenses", "ownedlicenses"),
             true,
             true,
             true,
@@ -139,7 +139,7 @@ RageUI.CreateWhile(
                                     cName = f.name
                                 end
                             end,
-                            RMenu:Get("xtralicenses", "refundconfirm")
+                            RMenu:Get("mglicenses", "refundconfirm")
                         )
                     end
                 end
@@ -148,7 +148,7 @@ RageUI.CreateWhile(
             end
         )
         RageUI.IsVisible(
-            RMenu:Get("xtralicenses", "refundconfirm"),
+            RMenu:Get("mglicenses", "refundconfirm"),
             true,
             true,
             true,
@@ -166,7 +166,7 @@ RageUI.CreateWhile(
                                     TriggerServerEvent("XTRA:refundLicense", cGroup, cName)
                                 end
                             end,
-                            RMenu:Get("xtralicenses", "ownedlicenses")
+                            RMenu:Get("mglicenses", "ownedlicenses")
                         )
                         RageUI.ButtonWithStyle(
                             "Decline",
@@ -175,7 +175,7 @@ RageUI.CreateWhile(
                             true,
                             function(b, c, d)
                             end,
-                            RMenu:Get("xtralicenses", "ownedlicenses")
+                            RMenu:Get("mglicenses", "ownedlicenses")
                         )
                     end
                 end
@@ -192,17 +192,17 @@ AddEventHandler(
             local m = function(n)
             end
             local o = function(n)
-                RageUI.Visible(RMenu:Get("xtralicenses", "main"), false)
-                RageUI.Visible(RMenu:Get("xtralicenses", "ownedlicenses"), false)
-                RageUI.Visible(RMenu:Get("xtralicenses", "buyconfirm"), false)
-                RageUI.Visible(RMenu:Get("xtralicenses", "refundconfirm"), false)
+                RageUI.Visible(RMenu:Get("mglicenses", "main"), false)
+                RageUI.Visible(RMenu:Get("mglicenses", "ownedlicenses"), false)
+                RageUI.Visible(RMenu:Get("mglicenses", "buyconfirm"), false)
+                RageUI.Visible(RMenu:Get("mglicenses", "refundconfirm"), false)
                 RageUI.CloseAll()
             end
             local p = function(n)
                 if IsControlJustPressed(1, 38) then
                     TriggerServerEvent("XTRA:getOwnedLicenses")
                     Wait(500)
-                    RageUI.Visible(RMenu:Get("xtralicenses", "main"), not RageUI.Visible(RMenu:Get("xtralicenses", "main")))
+                    RageUI.Visible(RMenu:Get("mglicenses", "main"), not RageUI.Visible(RMenu:Get("mglicenses", "main")))
                 end
                 local i, q, r = table.unpack(GetFinalRenderedCamCoord())
                 DrawText3D(

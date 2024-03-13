@@ -574,7 +574,7 @@ RageUI.CreateWhile(
     1.0,
     true,
     function()
-        if RageUI.Visible(RMenu:Get("xtraPrisonItemMenu", "main")) then
+        if RageUI.Visible(RMenu:Get("mgPrisonItemMenu", "main")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = false},
                 function()
@@ -703,10 +703,10 @@ function createPrisonCraftMenu()
     tXTRA.removeMarker(f)
     tXTRA.removeArea("prisonCraftItemArea")
     local a2 = function()
-        RageUI.Visible(RMenu:Get("xtraPrisonItemMenu", "main"), true)
+        RageUI.Visible(RMenu:Get("mgPrisonItemMenu", "main"), true)
     end
     local a3 = function()
-        RageUI.Visible(RMenu:Get("xtraPrisonItemMenu", "main"), false)
+        RageUI.Visible(RMenu:Get("mgPrisonItemMenu", "main"), false)
     end
     local a4 = function()
     end
