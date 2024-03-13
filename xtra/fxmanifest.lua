@@ -67,6 +67,7 @@ files{
   'ui/pma/*.ogg',
   'ui/pma/css/*.css',
   'ui/pma/js/*.js',
+  "ui/tutorial/img/*.png",
   "cfg/peds.meta",
 	'audio/dlcvinewood_amp.dat10',
 	'audio/dlcvinewood_amp.dat10.nametable',
