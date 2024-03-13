@@ -1,5 +1,5 @@
 RMenu.Add(
-    "xtrapedsmenu",
+    "mgpedsmenu",
     "main",
     RageUI.CreateMenu("XTRA Peds", "XTRA Peds Menu", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight())
 )

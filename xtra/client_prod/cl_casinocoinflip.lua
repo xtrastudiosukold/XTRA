@@ -361,7 +361,7 @@ function showCoinflipMenu(X)
     RageUI.Visible(RMenu:Get("mgcoinflip", "mainmenu"), X)
 end
 RMenu.Add(
-    "xtracoinflip",
+    "mgcoinflip",
     "instructions",
     RageUI.CreateMenu(
         "",
@@ -373,7 +373,7 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "xtracoinflip",
+    "mgcoinflip",
     "mainmenu",
     RageUI.CreateMenu(
         "",
@@ -385,7 +385,7 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "xtracoinflip",
+    "mgcoinflip",
     "confirm",
     RageUI.CreateSubMenu(
         RMenu:Get("mgcoinflip", "mainmenu"),

@@ -6,7 +6,7 @@ local a = {
     }
 }
 RMenu.Add(
-    "xtrahighrollers",
+    "mghighrollers",
     "casino",
     RageUI.CreateMenu(
         "",
@@ -19,7 +19,7 @@ RMenu.Add(
 )
 RMenu:Get("mghighrollers", "casino"):SetSubtitle("MEMBERSHIP")
 RMenu.Add(
-    "xtrahighrollers",
+    "mghighrollers",
     "confirmadd",
     RageUI.CreateSubMenu(
         RMenu:Get("mghighrollers", "casino"),
@@ -30,7 +30,7 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "xtrahighrollers",
+    "mghighrollers",
     "confirmremove",
     RageUI.CreateSubMenu(
         RMenu:Get("mghighrollers", "casino"),
