@@ -74,28 +74,108 @@ client.on("guildMemberAdd", function (member) {
     }
 });
 
-client.on('message', async message => {
-    if (member.guild.id === settingsjson.settings.GuildID) return;
+const prefixes = ['https://dsc.gg', 'https://discord.io/', 'https://discord.gg', 'https://discord.com/invite/', 'https://qptr.ru/B34b', 'qptr.ru/B34b', 'https://steamcommunity.com', 'steamcommunity.com', 'discord.gg', 'discord.io', '.gg', 'dsc.gg', '.nuke'];
 
-    function deleteMessage() {
-        message.delete();
-        message.channel.send(`<@!${message.author.id}>, Please don't send links to other servers!`);
+client.on('messageCreate', async (message) => {
+    if (!message.channel || !message.channel.name || message.channel.name.includes('create-suggestions') || message.author.bot || !message.guild) {
+        return;
     }
 
-    const links = ['discord.gg/', 'discord.com/invite/', 'discordapp.com/invite/'];
+    for (const prefix of prefixes) {
+        const prefixRegex = new RegExp(`^${prefix}`, 'i');
+        if (prefixRegex.test(message.content)) {
+            await message.delete();
 
-    for (const link of links) {
-        if (!message.content.includes(link)) return;
-        const code = message.content.split(link)[1].split(" ")[0];
-        const isGuildInvite = client.guilds.get(message.guild.id).fetchInvites().then(invites => invites.has(code));
-
-        if (!message.member.hasPermission('ADMINISTRATOR') || !message.author.bot) {
-            if (!isGuildInvite) {
-                deleteMessage();
+            const logChannel = message.guild.channels.cache.get("1195851571150467097");
+            if (logChannel) {
+                const logEmbed = {
+                    title: `A blacklisted link was detected and deleted`,
+                    color: 0xed4245,
+                    description: `${message.author} message contents:\n\`${message.content}\``,
+                    author: {
+                        name: message.author.username,
+                        icon_url: message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 128 }),
+                    },
+                };
+                logChannel.send({ embeds: [logEmbed] });
             }
+
+            if (linkCounter.has(message.author.id)) {
+                linkCounter.set(message.author.id, linkCounter.get(message.author.id) + 1);
+            } else {
+                linkCounter.set(message.author.id, 1);
+            }
+
+            if (linkCounter.get(message.author.id) >= maxLinkCount) {
+                muteUser(message.guild, message.author, logChannel, 'Excessive use of blacklisted links');
+
+                    const roleEmbed = {
+                        color: 0xed4245,
+                        description: `**Reason:** Excessive use of blacklisted links`,
+                        author: {
+                            name: `${message.author.username} has been muted`,
+                            icon_url: message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 128 }),
+                        },
+                    };
+                    if (!message.channel.name.includes('create-suggestions')) {
+                       message.channel.send({ embeds: [roleEmbed] });
+                    }
+                    const dmEmbed = {
+                        color: 0xed4245,
+                        description: `You have been muted for excessive posting of blacklisted links in **${message.guild.name}**.`,
+                    };
+                    await message.author.send({ embeds: [dmEmbed] }).then(() => true).catch((error) => {
+                        if (error.code === 50007) {
+                            const noDmEmbed = {
+                                color: 0xed4245,
+                                title: `Unable to Send DM`,
+                                description: `This user does not have direct messages (DMs) open.`,
+                                author: {
+                                    name: newMember.user.tag,
+                                    icon_url: userAvatarURL,
+                                },
+                            };
+                            logChannel.send({ embeds: [noDmEmbed] });
+                        }
+                        return false;
+                    });
+            }
+
+            const userEmbed = {
+                color: 0xed4245,
+                description: `**Reason:** Blacklisted links`,
+                author: {
+                    name: message.author.username + " has been warned",
+                    icon_url: message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 128 }),
+                },
+            };
+            message.channel.send({ embeds: [userEmbed] });
+
+            const dmEmbed = {
+                color: 0xed4245,
+                description: `You have been warned for posting blacklisted links in **${message.guild.name}**.`,
+            };
+            await message.author.send({ embeds: [dmEmbed] }).then(() => true).catch((error) => {
+                if (error.code === 50007) {
+                    const noDmEmbed = {
+                        color: 0xed4245,
+                        title: `Unable to Send DM`,
+                        description: `This user does not have direct messages (DMs) open.`,
+                        author: {
+                            name: newMember.user.tag,
+                            icon_url: userAvatarURL,
+                        },
+                    };
+                    logChannel.send({ embeds: [noDmEmbed] });
+                }
+                return false;
+            });
+
+            return;
         }
     }
 });
+
 
 
   
