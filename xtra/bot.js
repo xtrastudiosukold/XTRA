@@ -100,47 +100,6 @@ client.on('messageCreate', async (message) => {
                 logChannel.send({ embeds: [logEmbed] });
             }
 
-            if (linkCounter.has(message.author.id)) {
-                linkCounter.set(message.author.id, linkCounter.get(message.author.id) + 1);
-            } else {
-                linkCounter.set(message.author.id, 1);
-            }
-
-            if (linkCounter.get(message.author.id) >= maxLinkCount) {
-                muteUser(message.guild, message.author, logChannel, 'Excessive use of blacklisted links');
-
-                    const roleEmbed = {
-                        color: 0xed4245,
-                        description: `**Reason:** Excessive use of blacklisted links`,
-                        author: {
-                            name: `${message.author.username} has been muted`,
-                            icon_url: message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 128 }),
-                        },
-                    };
-                    if (!message.channel.name.includes('create-suggestions')) {
-                       message.channel.send({ embeds: [roleEmbed] });
-                    }
-                    const dmEmbed = {
-                        color: 0xed4245,
-                        description: `You have been muted for excessive posting of blacklisted links in **${message.guild.name}**.`,
-                    };
-                    await message.author.send({ embeds: [dmEmbed] }).then(() => true).catch((error) => {
-                        if (error.code === 50007) {
-                            const noDmEmbed = {
-                                color: 0xed4245,
-                                title: `Unable to Send DM`,
-                                description: `This user does not have direct messages (DMs) open.`,
-                                author: {
-                                    name: newMember.user.tag,
-                                    icon_url: userAvatarURL,
-                                },
-                            };
-                            logChannel.send({ embeds: [noDmEmbed] });
-                        }
-                        return false;
-                    });
-            }
-
             const userEmbed = {
                 color: 0xed4245,
                 description: `**Reason:** Blacklisted links`,
