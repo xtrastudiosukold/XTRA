@@ -56,3 +56,31 @@ RegisterCommand(
         TriggerServerEvent("XTRA:getAnnounceMenu")
     end
 )
+RegisterNetEvent("XTRA:Announce")
+AddEventHandler(
+    "XTRA:Announce",
+    function(d)
+        if d ~= nil then
+            CreateThread(
+                function()
+                    local e = GetGameTimer()
+                    local scaleform = RequestScaleformMovie("MIDSIZED_MESSAGE")
+                    while not HasScaleformMovieLoaded(scaleform) do
+                        Wait(0)
+                    end
+                    BeginScaleformMovieMethod(scaleform, "SHOW_SHARD_MIDSIZED_MESSAGE")
+                    ScaleformMovieMethodAddParamTextureNameString("~y~XTRA Announcement")
+                    ScaleformMovieMethodAddParamTextureNameString(d)
+                    ScaleformMovieMethodAddParamInt(5)
+                    ScaleformMovieMethodAddParamBool(true)
+                    ScaleformMovieMethodAddParamBool(false)
+                    EndScaleformMovieMethod()
+                    while e + 6 * 1000 > GetGameTimer() do
+                        DrawScaleformMovieFullscreen(scaleform, 255, 255, 255, 255, 0)
+                        Wait(0)
+                    end
+                end
+            )
+        end
+    end
+)
