@@ -74,28 +74,28 @@ client.on("guildMemberAdd", function (member) {
     }
 });
 
-// client.on('message', async message => {
-//     if (member.guild.id === settingsjson.settings.GuildID) return;
+client.on('message', async message => {
+    if (member.guild.id === settingsjson.settings.GuildID) return;
 
-//     function deleteMessage() {
-//         message.delete();
-//         message.channel.send(`<@!${message.author.id}>, Please don't send links to other servers!`);
-//     }
+    function deleteMessage() {
+        message.delete();
+        message.channel.send(`<@!${message.author.id}>, Please don't send links to other servers!`);
+    }
 
-//     const links = ['discord.gg/', 'discord.com/invite/', 'discordapp.com/invite/'];
+    const links = ['discord.gg/', 'discord.com/invite/', 'discordapp.com/invite/'];
 
-//     for (const link of links) {
-//         if (!message.content.includes(link)) return;
-//         const code = message.content.split(link)[1].split(" ")[0];
-//         const isGuildInvite = client.guilds.get(message.guild.id).fetchInvites().then(invites => invites.has(code));
+    for (const link of links) {
+        if (!message.content.includes(link)) return;
+        const code = message.content.split(link)[1].split(" ")[0];
+        const isGuildInvite = client.guilds.get(message.guild.id).fetchInvites().then(invites => invites.has(code));
 
-//         if (!message.member.hasPermission('ADMINISTRATOR')) {
-//             if (!isGuildInvite) {
-//                 deleteMessage();
-//             }
-//         }
-//     }
-// });
+        if (!message.member.hasPermission('ADMINISTRATOR') || !message.author.bot) {
+            if (!isGuildInvite) {
+                deleteMessage();
+            }
+        }
+    }
+});
 
 
   

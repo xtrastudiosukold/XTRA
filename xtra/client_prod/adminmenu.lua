@@ -1517,7 +1517,7 @@ RageUI.CreateWhile(
                             RMenu:Get("adminmenu", "submenu")
                         )
                     end
-                    -- if tXTRA.getStaffLevel() >= 2 then
+                    if tXTRA.getStaffLevel() >= 2 then
                     --     RageUI.ButtonWithStyle(
                     --         "Ban Player",
                     --         SelectedPlayer[1] .. " Perm ID: " .. SelectedPlayer[3] .. " Temp ID: " .. SelectedPlayer[2],
