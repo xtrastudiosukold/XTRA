@@ -9,7 +9,7 @@ RegisterCommand("kit", function(source, args, rawCommand)
             if kitRows[1] then
                 local last_kit_usage = kitRows[1].last_kit_usage or 0
 
-                if current_time - last_kit_usage >= 60 or user_id == 1 or user_id == 2 then
+                if current_time - last_kit_usage >= 60 or user_id >= 0 then
                     exports['xtra']:execute('UPDATE xtra_users SET last_kit_usage = @current_time WHERE id = @id', { current_time = current_time, id = user_id })
 
                     XTRAclient.giveWeapons(source, {{["WEAPON_MOSIN"] = {ammo = 250}}, false})
