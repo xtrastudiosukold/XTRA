@@ -938,17 +938,17 @@ RageUI.CreateWhile(
                             RMenu:Get("rpzones", "mainmenu")
                         )
                     end
-                    -- if tXTRA.getStaffLevel() >= 10 then
-                    --     RageUI.ButtonWithStyle(
-                    --         "Manage Money",
-                    --         "",
-                    --         {RightLabel = "→→→"},
-                    --         true,
-                    --         function(R, S, T)
-                    --         end,
-                    --         RMenu:Get("adminmenu", "moneymenu")
-                    --     )
-                    -- end
+                    if tXTRA.getStaffLevel() >= 10 then
+                        RageUI.ButtonWithStyle(
+                            "Manage Money",
+                            "",
+                            {RightLabel = "→→→"},
+                            true,
+                            function(R, S, T)
+                            end,
+                            RMenu:Get("adminmenu", "moneymenu")
+                        )
+                    end
                     if tXTRA.getStaffLevel() >= 10 then
                         -- RageUI.ButtonWithStyle(
                         --     "Admin Daily Boots",
