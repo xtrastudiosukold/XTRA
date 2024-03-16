@@ -1,23 +1,23 @@
-RegisterCommand("kit", function(source, args, raw)
-    local source = source
+RegisterCommand("kit", function(source, args, rawCommand)
     local user_id = XTRA.getUserId(source)
-    if user_id > 0 then
-        XTRAclient.giveWeapons(source, {{["WEAPON_MOSIN"] = {ammo = 250}}})
-        -- XTRAclient.giveWeapons(source, {{["WEAPON_STAC"] = {ammo = 250}}})
-       -- XTRAclient.giveWeapons(source, {{["WEAPON_NOVESKENSR9"] = {ammo = 250}}})
-        XTRAclient.setArmour(source, {100})
-        TriggerClientEvent("XTRA:Revive", source)
-    end
-end)
 
-RegisterCommand("kit2", function(source, args, raw)
-    local source = source
-    local user_id = XTRA.getUserId(source)
-    if user_id > 0 then
-        XTRAclient.giveWeapons(source, {{["WEAPON_MOSIN"] = {ammo = 250}}})
-        XTRAclient.giveWeapons(source, {{["WEAPON_SVD"] = {ammo = 250}}})
-        XTRAclient.giveWeapons(source, {{["WEAPON_DIAMONDMP5"] = {ammo = 250}}})
-        XTRAclient.setArmour(source, {100})
-        TriggerClientEvent("XTRA:Revive", source)
+    if user_id then
+        local current_time = os.time()
+        local kit_name = "Mosin + Max Armour"
+
+        exports['xtra']:execute('SELECT last_kit_usage FROM xtra_users WHERE id = @id', { id = user_id }, function(kitRows)
+            if kitRows[1] then
+                local last_kit_usage = kitRows[1].last_kit_usage or 0
+
+                exports['xtra']:execute('UPDATE xtra_users SET last_kit_usage = @current_time WHERE id = @id', { current_time = current_time, id = user_id })
+
+                XTRAclient.giveWeapons(source, {{["WEAPON_MOSIN"] = {ammo = 250}}, false})
+                XTRAclient.setArmour(source, {100, true})
+                XTRAclient.notify(source, {"~g~Kit Redeemed, Received Mosin And Max Armour"})
+                XTRA.sendWebhook('kit-redeem', "XTRA Kit Logs", "> Kit Redeemed \n> Player Name: **"..XTRA.GetPlayerName(user_id).."**\n> Player PermID: **"..user_id.."**\n> Player TempID: **"..source.."**")
+            else
+                XTRAclient.notify(source, {"~r~Kit not found: " .. kit_name})
+            end
+        end)
     end
-end)
+end, false)

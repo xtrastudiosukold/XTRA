@@ -466,13 +466,6 @@ cfg.weapons = {
         policeWeapon = true,
         model = "w_sr_ax50",
     },
-    ["WEAPON_SVD"] = {
-        name = "Dragnov SVD",
-        class = "Heavy",
-        ammo = ".308 Sniper Rounds",
-        policeWeapon = false,
-        model = "w_sr_svd",
-    },
     ["WEAPON_STAC"] = {
         name = "S-TAC",
         class = "Heavy",
