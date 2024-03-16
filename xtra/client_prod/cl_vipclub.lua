@@ -85,7 +85,7 @@ function tXTRA.isPlatClub()
     end
 end
 RegisterCommand(
-    "mgclub",
+    "xtraclub",
     function()
         TriggerServerEvent("XTRA:getPlayerSubscription")
         RageUI.ActuallyCloseAll()
