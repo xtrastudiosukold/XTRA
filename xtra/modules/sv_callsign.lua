@@ -30,7 +30,7 @@ AddEventHandler("XTRA:getCallsign", function(type)
             TriggerClientEvent("XTRA:receivePoliceCallsign", source, getCallsign('Police', source, user_id, 'Police'))
         end
         TriggerClientEvent("XTRA:setPoliceOnDuty", source, true)
-    elseif type == 'prison' and XTRA.hasPermission(user_id, 'prisonguard.onduty.permission') then
+    elseif type == 'prison' and XTRA.hasPermission(user_id, 'hmp.menu') then
         TriggerClientEvent("XTRA:receiveHmpCallsign", source, getCallsign('HMP', source, user_id, 'HMP'))
         TriggerClientEvent("XTRA:setPrisonGuardOnDuty", source, true)
     end
