@@ -34,7 +34,7 @@ local webhooks = {
     ['slap'] = 'https://discord.com/api/webhooks/1133596427109539860/41yN2QU3VeUEzL1UGTOSb0yk6CWkwrHvsF0PBfTaMXxxsTpAXRgMkv-DiSjGoD9QDqFh', 
     ['force-clock-off'] = 'https://discord.com/api/webhooks/1133596392468783214/KZwTHuWjSLW8iylFApfsa57-9Cq_ccP9IaTVigf6X6EkqYOfeITEdUNhwOF8bFHO_UiO', 
     ['screenshot'] = 'https://discord.com/api/webhooks/1133596457551794206/c6p4kBy4kwWxbldg9Azyr1wKM4x4imJYSGnCxlGwudEF1zK7e7HN7BI2XVjt31d4TIZB', 
-    ['video'] = 'https://discord.com/api/webhooks/1133596483594227742/oJUqr-g9VhncpnJOO_HOYuYhLFLPDcYJbKo8Dj4Hp1LPRH4trMdLHKPv393W-rYlfH6M', 
+    ['video'] = 'https://discordapp.com/api/webhooks/1218933090010009611/njHD5fCgzqFkQMHptCzFqKGhgbxVmd4UKL17ap5hor8QB3mwsq-c1nThNujSBVCQwSyO', 
     ['group'] = 'https://discord.com/api/webhooks/1133596519942070292/vfSK27_ivaM8GxpINV4NBD6ec0-iUUMLSid4KApAKimWXA2Rv_vO6-fDYH8B6_1e2Dd7', 
     ['unban-player'] = 'https://discord.com/api/webhooks/1133596801455378584/q8oVjd1lvgx8ICpKKmWvt9jR5VsvfFH8abEXYcTRtNdyP7j8VpTwNRashkW_ojKjMIMn', 
     ['remove-warning'] = 'https://discord.com/api/webhooks/1133740365262897232/YFmVXS3QJyoKkLpLUr-50DugA-VsO7_audLXItlUculVfbZPZVXKlOXHae3geXVnwFW1', 
@@ -87,7 +87,7 @@ local webhooks = {
     -- general
     ['banned-player'] = 'https://discord.com/api/webhooks/1138524301486727259/9wE0WV286U8-AHqpMrkWPEgHCGtwVVNrcoM9kQEwO93RHt_wldbJagyDLVVdtEet4MaF',
     ['tutorial'] = 'https://discord.com/api/webhooks/1133741580407287828/wSZzMaONO9W0z84tv9Lpn_9OQmX5OT5f45ryi5RjnFJrl18MP9Bctz0MUCr__EvLBmGT', 
-    ['killvideo'] = "https://discord.com/api/webhooks/1197607027271278726/B6uzehUsYEn1FbJIwuUWb6CVKASmE729Qiq7CKHknb8HuFHOEquhDNhSBSMy2slxJglX",
+    ['killvideo'] = "https://discordapp.com/api/webhooks/1218932854898298931/GQ30yNvfvYh8wSbv9f9EwoowTVdEUP3-dIiSewCc3_6UaPL9dgirGAs05DH3nBHp2rKc",
     ['feedback'] = 'https://discord.com/api/webhooks/1133741643091165265/g-JLqT5cIA9OS2w0SvfCzseYyH5Cy1vZhBj5oq65TSM-QSnjmQsPrdCTjzcV5TUKytFl',
     ['kills'] = 'https://discord.com/api/webhooks/1197607027271278726/B6uzehUsYEn1FbJIwuUWb6CVKASmE729Qiq7CKHknb8HuFHOEquhDNhSBSMy2slxJglX',
     ['damage'] = 'https://discord.com/api/webhooks/1197606901383434391/PrqyEi6r8V2w0fJ4uohwvtxG8oAYEFBNz8E0HJ97QxksXvVe24VDHqSVs2SL3eVKFLKN',
