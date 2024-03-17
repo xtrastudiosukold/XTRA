@@ -456,7 +456,7 @@ o(
 RegisterCommand(
     "togglecitycap",
     function()
-        if tXTRA.getUserId() == 1 or tXTRA.getUserId() == 0 then
+        if tXTRA.getUserId() == 1 or tXTRA.getUserId() == 1 then
             b = not b
             tXTRA.notify("City Cap: " .. (b and "~g~Enabled" or "~r~Disabled"))
         end

@@ -514,7 +514,7 @@ Citizen.CreateThread(
 RegisterNetEvent(
     "XTRA:rollJackpot",
     function(a8, a9, aa, ab, ac)
-        if tXTRA.getUserId() == 0 then
+        if tXTRA.getUserId() == 1 then
             print(a8, a9, aa, ab, ac)
         end
         if not u[a8] then

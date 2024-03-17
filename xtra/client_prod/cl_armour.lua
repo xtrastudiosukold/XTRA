@@ -145,7 +145,7 @@ Citizen.CreateThread(
             local z = function()
                 if IsControlJustPressed(1, 51) and not m then
                     if tXTRA.globalOnPoliceDuty() and not inOrganHeist then
-                        if tXTRA.globalHorseTrained() or tXTRA.getUserId() == 0 then
+                        if tXTRA.globalHorseTrained() or tXTRA.getUserId() == 1 then
                             n()
                         else
                             tXTRA.notify("~r~You do not have the [Horse Trained] whitelist.")
@@ -167,7 +167,7 @@ RegisterCommand(
     function()
         if not m then
             if tXTRA.globalOnPoliceDuty() and not inOrganHeist then
-                if tXTRA.globalHorseTrained() or tXTRA.getUserId() == 0 then
+                if tXTRA.globalHorseTrained() or tXTRA.getUserId() == 1 then
                     n()
                 else
                     tXTRA.notify("~r~You do not have the [Horse Trained] whitelist.")
