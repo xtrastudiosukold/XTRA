@@ -69,7 +69,7 @@ Citizen.CreateThread(
                         C = 1.0
                     end
                     o(A.leftX + 0.0045, A.bottomY - 0.004, A.Width, 0.009, 88, 88, 88, 200)
-                    o(A.leftX + 0.0045, A.bottomY - 0.004, A.Width * B, 0.009, 156, 92, 180, 200)
+                    o(A.leftX + 0.0045, A.bottomY - 0.004, A.Width * B, 0.009, 86, 215, 64, 200)
                     o(A.leftX + 0.0045, A.bottomY + 0.009, A.Width, 0.009, 88, 88, 88, 200)
                     if E then
                         tXTRA.DrawText(

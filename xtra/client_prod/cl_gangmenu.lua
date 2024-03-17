@@ -1637,7 +1637,7 @@ local function al()
                             if az < 0.0 then
                                 az = 0.0
                             end
-                            ag(ad + 0.0011, ax + 0.032, az, 0.009, 156, 92, 180, 255)
+                            ag(ad + 0.0011, ax + 0.032, az, 0.009, 86, 215, 64, 255)
                             if ao then
                                 local aA = math.floor((as - 100) / 100.0 * 100)
                                 if aA < 0 then
