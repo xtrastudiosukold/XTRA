@@ -8,16 +8,14 @@ function func_playerlistControl()
             Wait(100)
             sendFullPlayerListData()
             SetNuiFocus(true, true)
-            TriggerScreenblurFadeIn(100.0)
             SendNUIMessage({showPlayerList = true})
         end
     end
 end
 tXTRA.createThreadOnTick(func_playerlistControl)
 RegisterNUICallback(
-    "closeFRPlayerList",
+    "closeXTRAPlayerList",
     function(b, c)
-        TriggerScreenblurFadeOut(100.0)
         SetNuiFocus(false, false)
     end
 )
