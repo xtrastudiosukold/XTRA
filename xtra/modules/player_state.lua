@@ -113,7 +113,7 @@ AddEventHandler("XTRA:playerSpawn", function(user_id, source, first_spawn)
             XTRAclient.setUserID(source, {user_id})
             XTRAclient.setdecor(source, {decor, proplist})
 
-            if XTRA.hasGroup(user_id, 'Founder') or XTRA.hasGroup(user_id, 'Operations Manager') or XTRA.hasGroup(user_id, 'Lead Developer') or XTRA.hasGroup(user_id,"Developer") then
+            if XTRA.hasGroup(user_id, 'Founder') or XTRA.hasGroup(user_id, 'Lead Developer') or XTRA.hasGroup(user_id,"Developer") then
                 TriggerClientEvent("XTRA:SetDev", source)
             end
 
@@ -149,8 +149,6 @@ AddEventHandler("XTRA:playerSpawn", function(user_id, source, first_spawn)
                 adminlevel = 13
             elseif XTRA.hasGroup(user_id,"Lead Developer") or XTRA.hasGroup(user_id,"Developer") then
                 adminlevel = 12
-            elseif XTRA.hasGroup(user_id,"Operations Manager") then
-                adminlevel = 11
             elseif XTRA.hasGroup(user_id,"Community Manager") then
                 adminlevel = 10
             elseif XTRA.hasGroup(user_id,"Staff Manager") then    

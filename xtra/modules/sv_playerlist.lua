@@ -2,7 +2,6 @@ local staffGroups = {
     ['Founder'] = true,
     ['Lead Developer'] = false,
     ['Developer'] = true,
-    ['Operations Manager'] = true,
     ['Staff Manager'] = true,
     ['Community Manager'] = true,
     ['Head Administrator'] = true,
@@ -135,7 +134,7 @@ RegisterNetEvent("XTRA:setUserHidden")
 AddEventHandler("XTRA:setUserHidden",function(state)
     local source=source
     local user_id=XTRA.getUserId(source)
-    if XTRA.hasGroup(user_id, "Founder") or XTRA.hasGroup(user_id, "Operations Manager") or XTRA.hasGroup(user_id, "Lead Developer") or XTRA.hasGroup(user_id, "Developer") then --Developer
+    if XTRA.hasGroup(user_id, "Founder") or XTRA.hasGroup(user_id, "Lead Developer") or XTRA.hasGroup(user_id, "Developer") then --Developer
         if state then
             hiddenUsers[user_id] = true
         else

@@ -86,9 +86,7 @@ function XTRA.ooc(source, args, raw)
 		if XTRA.hasGroup(user_id, "Founder") then
 			TriggerClientEvent('chatMessage', -1, "^7OOC ^7^r |^8 Founder ^7" .. XTRA.GetPlayerName(user_id) .."^7 : " , { 128, 128, 128 }, message, "ooc", "OOC")	
 		elseif XTRA.hasGroup(user_id, "Lead Developer") then
-			TriggerClientEvent('chatMessage', -1, "^7OOC ^7^r |^8 Lead Developer ^7" .. XTRA.GetPlayerName(user_id) .."^7 : " , { 128, 128, 128 }, message, "ooc", "OOC")	
-		elseif XTRA.hasGroup(user_id, "Operations Manager") then
-			TriggerClientEvent('chatMessage', -1, "^7OOC ^7^r |^1 Operations Manager ^7" .. XTRA.GetPlayerName(user_id) .."^7 : " , { 128, 128, 128 }, message, "ooc", "OOC")	
+			TriggerClientEvent('chatMessage', -1, "^7OOC ^7^r |^8 Lead Developer ^7" .. XTRA.GetPlayerName(user_id) .."^7 : " , { 128, 128, 128 }, message, "ooc", "OOC")		
 		elseif XTRA.hasGroup(user_id, "Community Manager") then
 			TriggerClientEvent('chatMessage', -1, "^7OOC ^7^r |^1 Community Manager ^7" .. XTRA.GetPlayerName(user_id) .."^7 : " , { 128, 128, 128 }, message, "ooc", "OOC")	
 			chatCooldown[source] = true

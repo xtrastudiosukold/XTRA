@@ -13,7 +13,7 @@ AddEventHandler("XTRA:getAnnounceMenu", function()
     local user_id = XTRA.getUserId(source)
     local hasPermsFor = {}
     for k,v in pairs(announceTables) do
-        if XTRA.hasPermission(user_id, v.permission) or XTRA.hasGroup(user_id, 'Founder') or XTRA.hasGroup(user_id, 'Lead Developer') or XTRA.hasGroup(user_id,"Developer") or XTRA.hasGroup(user_id,"Operations Manager") then
+        if XTRA.hasPermission(user_id, v.permission) or XTRA.hasGroup(user_id, 'Founder') or XTRA.hasGroup(user_id, 'Lead Developer') or XTRA.hasGroup(user_id,"Developer") then
             table.insert(hasPermsFor, v.info)
         end
     end

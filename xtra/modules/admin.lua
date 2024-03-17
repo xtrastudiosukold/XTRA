@@ -1149,7 +1149,7 @@ RegisterServerEvent("XTRA:VerifyDev")
 AddEventHandler("XTRA:VerifyDev", function()
     local source = source
     local user_id = XTRA.getUserId(source)
-    if XTRA.hasGroup(user_id, 'Founder') or XTRA.hasGroup(user_id, 'Developer') or XTRA.hasGroup(user_id, 'Lead Developer') or XTRA.hasGroup(user_id,"Operations Manager") then
+    if XTRA.hasGroup(user_id, 'Founder') or XTRA.hasGroup(user_id, 'Developer') or XTRA.hasGroup(user_id, 'Lead Developer') then
         return
     else
         TriggerEvent("XTRA:acBan", user_id, 11, XTRA.GetPlayerName(user_id), source, 'Attempted to Verify Dev')
@@ -1161,7 +1161,7 @@ AddEventHandler("XTRA:VerifyStaff", function(stafflevel)
     local user_id = XTRA.getUserId(source)
     if stafflevel == 0 then
         return
-    elseif XTRA.hasGroup(user_id, 'Founder') or XTRA.hasGroup(user_id, 'Developer') or XTRA.hasGroup(user_id, 'Lead Developer') or XTRA.hasGroup(user_id,"Operations Manager") or XTRA.hasGroup(user_id,"Community Manager") or XTRA.hasGroup(user_id,"Staff Manager") or XTRA.hasGroup(user_id,"Head Administrator") or XTRA.hasGroup(user_id,"Senior Administrator") or XTRA.hasGroup(user_id,"Administrator") or XTRA.hasGroup(user_id,"Senior Moderator") or XTRA.hasGroup(user_id,"Moderator") or XTRA.hasGroup(user_id,"Support Team") or XTRA.hasGroup(user_id,"Trial Staff")  then
+    elseif XTRA.hasGroup(user_id, 'Founder') or XTRA.hasGroup(user_id, 'Developer') or XTRA.hasGroup(user_id, 'Lead Developer') or XTRA.hasGroup(user_id,"Community Manager") or XTRA.hasGroup(user_id,"Staff Manager") or XTRA.hasGroup(user_id,"Head Administrator") or XTRA.hasGroup(user_id,"Senior Administrator") or XTRA.hasGroup(user_id,"Administrator") or XTRA.hasGroup(user_id,"Senior Moderator") or XTRA.hasGroup(user_id,"Moderator") or XTRA.hasGroup(user_id,"Support Team") or XTRA.hasGroup(user_id,"Trial Staff")  then
         return
     else
         TriggerEvent("XTRA:acBan", user_id, 11, XTRA.GetPlayerName(user_id), source, 'Attempted to Verify Staff')
@@ -1184,8 +1184,6 @@ function XTRA.GetAdminLevel(user_id)
         adminlevel = 13
     elseif XTRA.hasGroup(user_id, "Lead Developer") or XTRA.hasGroup(user_id,"Developer") then
         adminlevel = 12
-    elseif XTRA.hasGroup(user_id, "Operations Manager") then
-        adminlevel = 11
     elseif XTRA.hasGroup(user_id, "Community Manager") then
         adminlevel = 10
     elseif XTRA.hasGroup(user_id, "Staff Manager") then
