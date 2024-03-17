@@ -224,18 +224,18 @@ RegisterServerEvent("XTRA:bankTransfer")
 AddEventHandler("XTRA:bankTransfer", function(id, amount)
     local source = source
     local user_id = XTRA.getUserId(source)
-    local target_id = tonumber(id)
-    local transfer_amount = tonumber(amount)
+    local id = tonumber(id)
+    local amount = tonumber(amount)
     if not sendingcooldown[user_id] then
-      if XTRA.getUserSource(target_id) then
-          if XTRA.tryBankPayment(user_id, transfer_amount) then
+      if XTRA.getUserSource(id) then
+          if XTRA.tryBankPayment(user_id, amount) then
               sendingcooldown[user_id] = true
-              XTRAclient.notifyPicture(source, {"monzo", "monzo", "You have transferred ~g~£"..getMoneyStringFormatted(transfer_amount).."~w~ to ~g~"..XTRA.GetPlayerName(target_id).."~w~.", "Monzo", "Sent Money"})
-              XTRAclient.notifyPicture(XTRA.getUserSource(target_id), {"monzo", "monzo", "You have received ~g~£"..getMoneyStringFormatted(transfer_amount).."~w~ from ~g~"..XTRA.GetPlayerName(user_id).."~w~.", "Monzo", "Received Money"})
+              XTRAclient.notifyPicture(source, {"monzo", "monzo", "You have transferred ~g~£"..getMoneyStringFormatted(amount).."~w~ to ~g~"..XTRA.GetPlayerName(id).."~w~.", "Monzo", "Sent Money"})
+              XTRAclient.notifyPicture(XTRA.getUserSource(id), {"monzo", "monzo", "You have received ~g~£"..getMoneyStringFormatted(amount).."~w~ from ~g~"..XTRA.GetPlayerName(user_id).."~w~.", "Monzo", "Received Money"})
               TriggerClientEvent("XTRA:PlaySound", source, "apple")
-              TriggerClientEvent("XTRA:PlaySound", XTRA.getUserSource(target_id), "apple")
-              XTRA.giveBankMoney(target_id, transfer_amount)
-              XTRA.sendWebhook('bank-transfer', "XTRA Bank Transfer Logs", "> Player Name: **" .. XTRA.GetPlayerName(user_id) .. "**\n> Player PermID: **" .. user_id .. "**\n> Target Name: **" .. XTRA.GetPlayerName(target_id) .. "**\n> Target PermID: **" .. target_id .. "**\n> amount: **£" .. transfer_amount .. "**")
+              TriggerClientEvent("XTRA:PlaySound", XTRA.getUserSource(id), "apple")
+              XTRA.giveBankMoney(id, amount)
+              XTRA.sendWebhook('bank-transfer', "XTRA Bank Transfer Logs", "> Player Name: **" .. XTRA.GetPlayerName(user_id) .. "**\n> Player PermID: **" .. user_id .. "**\n> Target Name: **" .. XTRA.GetPlayerName(id) .. "**\n> Target PermID: **" .. id .. "**\n> amount: **£" .. amount .. "**")
               Wait(1000)
               sendingcooldown[user_id] = false
           else
