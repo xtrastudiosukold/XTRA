@@ -13,7 +13,7 @@ local verify_card = {
     ["$schema"] = "http://adaptivecards.io/schemas/adaptive-card.json",
     ["version"] = "1.3",
     ["backgroundImage"] = {
-        ["url"] = "https://cdn.discordapp.com/attachments/1195851571150467097/1210381117983694908/yup.png?ex=65ea5a42&is=65d7e542&hm=16bdfdd1c4458dd1a8347fa942d996ba13304f3755a6fe9246ecfd41f2eb9e70&",
+        ["url"] = "https://cdn.discordapp.com/attachments/1195851571150467097/1210381117983694908/yup.png?ex=660609c2&is=65f394c2&hm=54b2baacf47d017d0046bc0c37612bda6bde0231b174b29b94fe9f50d5a14124&",
     },
     ["body"] = {
         {
@@ -92,7 +92,7 @@ local ban_card = {
     ["$schema"] = "http://adaptivecards.io/schemas/adaptive-card.json",
     ["version"] = "1.3",
     ["backgroundImage"] = {
-        ["url"] = "https://cdn.discordapp.com/attachments/1195851571150467097/1210381117983694908/yup.png?ex=65ea5a42&is=65d7e542&hm=16bdfdd1c4458dd1a8347fa942d996ba13304f3755a6fe9246ecfd41f2eb9e70&",
+        ["url"] = "https://cdn.discordapp.com/attachments/1195851571150467097/1210381117983694908/yup.png?ex=660609c2&is=65f394c2&hm=54b2baacf47d017d0046bc0c37612bda6bde0231b174b29b94fe9f50d5a14124&",
     },
     ["body"] = {
         {
