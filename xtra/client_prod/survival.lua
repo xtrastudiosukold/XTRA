@@ -32,7 +32,7 @@ Citizen.CreateThread(
                 name = u,
                 coords = vector3(v.entry_point[1], v.entry_point[2], v.entry_point[3]),
                 permission = {},
-                image = v.image or "https://cdn.xtra.city/content/fivem/houses/citysmallhome.png",
+                image = v.image or "https://cdn.cmg.city/content/fivem/houses/citysmallhome.png",
                 price = 5000
             }
         end
