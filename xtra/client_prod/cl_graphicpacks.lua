@@ -54,8 +54,8 @@ local function GraphicsDisable()
     graphicsdata.enabled = not graphicsdata.enabled
     graphicsdata.Types.index,graphicsdata.Weather.index,graphicsdata.Time.index = 1,1,1
     SetTimeCycle("Default")
-    SetWeather("Clear Sky")
-    tXTRA.overrideTime(12,0,0)
+    tXTRA.SetWeather("OVERCAST")
+    tXTRA.overrideTime(10,0,0)
     SetResourceKvp("xtra_graphics", json.encode(graphicsdata))
 end
 

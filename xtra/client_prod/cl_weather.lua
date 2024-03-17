@@ -1,5 +1,5 @@
-local a = "clear"
-local b = {h = 12, m = 0, s = 0}
+local a = "OVERCAST"
+local b = {h = 10, m = 0, s = 0}
 local c = false
 local function d(e)
     a = e
