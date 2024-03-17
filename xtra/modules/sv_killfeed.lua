@@ -88,7 +88,7 @@ AddEventHandler('XTRA:onPlayerKilled', function(killtype, killer, weaponhash, su
                     gettingVideo = true
                     TriggerClientEvent("XTRA:takeClientVideoAndUpload", killer, XTRA.getWebhook('killvideo'))
                     gettingVideo = false
-                    Wait(19000)
+                    Wait(100000)
                 end
             end
             if XTRA.GetPlayerName(killer_id) and XTRA.GetPlayerName(XTRA.getUserId(source)) and XTRA.getUserId(killer) and XTRA.getUserId(source) and getweaponnames(weaponhash) and distance then
