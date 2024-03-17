@@ -308,6 +308,13 @@ cfg.weapons = {
         policeWeapon = false,
         model = "w_ar_mxm",
     },
+    ["WEAPON_HK"] = {
+        name = "Foid's HK",
+        class = "AR",
+        ammo = "5.56mm NATO",
+        policeWeapon = false,
+        model = "w_ar_hk",
+    },
     ["WEAPON_M4A1"] = {
         name = "M4A1",
         class = "AR",
