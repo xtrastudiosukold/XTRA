@@ -7,7 +7,6 @@ function func_f10warnings()
             TriggerServerEvent("XTRA:refreshWarningSystem")
             Citizen.Wait(100)
             SetNuiFocus(true, true)
-            TriggerScreenblurFadeIn(100.0)
             SendNUIMessage({showF10 = true})
         end
     end
@@ -38,6 +37,5 @@ AddEventHandler(
         SendNUIMessage({type = "sendWarnings", warnings = json.encode(a), points = f, info = json.encode(c)})
         SendNUIMessage({showF10 = true})
         SetNuiFocus(true, true)
-        TriggerScreenblurFadeIn(100.0)
     end
 )
