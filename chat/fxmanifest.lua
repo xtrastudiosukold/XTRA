@@ -7,7 +7,7 @@ server_script 'sv_chat.lua'
 
 files {
   'html/ooc.png',
-  'html/twt.png',
+  'html/global.png',
   'html/goodalert.png',
   'html/eventalert.png',
   'html/alert.png',

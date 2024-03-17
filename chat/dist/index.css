@@ -194,11 +194,11 @@ textarea:focus, input:focus {
   opacity: 0.75;
 }
 
-.twt {
+.global {
     background-color: rgba(29, 161, 242, 0.35);
 }
 
-.twt-trans {
+.global-trans {
     background-color: rgba(29, 161, 242, 0.2);
 }
 

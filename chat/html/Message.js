@@ -65,7 +65,7 @@ Vue.component('message', {
         },
         type: {
             type: String,
-            default: 'twt'
+            default: 'global'
         },
         args: {
             type: Array,

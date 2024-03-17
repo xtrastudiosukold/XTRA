@@ -15,7 +15,7 @@ local webhooks = {
     ['ooc'] = 'https://discord.com/api/webhooks/1210377512048263209/_f1tigYZByk46oozD0MPb35TalTgkUAZZ2QLrsNb6n-qi0Nh4j_yKo47n7A8ZlyttZRI', 
     ['kit-redeem'] = 'https://discord.com/api/webhooks/1196944175443234897/SBaURayd4Jt6I0mLj6sNFI8YcnorcvAw3Ij0Pj8cpuiR793RIZce28Hb3fgo9aw0-pFC', 
 
-    ['twitter'] = 'https://discord.com/api/webhooks/1210377606051012649/NJ4JI6ojfjeCOgiIFskUY4k3koqB6ESvD227G-PWB5eOXfO2j8S0fBlBMrliAKfFAo6I', 
+    ['global'] = 'https://discord.com/api/webhooks/1210377606051012649/NJ4JI6ojfjeCOgiIFskUY4k3koqB6ESvD227G-PWB5eOXfO2j8S0fBlBMrliAKfFAo6I', 
     ['staff'] = 'https://discord.com/api/webhooks/1210377771000401950/5bDV0GAG2vmRJYf_2Pt9VweBPxpq8BJcsGlcU2MjIf1rzuvHQ0iBOZagUiehsCrMwhSE',
     ['gang'] = 'https://discord.com/api/webhooks/1210377771000401950/5bDV0GAG2vmRJYf_2Pt9VweBPxpq8BJcsGlcU2MjIf1rzuvHQ0iBOZagUiehsCrMwhSE',
     ['anon'] = 'https://discord.com/api/webhooks/1210377889862647879/_Sia466zHsivroWtbR_BcXme6tM2Uy04wAtBLSVDRPqLymso_0FWd0HW7swVpqLaIn39', 

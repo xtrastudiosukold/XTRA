@@ -430,7 +430,7 @@ Citizen.CreateThread(function()
     );
     ]])
     MySQL.SingleQuery([[
-    CREATE TABLE IF NOT EXISTS twitter_tweets (
+    CREATE TABLE IF NOT EXISTS global_tweets (
     id int(11) NOT NULL AUTO_INCREMENT,
     authorId int(11) NOT NULL,
     realUser varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -438,24 +438,24 @@ Citizen.CreateThread(function()
     time timestamp NOT NULL DEFAULT current_timestamp(),
     likes int(11) NOT NULL DEFAULT 0,
     PRIMARY KEY (id),
-    KEY FK_twitter_tweets_twitter_accounts (authorId),
-    CONSTRAINT FK_twitter_tweets_twitter_accounts FOREIGN KEY (authorId) REFERENCES twitter_accounts (id)
+    KEY FK_global_tweets_global_accounts (authorId),
+    CONSTRAINT FK_global_tweets_global_accounts FOREIGN KEY (authorId) REFERENCES global_accounts (id)
     );
     ]])
     MySQL.SingleQuery([[
-    CREATE TABLE IF NOT EXISTS twitter_likes (
+    CREATE TABLE IF NOT EXISTS global_likes (
     id int(11) NOT NULL AUTO_INCREMENT,
     authorId int(11) DEFAULT NULL,
     tweetId int(11) DEFAULT NULL,
     PRIMARY KEY (id),
-    KEY FK_twitter_likes_twitter_accounts (authorId),
-    KEY FK_twitter_likes_twitter_tweets (tweetId),
-    CONSTRAINT FK_twitter_likes_twitter_accounts FOREIGN KEY (authorId) REFERENCES twitter_accounts (id),
-    CONSTRAINT FK_twitter_likes_twitter_tweets FOREIGN KEY (tweetId) REFERENCES twitter_tweets (id) ON DELETE CASCADE
+    KEY FK_global_likes_global_accounts (authorId),
+    KEY FK_global_likes_global_tweets (tweetId),
+    CONSTRAINT FK_global_likes_global_accounts FOREIGN KEY (authorId) REFERENCES global_accounts (id),
+    CONSTRAINT FK_global_likes_global_tweets FOREIGN KEY (tweetId) REFERENCES global_tweets (id) ON DELETE CASCADE
     );
     ]])
     MySQL.SingleQuery([[
-    CREATE TABLE IF NOT EXISTS twitter_accounts (
+    CREATE TABLE IF NOT EXISTS global_accounts (
     id int(11) NOT NULL AUTO_INCREMENT,
     username varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '0',
     password varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
@@ -1110,10 +1110,6 @@ AddEventHandler("playerConnecting", function(name, setMessage, deferrals)
     end
     if GetNumPlayerTokens(source) <= 0 then
         deferrals.done("[XTRA] Please restart your game and try again.")
-        return
-    end
-    if not ids.steam then
-        deferrals.done("[XTRA] You Must Have Steam Running To Join This Server.")
         return
     end
     if ids.license then

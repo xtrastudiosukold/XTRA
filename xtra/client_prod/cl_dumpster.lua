@@ -36,11 +36,7 @@ Citizen.CreateThread(function()
                     end
                 end
             end
-
-            -- If not near any dumpster, and the player is in a vehicle, do not display the notification
             if not nearDumpster and IsPedInAnyVehicle(ped, false) then
-                -- Do nothing or add any other condition you want to handle here
-            end
         end
     end
 end)

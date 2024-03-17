@@ -247,7 +247,7 @@ local function routeMessage(source, author, message, mode, fromConsole)
         end
         return
     end
-    TriggerClientEvent('chatMessage', -1, "Twitter @"..author..":",  { 255, 255, 255 }, message, "twt", "Global")
+    TriggerClientEvent('chatMessage', -1, "Global @"..author..":",  { 255, 255, 255 }, message, "global", "Global")
 end
 local cooldown = {}
 AddEventHandler('_chat:messageEntered', function(author, color, message, mode)

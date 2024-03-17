@@ -737,15 +737,6 @@ RageUI.CreateWhile(
                     RMenu:Get("SettingsMenu", "graphicpresets")
                 )
                 RageUI.ButtonWithStyle(
-                    "Graphic Packs",
-                    "Customize the weather and sky to match your prefrence.",
-                    {RightLabel = "→→→"},
-                    true,
-                    function()
-                    end,
-                    RMenu:Get("XTRA", "graphicpacks")
-                )
-                RageUI.ButtonWithStyle(
                     "Kill Effects",
                     "Toggle effects that occur on killing a player.",
                     {RightLabel = "→→→"},

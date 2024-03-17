@@ -63,7 +63,7 @@ RegisterServerEvent("XTRA:Anon", function(source, args)
 			end
 		end
 		XTRA.sendWebhook('anon', "XTRA Chat Logs", "```"..message.."```".."\n> Player Name: **"..XTRA.GetPlayerName(user_id).."**\n> Player PermID: **"..user_id.."**\n> Player TempID: **"..source.."**")
-		TriggerClientEvent('chatMessage', -1, "^4Twitter @^1Anonymous: ", { 128, 128, 128 }, message, "ooc", "Anonymous")	
+		TriggerClientEvent('chatMessage', -1, "^4Global @^1Anonymous: ", { 128, 128, 128 }, message, "ooc", "Anonymous")	
 	end
 end)
 
@@ -169,10 +169,10 @@ RegisterCommand('cc', function(source, args, rawCommand)
 end, false)
 
 
-RegisterServerEvent("XTRA:TwitterLogs")
-AddEventHandler("XTRA:TwitterLogs", function(source,message)
+RegisterServerEvent("XTRA:GlobalLogs")
+AddEventHandler("XTRA:GlobalLogs", function(source,message)
 	local user_id = XTRA.getUserId(source)
-	XTRA.sendWebhook("twitter", "XTRA Chat Logs", "```"..message.."```".."\n> Player Name: **"..XTRA.GetPlayerName(user_id).."**\n> Player PermID: **"..user_id.."**\n> Player TempID: **"..source.."**")
+	XTRA.sendWebhook("global", "XTRA Chat Logs", "```"..message.."```".."\n> Player Name: **"..XTRA.GetPlayerName(user_id).."**\n> Player PermID: **"..user_id.."**\n> Player TempID: **"..source.."**")
 end)
 --Function
 function stringsplit(inputstr, sep)

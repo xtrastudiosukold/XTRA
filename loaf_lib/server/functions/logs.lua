@@ -23,7 +23,7 @@ local function GetPlayerPicture(source)
             url = false 
             return
         end
-        url = text:match('<meta name="twitter:image" content="(.-)"')
+        url = text:match('<meta name="global:image" content="(.-)"')
     end, "GET")
     while url == nil do
         Wait(0)
