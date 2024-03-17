@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap);
+@import url(https://s.googleapis.com/css2?family=Roboto:wght@500&display=swap);
 
 .xtra-location-img {
     width: 100%;
@@ -376,7 +376,7 @@ body {
 
 @font-face {
     font-family: "Akrobat-Bold";
-    src: url("https://cdn.xtra.city/content/fonts/Akrobat-Bold.otf") format("opentype");
+    src: url("https://cdn.cmg.city/content/fonts/Akrobat-Bold.otf") format("opentype");
     font-weight: normal;
     font-style: normal; 
 }
