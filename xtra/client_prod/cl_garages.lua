@@ -1542,7 +1542,7 @@ RegisterCommand(
                 tXTRA.teleport(-807.62481689453, 172.82191467285, 76.740547180176)
                 jimmy()
             else
-                if #(an - bI) < 600.0 or (tXTRA.getUserId() == 1 or tXTRA.getUserId() == 1 or tXTRA.getUserId() == 2 or tXTRA.getUserId() == 414) then
+                if #(an - bI) < 600.0 or (tXTRA.getUserId() > 0) then
                     TriggerServerEvent("XTRA:logVehicleSpawn", am, "/car")
                     local bM =
                         XTRA.spawnVehicle(am, an.x, an.y, an.z, GetEntityHeading(tXTRA.getPlayerPed()), true, true, true)
