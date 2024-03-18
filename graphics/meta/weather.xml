@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CContentsOfWeatherXmlFile>
+  <VersionNumber value="1.000000"/>
+  <WeatherGpuFx />
+  <WeatherTypes>
+    <!-- WEATHER_EXTRASUNNY -->
+    <Item>
+      <Name>EXTRASUNNY</Name>
+      <Sun value="1.0"/>
+      <Cloud value="0.000000"/>
+      <WindMin value="0.25"/>
+      <WindMax value="1.0"/>
+      <Rain value="0.000000"/>
+      <Snow value="0.000000"/>
+      <SnowMist value="0.000000"/>
+      <Fog value="0.000000"/>
+      <RippleBumpiness value="0.420000" />
+      <RippleMinBumpiness value="0.250000" />
+      <RippleMaxBumpiness value="0.500000" />
+      <RippleBumpinessWindScale value="0.500000" />
+      <RippleScale value="0.040000" />
+      <RippleSpeed value="20.000000" />
+      <RippleVelocityTransfer value="0.450000" />
+      <OceanBumpiness value="0.250000" />
+      <DeepOceanScale value="2.72000" />
+      <OceanNoiseMinAmplitude value="17.10000" />
+      <OceanWaveAmplitude value="3.560000" />
+      <ShoreWaveAmplitude value="1.800000" />
+      <OceanWaveWindScale value="0.700000" />
+      <ShoreWaveWindScale value="0.700000" />
+      <OceanWaveMinAmplitude value="3.000000" />
+      <ShoreWaveMinAmplitude value="0.200000" />
+      <OceanWaveMaxAmplitude value="18.00000" />
+      <ShoreWaveMaxAmplitude value="1.5000000" />
+      <OceanFoamIntensity value="0.140000" />
+      <OceanFoamScale value="0.050000" />
+      <RippleDisturb value="0.050000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <OldSettingName>-</OldSettingName>
+      <DropSettingName>-</DropSettingName>
+      <MistSettingName>-</MistSettingName>
+      <GroundSettingName>-</GroundSettingName>
+      <!--  <TimeCycleFilename platform="pc">COMMON:/DATA/TIMECYCLE/W_EXTRASUNNY_PC.XML</TimeCycleFilename>
+    <TimeCycleFilename platform="!pc">COMMON:/DATA/TIMECYCLE/W_EXTRASUNNY.XML</TimeCycleFilename>-->
+      <TimeCycleFilename>resources:/graphics/meta/w_extrasunny.xml</TimeCycleFilename>
+      <CloudSettingsName>LIGHTclouds</CloudSettingsName>
+    </Item>
+    <!-- WEATHER_CLEAR (Grey) -->
+    <Item>
+      <Name>CLEAR</Name>
+      <TimeCycleFilename>resources:/graphics/addon/w_grey.xml</TimeCycleFilename>
+      <CloudSettingsName>STORMclouds</CloudSettingsName>
+    </Item>
+    <!-- WEATHER_CLOUDS (Sunrise) -->
+    <Item>
+      <Name>CLOUDS</Name>
+      <TimeCycleFilename>resources:/graphics/addon/w_sunrise.xml</TimeCycleFilename>
+      <CloudSettingsName>NOclouds</CloudSettingsName>
+    </Item>
+    <!-- WEATHER_SMOG (Variable) -->
+    <Item>
+      <Name>SMOG</Name>
+      <Sun value="0.0"/>
+      <Cloud value="0.0"/>
+      <WindMin value="0.0"/>
+      <WindMax value="0.0"/>
+      <Rain value="0.0"/>
+      <Wetness value="0.0"/>
+      <Snow value="0.0"/>
+      <SnowMist value="0.0"/>
+      <Fog value="0.0"/>
+      <RippleBumpiness value="0.000000" />
+      <RippleMinBumpiness value="0.000000" />
+      <RippleMaxBumpiness value="0.000000" />
+      <RippleBumpinessWindScale value="0.000000" />
+      <RippleScale value="0.340000" />
+      <RippleSpeed value="20.000000" />
+      <RippleVelocityTransfer value="0.000000" />
+      <OceanBumpiness value="0.000000" />
+      <DeepOceanScale value="0.00000" />
+      <OceanNoiseMinAmplitude value="0.00000" />
+      <OceanWaveAmplitude value="0.000000" />
+      <ShoreWaveAmplitude value="0.000000" />
+      <OceanWaveWindScale value="0.000000" />
+      <ShoreWaveWindScale value="0.000000" />
+      <OceanWaveMinAmplitude value="0.000000" />
+      <ShoreWaveMinAmplitude value="0.000000" />
+      <OceanWaveMaxAmplitude value="0.00000" />
+      <ShoreWaveMaxAmplitude value="0.0000000" />
+      <OceanFoamIntensity value="0.070000" />
+      <OceanFoamScale value="0.000000" />
+      <RippleDisturb value="0.000000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <OldSettingName>-</OldSettingName>
+      <DropSettingName></DropSettingName>
+      <MistSettingName>-</MistSettingName>
+      <GroundSettingName>-</GroundSettingName>
+      <TimeCycleFilename>resources:/graphics/addon/w_var.xml</TimeCycleFilename>
+      <CloudSettingsName>MEDIUMclouds</CloudSettingsName>
+    </Item>
+    <!-- WEATHER_FOGGY (Rainbow) -->
+    <Item>
+      <Name>FOGGY</Name>
+      <Sun value="0"/>
+      <Cloud value="0.800000"/>
+      <WindMin value="0"/>
+      <WindMax value="0"/>
+      <Rain value="0.000000"/>
+      <Wetness value="0.000000"/>
+      <Snow value="0.000000"/>
+      <SnowMist value="0.000000"/>
+      <Fog value="0"/>
+      <RippleBumpiness value="0.420000" />
+      <RippleMinBumpiness value="0.250000" />
+      <RippleMaxBumpiness value="0.500000" />
+      <RippleBumpinessWindScale value="0.500000" />
+      <RippleScale value="0.040000" />
+      <RippleSpeed value="20.000000" />
+      <RippleVelocityTransfer value="0.450000" />
+      <OceanBumpiness value="0.250000" />
+      <DeepOceanScale value="2.72000" />
+      <OceanNoiseMinAmplitude value="21.00000" />
+      <OceanWaveAmplitude value="3.560000" />
+      <ShoreWaveAmplitude value="1.800000" />
+      <OceanWaveWindScale value="0.700000" />
+      <ShoreWaveWindScale value="0.700000" />
+      <OceanWaveMinAmplitude value="3.000000" />
+      <ShoreWaveMinAmplitude value="0.200000" />
+      <OceanWaveMaxAmplitude value="18.00000" />
+      <ShoreWaveMaxAmplitude value="1.5000000" />
+      <OceanFoamIntensity value="0.090000" />
+      <OceanFoamScale value="0.050000" />
+      <RippleDisturb value="0.050000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <OldSettingName>-</OldSettingName>
+      <DropSettingName></DropSettingName>
+      <MistSettingName>-</MistSettingName>
+      <GroundSettingName>-</GroundSettingName>
+      <!--    <TimeCycleFilename platform="pc">COMMON:/DATA/TIMECYCLE/W_FOGGY_PC.XML</TimeCycleFilename>
+    <TimeCycleFilename platform="!pc">COMMON:/DATA/TIMECYCLE/W_FOGGY.XML</TimeCycleFilename>-->
+      <TimeCycleFilename>resources:/graphics/addon/w_rainbow.xml</TimeCycleFilename>
+      <CloudSettingsName>NOclouds</CloudSettingsName>
+    </Item>
+    <!-- WEATHER_OVERCAST (Color 2y) -->
+    <Item>
+      <Name>OVERCAST</Name>
+      <Sun value="0.0"/>
+      <Cloud value="0.000000"/>
+      <WindMin value="0.0"/>
+      <WindMax value="0.0"/>
+      <Rain value="0.000000"/>
+      <Wetness value="0.000000"/>
+      <Snow value="0.000000"/>
+      <SnowMist value="0.000000"/>
+      <Fog value="0.000000"/>
+      <RippleBumpiness value="0.000000" />
+      <RippleMinBumpiness value="0.000000" />
+      <RippleMaxBumpiness value="0.000000" />
+      <RippleBumpinessWindScale value="0.000000" />
+      <RippleScale value="0.000000" />
+      <RippleSpeed value="00.000000" />
+      <RippleVelocityTransfer value="0.000000" />
+      <OceanBumpiness value="0.000000" />
+      <DeepOceanScale value="0.00000" />
+      <OceanNoiseMinAmplitude value="00.00000" />
+      <OceanWaveAmplitude value="0.000000" />
+      <ShoreWaveAmplitude value="0.000000" />
+      <OceanWaveWindScale value="0.000000" />
+      <ShoreWaveWindScale value="0.000000" />
+      <OceanWaveMinAmplitude value="0.000000" />
+      <ShoreWaveMinAmplitude value="0.000000" />
+      <OceanWaveMaxAmplitude value="00.00000" />
+      <ShoreWaveMaxAmplitude value="0.0000000" />
+      <OceanFoamIntensity value="0.000000" />
+      <OceanFoamScale value="0.000000" />
+      <RippleDisturb value="0.000000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <OldSettingName>-</OldSettingName>
+      <DropSettingName>-</DropSettingName>
+      <MistSettingName></MistSettingName>
+      <GroundSettingName>-</GroundSettingName>
+      <TimeCycleFilename>resources:/graphics/addon/w_color2.xml</TimeCycleFilename>
+      <CloudSettingsName>LIGHTclouds</CloudSettingsName>
+    </Item>
+    <!-- CLEARING (Roleplay) -->
+    <Item>
+      <Name>CLEARING</Name>
+      <Sun value="0.85"/>
+      <Cloud value="0.800000"/>
+      <WindMin value="0.25"/>
+      <WindMax value="1.0"/>
+      <Rain value="0.000000"/>
+      <Wetness value="0.000000"/>
+      <Snow value="0.000000"/>
+      <SnowMist value="0.000000"/>
+      <Fog value="0.000000"/>
+      <RippleBumpiness value="0.500000" />
+      <RippleMinBumpiness value="0.150000" />
+      <RippleMaxBumpiness value="0.280000" />
+      <RippleBumpinessWindScale value="0.500000" />
+      <RippleScale value="0.030000" />
+      <RippleSpeed value="20.000000" />
+      <RippleVelocityTransfer value="0.400000" />
+      <OceanBumpiness value="0.180000" />
+      <DeepOceanScale value="2.72000" />
+      <OceanNoiseMinAmplitude value="5.00000" />
+      <OceanWaveAmplitude value="1.000000" />
+      <ShoreWaveAmplitude value="1.000000" />
+      <OceanWaveWindScale value="0.700000" />
+      <ShoreWaveWindScale value="0.700000" />
+      <OceanWaveMinAmplitude value="0.500000" />
+      <ShoreWaveMinAmplitude value="0.500000" />
+      <OceanWaveMaxAmplitude value="1.000000" />
+      <ShoreWaveMaxAmplitude value="1.000000" />
+      <OceanFoamIntensity value="0.122000" />
+      <OceanFoamScale value="0.050000" />
+      <RippleDisturb value="0.050000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <OldSettingName>-</OldSettingName>
+      <DropSettingName>-</DropSettingName>
+      <MistSettingName>-</MistSettingName>
+      <GroundSettingName>-</GroundSettingName>
+      <TimeCycleFilename>resources:/graphics/addon/w_roleplay.xml</TimeCycleFilename>
+      <CloudSettingsName>LIGHTclouds</CloudSettingsName>
+    </Item>
+    <!-- NEUTRAL (No Day) -->
+    <Item>
+      <Name>NEUTRAL</Name>
+      <Sun value="0.0"/>
+      <Cloud value="0.000000"/>
+      <WindMin value="0.0"/>
+      <WindMax value="0.0"/>
+      <Rain value="0.000000"/>
+      <Wetness value="0.000000"/>
+      <Snow value="0.000000"/>
+      <SnowMist value="0.000000"/>
+      <Fog value="0.000000"/>
+      <RippleBumpiness value="0.000000" />
+      <RippleMinBumpiness value="0.000000" />
+      <RippleMaxBumpiness value="0.000000" />
+      <RippleBumpinessWindScale value="0.000000" />
+      <RippleScale value="0.000000" />
+      <RippleSpeed value="00.000000" />
+      <RippleVelocityTransfer value="0.000000" />
+      <OceanBumpiness value="0.000000" />
+      <DeepOceanScale value="0.00000" />
+      <OceanNoiseMinAmplitude value="00.00000" />
+      <OceanWaveAmplitude value="0.000000" />
+      <ShoreWaveAmplitude value="0.000000" />
+      <OceanWaveWindScale value="0.000000" />
+      <ShoreWaveWindScale value="0.000000" />
+      <OceanWaveMinAmplitude value="0.000000" />
+      <ShoreWaveMinAmplitude value="0.000000" />
+      <OceanWaveMaxAmplitude value="00.00000" />
+      <ShoreWaveMaxAmplitude value="0.0000000" />
+      <OceanFoamIntensity value="0.000000" />
+      <OceanFoamScale value="0.000000" />
+      <RippleDisturb value="0.000000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <OldSettingName>-</OldSettingName>
+      <DropSettingName>-</DropSettingName>
+      <MistSettingName></MistSettingName>
+      <GroundSettingName>-</GroundSettingName>
+      <TimeCycleFilename>resources:/graphics/addon/w_color1.xml</TimeCycleFilename>
+      <CloudSettingsName>NOclouds</CloudSettingsName>
+    </Item>
+    <!-- SNOW (unsure) -->
+    <Item>
+      <Name>SNOW</Name>
+      <Sun value="0.2"/>
+      <Cloud value="0.900000"/>
+      <WindMin value="0.05"/>
+      <WindMax value="0.15"/>
+      <Rain value="0.000000"/>
+      <Snow value="0.500000"/>
+      <SnowMist value="0.100000"/>
+      <Fog value="0.500000"/>
+      <RippleBumpiness value="0.420000" />
+      <RippleMinBumpiness value="0.250000" />
+      <RippleMaxBumpiness value="0.500000" />
+      <RippleBumpinessWindScale value="0.500000" />
+      <RippleScale value="0.040000" />
+      <RippleSpeed value="20.000000" />
+      <RippleVelocityTransfer value="0.450000" />
+      <OceanBumpiness value="0.250000" />
+      <DeepOceanScale value="1.00000" />
+      <OceanNoiseMinAmplitude value="5.00000" />
+      <OceanWaveAmplitude value="0.500000" />
+      <ShoreWaveAmplitude value="1.800000" />
+      <OceanWaveWindScale value="0.700000" />
+      <ShoreWaveWindScale value="0.700000" />
+      <OceanWaveMinAmplitude value="0.000000" />
+      <ShoreWaveMinAmplitude value="0.000000" />
+      <OceanWaveMaxAmplitude value="0.500000" />
+      <ShoreWaveMaxAmplitude value="1.500000" />
+      <OceanFoamIntensity value="0.140000" />
+      <OceanFoamScale value="0.050000" />
+      <RippleDisturb value="0.050000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <DropSettingName>VFX_SNOW_HEAVY_DROP</DropSettingName>
+      <MistSettingName>-</MistSettingName>
+      <GroundSettingName>VFX_SNOW_HEAVY_GROUND</GroundSettingName>
+      <!--    <TimeCycleFilename platform="pc">COMMON:/DATA/TIMECYCLE/W_snow_PC.XML</TimeCycleFilename>
+    <TimeCycleFilename platform="!pc">COMMON:/DATA/TIMECYCLE/W_snow.XML</TimeCycleFilename>-->
+      <TimeCycleFilename>resources:/graphics/meta/w_snow.xml</TimeCycleFilename>
+      <CloudSettingsName>SNOWclouds</CloudSettingsName>
+    </Item>
+    <!-- RAIN (has sounds) -->
+    <Item>
+      <Name>RAIN</Name>
+      <Sun value="0.1"/>
+      <Cloud value="0.000000"/>
+      <WindMin value="0.4"/>
+      <WindMax value="1.0"/>
+      <Rain value="1.000000"/>
+      <Snow value="0.000000"/>
+      <SnowMist value="0.000000"/>
+      <Fog value="0.000000"/>
+      <RippleBumpiness value="0.420000" />
+      <RippleMinBumpiness value="0.250000" />
+      <RippleMaxBumpiness value="0.500000" />
+      <RippleBumpinessWindScale value="0.500000" />
+      <RippleScale value="0.040000" />
+      <RippleSpeed value="20.000000" />
+      <RippleVelocityTransfer value="0.450000" />
+      <OceanBumpiness value="0.250000" />
+      <DeepOceanScale value="4.46000" />
+      <OceanNoiseMinAmplitude value="20.55000" />
+      <OceanWaveAmplitude value="2.030000" />
+      <ShoreWaveAmplitude value="1.800000" />
+      <OceanWaveWindScale value="0.700000" />
+      <ShoreWaveWindScale value="0.700000" />
+      <OceanWaveMinAmplitude value="3.760000" />
+      <ShoreWaveMinAmplitude value="2.000000" />
+      <OceanWaveMaxAmplitude value="14.500000" />
+      <ShoreWaveMaxAmplitude value="1.500000" />
+      <OceanFoamIntensity value="0.140000" />
+      <OceanFoamScale value="0.050000" />
+      <RippleDisturb value="0.050000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <DropSettingName>RAINSTORM_DROP</DropSettingName>
+      <MistSettingName>RAINSTORM_MIST</MistSettingName>
+      <GroundSettingName>RAINSTORM_GROUND</GroundSettingName>
+      <!--    <TimeCycleFilename platform="pc">COMMON:/DATA/TIMECYCLE/W_RAIN_PC.XML</TimeCycleFilename>
+    <TimeCycleFilename platform="!pc">COMMON:/DATA/TIMECYCLE/W_RAIN.XML</TimeCycleFilename>-->
+      <TimeCycleFilename>resources:/graphics/meta/w_rain.xml</TimeCycleFilename>
+      <CloudSettingsName>HEAVYclouds</CloudSettingsName>
+    </Item>
+    <!-- THUNDER (has sounds) -->
+    <Item>
+      <Name>THUNDER</Name>
+      <Sun value="0.0"/>
+      <Cloud value="0.000000"/>
+      <WindMin value="0.7"/>
+      <WindMax value="1.0"/>
+      <Rain value="1.000000"/>
+      <Snow value="0.000000"/>
+      <SnowMist value="0.000000"/>
+      <Fog value="0.000000"/>
+      <RippleBumpiness value="0.420000" />
+      <RippleMinBumpiness value="0.250000" />
+      <RippleMaxBumpiness value="0.500000" />
+      <RippleBumpinessWindScale value="0.500000" />
+      <RippleScale value="0.040000" />
+      <RippleSpeed value="20.000000" />
+      <RippleVelocityTransfer value="0.450000" />
+      <OceanBumpiness value="0.250000" />
+      <DeepOceanScale value="4.46000" />
+      <OceanNoiseMinAmplitude value="20.55000" />
+      <OceanWaveAmplitude value="2.030000" />
+      <ShoreWaveAmplitude value="1.800000" />
+      <OceanWaveWindScale value="0.700000" />
+      <ShoreWaveWindScale value="0.700000" />
+      <OceanWaveMinAmplitude value="3.760000" />
+      <ShoreWaveMinAmplitude value="2.000000" />
+      <OceanWaveMaxAmplitude value="14.500000" />
+      <ShoreWaveMaxAmplitude value="1.500000" />
+      <OceanFoamIntensity value="0.140000" />
+      <OceanFoamScale value="0.050000" />
+      <RippleDisturb value="0.050000" />
+      <Lightning value="true"/>
+      <Sandstorm value="false"/>
+      <DropSettingName>THUNDER_DROP</DropSettingName>
+      <MistSettingName>THUNDER_MIST</MistSettingName>
+      <GroundSettingName>THUNDER_GROUND</GroundSettingName>
+      <!--    <TimeCycleFilename platform="pc">COMMON:/DATA/TIMECYCLE/W_THUNDER_PC.XML</TimeCycleFilename>
+    <TimeCycleFilename platform="!pc">COMMON:/DATA/TIMECYCLE/W_THUNDER.XML</TimeCycleFilename>-->
+      <TimeCycleFilename>resources:/graphics/meta/w_thunder.xml</TimeCycleFilename>
+      <CloudSettingsName>STORMclouds</CloudSettingsName>
+    </Item>
+    <!-- BLIZZARD (has sounds) -->
+    <Item>
+      <Name>BLIZZARD</Name>
+      <Sun value="0.0"/>
+      <Cloud value="1.000000"/>
+      <WindMin value="0.0"/>
+      <WindMax value="0.0"/>
+      <Rain value="0.000000"/>
+      <Wetness value="0.000000"/>
+      <Snow value="0.000000"/>
+      <SnowMist value="0.000000"/>
+      <Fog value="0.000000"/>
+      <RippleBumpiness value="0.000000" />
+      <RippleMinBumpiness value="0.000000" />
+      <RippleMaxBumpiness value="0.000000" />
+      <RippleBumpinessWindScale value="0.000000" />
+      <RippleScale value="0.000000" />
+      <RippleSpeed value="00.000000" />
+      <RippleVelocityTransfer value="0.000000" />
+      <OceanBumpiness value="0.000000" />
+      <DeepOceanScale value="0.00000" />
+      <OceanNoiseMinAmplitude value="00.00000" />
+      <OceanWaveAmplitude value="0.000000" />
+      <ShoreWaveAmplitude value="0.000000" />
+      <OceanWaveWindScale value="0.000000" />
+      <ShoreWaveWindScale value="0.000000" />
+      <OceanWaveMinAmplitude value="0.000000" />
+      <ShoreWaveMinAmplitude value="0.000000" />
+      <OceanWaveMaxAmplitude value="00.00000" />
+      <ShoreWaveMaxAmplitude value="0.0000000" />
+      <OceanFoamIntensity value="0.000000" />
+      <OceanFoamScale value="0.000000" />
+      <RippleDisturb value="0.000000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <OldSettingName>-</OldSettingName>
+      <DropSettingName>-</DropSettingName>
+      <MistSettingName>-</MistSettingName>
+      <GroundSettingName>-</GroundSettingName>
+      <TimeCycleFilename>resources:/graphics/meta/w_blizzard.xml</TimeCycleFilename>
+      <CloudSettingsName>MEDIUMclouds</CloudSettingsName>
+    </Item>
+    <!-- SNOWLIGHT (unsure) -->
+    <Item>
+      <Name>SNOWLIGHT</Name>
+      <Sun value="1.000000"/>
+      <Cloud value="0.000000"/>
+      <WindMin value="0.0"/>
+      <WindMax value="0.0"/>
+      <Rain value="0.000000"/>
+      <Snow value="0.300000"/>
+      <SnowMist value="0.20000"/>
+      <Fog value="0.000000"/>
+      <RippleBumpiness value="0.420000" />
+      <RippleMinBumpiness value="0.250000" />
+      <RippleMaxBumpiness value="0.500000" />
+      <RippleBumpinessWindScale value="0.500000" />
+      <RippleScale value="0.040000" />
+      <RippleSpeed value="20.000000" />
+      <RippleVelocityTransfer value="0.450000" />
+      <OceanBumpiness value="0.250000" />
+      <DeepOceanScale value="1.00000" />
+      <OceanNoiseMinAmplitude value="5.00000" />
+      <OceanWaveAmplitude value="0.500000" />
+      <ShoreWaveAmplitude value="1.800000" />
+      <OceanWaveWindScale value="0.700000" />
+      <ShoreWaveWindScale value="0.700000" />
+      <OceanWaveMinAmplitude value="0.000000" />
+      <ShoreWaveMinAmplitude value="0.000000" />
+      <OceanWaveMaxAmplitude value="0.500000" />
+      <ShoreWaveMaxAmplitude value="1.500000" />
+      <OceanFoamIntensity value="0.140000" />
+      <OceanFoamScale value="0.050000" />
+      <RippleDisturb value="0.050000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <DropSettingName>VFX_SNOW_LIGHT_DROP</DropSettingName>
+      <MistSettingName>-</MistSettingName>
+      <GroundSettingName>VFX_SNOW_HEAVY_GROUND</GroundSettingName>
+      <!--    <TimeCycleFilename platform="pc">COMMON:/DATA/TIMECYCLE/W_snow_PC.XML</TimeCycleFilename>
+    <TimeCycleFilename platform="!pc">COMMON:/DATA/TIMECYCLE/W_snow.XML</TimeCycleFilename>-->
+      <TimeCycleFilename>resources:/graphics/meta/W_snowlight.XML</TimeCycleFilename>
+      <CloudSettingsName>Default</CloudSettingsName>
+    </Item>
+    <!-- XMAS (unsure) -->
+    <Item>
+      <Name>XMAS</Name>
+      <Sun value="1.000000"/>
+      <Cloud value="0.000000"/>
+      <WindMin value="0.0"/>
+      <WindMax value="0.0"/>
+      <Rain value="0.000000"/>
+      <Snow value="0.300000"/>
+      <SnowMist value="0.000000"/>
+      <Fog value="0.000000"/>
+      <RippleBumpiness value="0.420000" />
+      <RippleMinBumpiness value="0.250000" />
+      <RippleMaxBumpiness value="0.500000" />
+      <RippleBumpinessWindScale value="0.500000" />
+      <RippleScale value="0.040000" />
+      <RippleSpeed value="20.000000" />
+      <RippleVelocityTransfer value="0.450000" />
+      <OceanBumpiness value="0.250000" />
+      <DeepOceanScale value="1.00000" />
+      <OceanNoiseMinAmplitude value="5.00000" />
+      <OceanWaveAmplitude value="0.500000" />
+      <ShoreWaveAmplitude value="1.800000" />
+      <OceanWaveWindScale value="0.700000" />
+      <ShoreWaveWindScale value="0.700000" />
+      <OceanWaveMinAmplitude value="0.000000" />
+      <ShoreWaveMinAmplitude value="0.000000" />
+      <OceanWaveMaxAmplitude value="0.500000" />
+      <ShoreWaveMaxAmplitude value="1.500000" />
+      <OceanFoamIntensity value="0.140000" />
+      <OceanFoamScale value="0.050000" />
+      <RippleDisturb value="0.050000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <DropSettingName>VFX_SNOW_LIGHT_DROP</DropSettingName>
+      <MistSettingName>-</MistSettingName>
+      <GroundSettingName>-</GroundSettingName>
+      <!--    <TimeCycleFilename platform="pc">COMMON:/DATA/TIMECYCLE/W_XMAS_PC.XML</TimeCycleFilename>
+  <TimeCycleFilename platform="!pc">COMMON:/DATA/TIMECYCLE/W_XMAS.XML</TimeCycleFilename>-->
+      <TimeCycleFilename>resources:/graphics/meta/W_XMAS.XML</TimeCycleFilename>
+      <CloudSettingsName>SNOWclouds</CloudSettingsName>
+    </Item>
+    <!-- HALLOWEN (has sounds) -->
+    <Item>
+      <Name>HALLOWEEN</Name>
+      <Sun value="0.0"/>
+      <Cloud value="0.000000"/>
+      <WindMin value="0.0"/>
+      <WindMax value="0.0"/>
+      <Rain value="0.000000"/>
+      <Snow value="0.000000"/>
+      <SnowMist value="0.000000"/>
+      <Fog value="0.000000"/>
+      <RippleBumpiness value="0.000000" />
+      <RippleMinBumpiness value="0.000000" />
+      <RippleMaxBumpiness value="0.000000" />
+      <RippleBumpinessWindScale value="0.000000" />
+      <RippleScale value="0.000000" />
+      <RippleSpeed value="0.000000" />
+      <RippleVelocityTransfer value="0.000000" />
+      <OceanBumpiness value="0.000000" />
+      <DeepOceanScale value="0.00000" />
+      <OceanNoiseMinAmplitude value="00.00000" />
+      <OceanWaveAmplitude value="0.000000" />
+      <ShoreWaveAmplitude value="0.000000" />
+      <OceanWaveWindScale value="0.000000" />
+      <ShoreWaveWindScale value="0.000000" />
+      <OceanWaveMinAmplitude value="0.000000" />
+      <ShoreWaveMinAmplitude value="0.000000" />
+      <OceanWaveMaxAmplitude value="0.00000" />
+      <ShoreWaveMaxAmplitude value="0.0000000" />
+      <OceanFoamIntensity value="0.00000" />
+      <OceanFoamScale value="0.00000" />
+      <RippleDisturb value="0.00000" />
+      <Lightning value="false"/>
+      <Sandstorm value="false"/>
+      <OldSettingName>-</OldSettingName>
+      <DropSettingName>-</DropSettingName>
+      <MistSettingName>-</MistSettingName>
+      <GroundSettingName>-</GroundSettingName>
+      <TimeCycleFilename>resources:/graphics/meta/w_halloween.xml</TimeCycleFilename>
+      <CloudSettingsName>LIGHTclouds</CloudSettingsName>
+    </Item>
+  </WeatherTypes>
+  <WeatherCycles>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2" />
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="4"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>FOGGY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="4"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>FOGGY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="4"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>THUNDER</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="4"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>RAIN</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>FOGGY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>FOGGY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>FOGGY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>FOGGY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="4"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>THUNDER</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEARING</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="4"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="4"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="5"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLEAR</CycleName>
+      <TimeMult value="4"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>OVERCAST</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>RAIN</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>THUNDER</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+    <Item>
+      <CycleName>RAIN</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>CLEARING</CycleName>
+      <TimeMult value="2"/>
+    </Item>
+    <Item>
+      <CycleName>CLOUDS</CycleName>
+      <TimeMult value="1"/>
+    </Item>
+    <Item>
+      <CycleName>EXTRASUNNY</CycleName>
+      <TimeMult value="4"/>
+    </Item>
+    <Item>
+      <CycleName>SMOG</CycleName>
+      <TimeMult value="3"/>
+    </Item>
+  </WeatherCycles>
+</CContentsOfWeatherXmlFile>
