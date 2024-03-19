@@ -746,33 +746,33 @@ RageUI.CreateWhile(
                             end
                         )
                     end
-                    -- if tXTRA.getStaffLevel() >= 2 then
-                    --     RageUI.ButtonWithStyle(
-                    --         "Offline Ban",
-                    --         "",
-                    --         {RightLabel = "→→→"},
-                    --         true,
-                    --         function(R, S, T)
-                    --             if T then
-                    --                 tXTRA.clientPrompt(
-                    --                     "Perm ID:",
-                    --                     "",
-                    --                     function(Y)
-                    --                         banningPermID = Y
-                    --                         banningName = "ID: " .. banningPermID
-                    --                         z = nil
-                    --                         o = {}
-                    --                         for y, Q in pairs(n) do
-                    --                             Q.itemchecked = false
-                    --                         end
-                    --                         TriggerServerEvent("XTRA:getNotes", banningPermID)
-                    --                     end
-                    --                 )
-                    --             end
-                    --         end,
-                    --         RMenu:Get("adminmenu", "notespreviewban")
-                    --     )
-                    -- end
+                    if tXTRA.getStaffLevel() >= 2 then
+                        RageUI.ButtonWithStyle(
+                            "Offline Ban",
+                            "",
+                            {RightLabel = "→→→"},
+                            true,
+                            function(R, S, T)
+                                if T then
+                                    tXTRA.clientPrompt(
+                                        "Perm ID:",
+                                        "",
+                                        function(Y)
+                                            banningPermID = Y
+                                            banningName = "ID: " .. banningPermID
+                                            z = nil
+                                            o = {}
+                                            for y, Q in pairs(n) do
+                                                Q.itemchecked = false
+                                            end
+                                            TriggerServerEvent("XTRA:getNotes", banningPermID)
+                                        end
+                                    )
+                                end
+                            end,
+                            RMenu:Get("adminmenu", "notespreviewban")
+                        )
+                    end
                     if tXTRA.getStaffLevel() >= 5 then
                         RageUI.ButtonWithStyle(
                             "TP To Waypoint",
@@ -800,19 +800,19 @@ RageUI.CreateWhile(
                             end
                         )
                     end
-                    -- if tXTRA.getStaffLevel() >= 5 then
-                    --     RageUI.ButtonWithStyle(
-                    --         "Unban",
-                    --         "",
-                    --         {RightLabel = "→→→"},
-                    --         true,
-                    --         function(R, S, T)
-                    --             if T then
-                    --                 TriggerServerEvent("XTRA:Unban")
-                    --             end
-                    --         end
-                    --     )
-                    -- end
+                    if tXTRA.getStaffLevel() >= 5 then
+                        RageUI.ButtonWithStyle(
+                            "Unban",
+                            "",
+                            {RightLabel = "→→→"},
+                            true,
+                            function(R, S, T)
+                                if T then
+                                    TriggerServerEvent("XTRA:Unban")
+                                end
+                            end
+                        )
+                    end
                     if tXTRA.getStaffLevel() >= 3 then
                         RageUI.ButtonWithStyle(
                             "Spawn Taxi",
@@ -837,19 +837,19 @@ RageUI.CreateWhile(
                         )
                     end
 
-                    -- if tXTRA.getStaffLevel() >= 10 then
-                    --     RageUI.ButtonWithStyle(
-                    --         "Commit Godly Wrath",
-                    --         "",
-                    --         {RightLabel = "→→→"},
-                    --         true,
-                    --         function(R, S, T)
-                    --             if T then
-                    --                 ExecuteCommand("theforce")
-                    --             end
-                    --         end
-                    --     )
-                    -- end
+                    if tXTRA.getStaffLevel() >= 10 then
+                        RageUI.ButtonWithStyle(
+                            "Commit Godly Wrath",
+                            "",
+                            {RightLabel = "→→→"},
+                            true,
+                            function(R, S, T)
+                                if T then
+                                    ExecuteCommand("theforce")
+                                end
+                            end
+                        )
+                    end
                     if tXTRA.getStaffLevel() >= 8 then
                         RageUI.ButtonWithStyle(
                             "Revive All Nearby",
@@ -899,23 +899,23 @@ RageUI.CreateWhile(
                         )
                     end
                     if tXTRA.getStaffLevel() >= 6 then
-                    --     local ac = ""
-                    --     if tXTRA.hasStaffBlips() then
-                    --         ac = "Turn off blips"
-                    --     else
-                    --         ac = "~g~Turn on blips"
-                    --     end
-                    --     RageUI.ButtonWithStyle(
-                    --         "Toggle Blips",
-                    --         ac,
-                    --         {RightLabel = "→→→"},
-                    --         true,
-                    --         function(R, S, T)
-                    --             if T then
-                    --                 tXTRA.staffBlips(not tXTRA.hasStaffBlips())
-                    --             end
-                    --         end
-                    --     )
+                        local ac = ""
+                        if tXTRA.hasStaffBlips() then
+                            ac = "Turn off blips"
+                        else
+                            ac = "~g~Turn on blips"
+                        end
+                        RageUI.ButtonWithStyle(
+                            "Toggle Blips",
+                            ac,
+                            {RightLabel = "→→→"},
+                            true,
+                            function(R, S, T)
+                                if T then
+                                    tXTRA.staffBlips(not tXTRA.hasStaffBlips())
+                                end
+                            end
+                        )
                         -- RageUI.ButtonWithStyle(
                         --     "Community Pot Menu",
                         --     "",
@@ -1518,25 +1518,25 @@ RageUI.CreateWhile(
                         )
                     end
                     if tXTRA.getStaffLevel() >= 2 then
-                    --     RageUI.ButtonWithStyle(
-                    --         "Ban Player",
-                    --         SelectedPlayer[1] .. " Perm ID: " .. SelectedPlayer[3] .. " Temp ID: " .. SelectedPlayer[2],
-                    --         {RightLabel = "→→→"},
-                    --         true,
-                    --         function(R, S, T)
-                    --             if T then
-                    --                 banningPermID = SelectedPlayer[3]
-                    --                 banningName = SelectedPlayer[1]
-                    --                 z = nil
-                    --                 TriggerServerEvent("XTRA:getNotes", SelectedPlayer[3])
-                    --                 o = {}
-                    --                 for y, Q in pairs(n) do
-                    --                     Q.itemchecked = false
-                    --                 end
-                    --             end
-                    --         end,
-                    --         RMenu:Get("adminmenu", "notespreviewban")
-                    --     )
+                        RageUI.ButtonWithStyle(
+                            "Ban Player",
+                            SelectedPlayer[1] .. " Perm ID: " .. SelectedPlayer[3] .. " Temp ID: " .. SelectedPlayer[2],
+                            {RightLabel = "→→→"},
+                            true,
+                            function(R, S, T)
+                                if T then
+                                    banningPermID = SelectedPlayer[3]
+                                    banningName = SelectedPlayer[1]
+                                    z = nil
+                                    TriggerServerEvent("XTRA:getNotes", SelectedPlayer[3])
+                                    o = {}
+                                    for y, Q in pairs(n) do
+                                        Q.itemchecked = false
+                                    end
+                                end
+                            end,
+                            RMenu:Get("adminmenu", "notespreviewban")
+                        )
                         RageUI.ButtonWithStyle(
                             "Spectate Player",
                             SelectedPlayer[1] .. " Perm ID: " .. SelectedPlayer[3] .. " Temp ID: " .. SelectedPlayer[2],

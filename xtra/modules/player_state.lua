@@ -146,9 +146,9 @@ AddEventHandler("XTRA:playerSpawn", function(user_id, source, first_spawn)
 
             local adminlevel = 0
             if XTRA.hasGroup(user_id,"Founder") then
-                adminlevel = 13
-            elseif XTRA.hasGroup(user_id,"Lead Developer") or XTRA.hasGroup(user_id,"Developer") then
                 adminlevel = 12
+            elseif XTRA.hasGroup(user_id,"Lead Developer") or XTRA.hasGroup(user_id,"Developer") then
+                adminlevel = 11
             elseif XTRA.hasGroup(user_id,"Community Manager") then
                 adminlevel = 10
             elseif XTRA.hasGroup(user_id,"Staff Manager") then    
