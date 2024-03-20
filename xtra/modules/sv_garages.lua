@@ -41,8 +41,8 @@ end)
 RegisterServerEvent('phone:garage:getVehicles')
 AddEventHandler('phone:garage:getVehicles', function()
     local source = source
-    local user_id = BTF.getUserId(source)
-    MySQL.query("BTF/get_vehicles", {user_id = user_id}, function(result)
+    local user_id = XTRA.getUserId(source)
+    MySQL.query("XTRA/get_vehicles", {user_id = user_id}, function(result)
         if result then 
             local vehicles = {}
             for i, vehicle in ipairs(result) do
