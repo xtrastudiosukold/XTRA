@@ -38,6 +38,23 @@ AddEventHandler('XTRA:spawnPersonalVehicle', function(vehicle)
     end)
 end)
 
+RegisterServerEvent('phone:garage:getVehicles')
+AddEventHandler('phone:garage:getVehicles', function()
+    local source = source
+    local user_id = BTF.getUserId(source)
+    MySQL.query("BTF/get_vehicles", {user_id = user_id}, function(result)
+        if result then 
+            local vehicles = {}
+            for i, vehicle in ipairs(result) do
+                vehicles[i] = {model = vehicle.vehicle, plate = vehicle.vehicle_plate}
+            end
+
+            TriggerClientEvent('phone:garage:receiveVehicles', source, vehicles)
+        end
+    end)
+end)
+
+
 valetCooldown = {}
 RegisterServerEvent("XTRA:valetSpawnVehicle")
 AddEventHandler('XTRA:valetSpawnVehicle', function(spawncode)

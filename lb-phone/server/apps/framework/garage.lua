@@ -10,8 +10,11 @@ local function IsVehicleOut(plate, vehicles)
 
     for i = 1, #vehicles do
         local vehicle = vehicles[i]
-        if DoesEntityExist(vehicle) and GetVehicleNumberPlateText(vehicle):gsub("%s+", "") == plate:gsub("%s+", "") then
-            return true, vehicle
+        if DoesEntityExist(vehicle) then
+            local vehiclePlate = GetVehicleNumberPlateText(vehicle):gsub("%s+", "")
+            if vehiclePlate == plate:gsub("%s+", "") then
+                return true, vehicle
+            end
         end
     end
 
@@ -94,30 +97,6 @@ lib.RegisterCallback("phone:garage:valetVehicle", function(source, cb, plate, co
         title = L("BACKEND.GARAGE.VALET"),
         content = L("BACKEND.GARAGE.ON_WAY"),
     })
-
-    if Config.ServerSideSpawn then
-        local vehicle = CreateServerVehicle(vehicleData.model, coords, heading)
-        if not vehicle then
-            AddMoney(source, Config.Valet.Price)
-            debugprint("Failed to create vehicle")
-            return cb()
-        end
-
-        vehicleData.vehNetId = NetworkGetNetworkIdFromEntity(vehicle)
-
-        if Config.Valet.Drive then
-            ---@diagnostic disable-next-line: param-type-mismatch
-            local ped = CreateServerPed(Config.Valet.Model, coords + vector3(0.0, 1.0, 1.0), heading)
-            if not ped then
-                AddMoney(source, Config.Valet.Price)
-                DeleteEntity(vehicle)
-                debugprint("Failed to create ped")
-                return cb()
-            end
-
-            vehicleData.pedNetId = NetworkGetNetworkIdFromEntity(ped)
-        end
-    end
 
     cb(vehicleData)
 end)

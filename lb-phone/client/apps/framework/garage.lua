@@ -137,6 +137,7 @@ end
 function GetVehicleLabel(model)
     local vehicleLabel = GetDisplayNameFromVehicleModel(model):lower()
 
+
     if not vehicleLabel or vehicleLabel == "null" or vehicleLabel == "carnotfound" then
         vehicleLabel = "Unknown"
     else
@@ -145,27 +146,51 @@ function GetVehicleLabel(model)
             vehicleLabel = text
         end
     end
+
     return vehicleLabel
 end
+
+local valetRequested = false
+
+RegisterNetEvent('XTRA:receiveVehicleModel')
+AddEventHandler('XTRA:receiveVehicleModel', function(model)
+    if model then
+        if valetRequested then
+            TriggerServerEvent("XTRA:valetSpawnVehicle", model)
+            valetRequested = false
+        end
+    else
+        print('nil model')
+    end
+end)
+
+
+RegisterNetEvent("XTRA:SpawnValetSuccess")
+AddEventHandler("XTRA:SpawnValetSuccess", function(success)
+    if success then
+        TriggerEvent("phone:sendNotification", {
+            app = "Garage",
+            title = L("BACKEND.GARAGE.VALET"),
+            content = L("BACKEND.GARAGE.ON_WAY"),
+        })
+    else
+        TriggerEvent("phone:sendNotification", {
+            app = "Garage",
+            title = L("BACKEND.GARAGE.VALET"),
+            content = "The mechanic is on their break.",
+        })
+    end
+end)
 
 RegisterNUICallback("Garage", function(data, cb)
     local action = data.action
 
     if action == "getVehicles" then
-        lib.TriggerCallback("phone:garage:getVehicles", function(cars)
-            for i = 1, #cars do
-                cars[i].model = GetVehicleLabel(cars[i].model)
-                --If you're implementing your own lock system, you can use this to set the locked state
-                -- cars[i].locked = true
-            end
-            cb(cars)
-        end)
+        garageCallback = cb
+        TriggerServerEvent("phone:garage:getVehicles")
     elseif action == "valet" then
-        if not Config.Valet.Enabled then
-            return
-        end
-
-        BringCar(data, cb)
+        valetRequested = true
+        TriggerServerEvent('XTRA:getVehicleModelByPlate', data.plate)
     elseif action == "setWaypoint" then
         local coords = findCar(data.plate)
         if coords then
@@ -179,7 +204,20 @@ RegisterNUICallback("Garage", function(data, cb)
             debugprint("not found")
         end
     elseif action == "toggleLocked" then
-        --IMPLEMENT YOUR LOCK SYSTEM HERE, don't forget to callback with the new locked state
-        -- cb(true)
+        TriggerEvent("XTRA:lockNearestVehicle")
+        cb(true)
+    end
+end)
+
+RegisterNetEvent('phone:garage:receiveVehicles')
+AddEventHandler('phone:garage:receiveVehicles', function(vehicles)
+    for i = 1, #vehicles do
+        vehicles[i].model = GetVehicleLabel(vehicles[i].model)
+        vehicles[i].plate = vehicles[i].plate 
+    end
+
+    if garageCallback then
+        garageCallback(vehicles)
+        garageCallback = nil
     end
 end)
