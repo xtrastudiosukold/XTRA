@@ -1,15 +1,11 @@
-local f = module("xtra-vehicles", "cfg/weapons")
+local f = module("cfg/weapons")
 f = f.weapons
 illegalWeapons = f.nativeWeaponModelsToNames
 
 local function getWeaponName(weapon)
     for k,v in pairs(f) do
         if weapon == 'Mosin Nagant' then
-            return 'Heavy'
-        elseif weapon == 'Nerf Mosin' then
-            return 'Heavy'
-        elseif weapon == 'CB Mosin' then
-            return 'Heavy'
+            return 'Mosin'
         elseif weapon == 'Fists' then
             return 'Fist'
         elseif weapon == 'Fire' then
