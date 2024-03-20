@@ -20,9 +20,9 @@ end)
 -- Command: Play a song
 RegisterCommand("play", function(source, args, rawCommand)
     local user_id = XTRA.getUserId(source)
-    if XTRA.hasGroup(user_id, "DJ") and XTRA.GetPlayTime(user_id) <= 50 and #args > 0 then
+    if XTRA.hasGroup(user_id, "DJ") and XTRA.GetPlayTime(user_id) >= 50 and #args > 0 then
         TriggerClientEvent('XTRA:finaliseSong', source, args[1])
-    elseif XTRA.GetPlayTime(user_id) <= 50 then
+    elseif XTRA.GetPlayTime(user_id) <= 49 then
         XTRAclient.notify(user_id,{"~r~You do not meet the hour requirements to use the DJ Licence"})
     end
 end)
