@@ -439,13 +439,7 @@ client.on('message', (message) => {
     }
     if (cmd) {
         if (message.guild.id === cmd.conf.guild) {
-            if (!message.channel.name.includes('verify') && cmd.conf.name === 'verify'){
-                message.delete()
-                message.reply('Please use <#1195851569938321423> for this command.').then(msg => {
-                    msg.delete(5000)
-                })
-                return
-            }else if (!message.channel.name.includes('commands') && !message.channel.name.includes('verify') && !message.channel.name.includes('staff') && !message.member.roles.has("1195851569510490250")) {
+         if (!message.channel.name.includes('commands') && !message.channel.name.includes('verify') && !message.channel.name.includes('staff') && !message.member.roles.has("1195851569510490250")) {
                 message.delete()
                 message.reply('Please use <#1195851570189971551> for this command.').then(msg => {
                     msg.delete(5000)
