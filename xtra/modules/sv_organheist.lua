@@ -134,30 +134,6 @@ end)
 
 
 
--- TP Organ Server Event
-RegisterServerEvent("XTRA:TPToOrganHeist")
-AddEventHandler("XTRA:TPToOrganHeist", function()
-    if inWaitingStage then
-        local source = source
-        XTRAclient.notify(source, {'~g~You are being teleported to the Organ Heist. Please wait for a moment...'})
-        Citizen.Wait(5000)
-        XTRAclient.notify(source, {'~g~You have been teleported to the Organ Heist.'})
-        XTRAclient.teleport(source, vector3(232.5415802002,-1388.8203125,30.464513778687))
-    else
-        XTRAclient.notify(source, {'~r~Organ Heist has not started yet.'})
-    end
-end)
-
-
-
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(30000)
-        if inWaitingStage then
-            XTRAclient.notify(-1, {'~g~Organ Heist Has Started! Type /tporgan to go to organ!'})
-        end
-    end
-end)
 
 
 
