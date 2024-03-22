@@ -76,6 +76,9 @@ Citizen.CreateThread(function()
                 if radioCreated[user_id] == nil and XTRA.getInventoryItemAmount(user_id, 'civilian_radio') >= 1 then
                     createRadio(player)
                     radioCreated[user_id] = true
+                elseif radioCreated[user_id] and XTRA.getInventoryItemAmount(user_id, 'civilian_radio') < 1 then
+                    removeRadio(player)
+                    radioCreated[user_id] = nil
                 end
             end
         end
