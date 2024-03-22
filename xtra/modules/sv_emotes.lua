@@ -78,6 +78,7 @@ Citizen.CreateThread(function()
                     radioCreated[user_id] = true
                 elseif radioCreated[user_id] and XTRA.getInventoryItemAmount(user_id, 'civilian_radio') < 1 then
                     removeRadio(player)
+                    TriggerClientEvent('XTRA:radiosClearAll', player)
                     radioCreated[user_id] = nil
                 end
             end
