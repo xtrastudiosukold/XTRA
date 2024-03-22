@@ -71,6 +71,7 @@ local hasRadio = {}
 function XTRA.hasCivRadio(user_id)
     if XTRA.getInventoryItemAmount(user_id, 'civilian_radio') >= 1 then
         hasRadio[user_id] = true
+        createRadio(source)
         print('Has Radio ID: ' .. user_id)
     else
         if hasRadio[user_id] then
@@ -85,7 +86,7 @@ Citizen.CreateThread(function()
     while true do
         for _, player in ipairs(GetPlayers()) do
             local user_id = XTRA.getUserId(player)
-            if user_id then
+            if user_id and not hasRadio[user_id] then
                 XTRA.hasCivRadio(user_id)
             end
         end
