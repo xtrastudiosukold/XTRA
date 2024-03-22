@@ -380,6 +380,8 @@ AddEventHandler('XTRA:UseItem', function(itemId, itemLoc)
                     XTRA.handcuffKeys(source)
                 elseif itemId == "armourplate" then 
                     XTRA.ArmourPlate(source)
+                elseif itemId == "civilian_radio" then 
+                    XTRA.hasCivRadio(source)
                 end
                 TriggerEvent('XTRA:RefreshInventory', source)
             end

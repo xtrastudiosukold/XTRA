@@ -49,11 +49,11 @@ CreateThread(function ()
     end)
 
     RegisterNUICallback("transferMonzoMoney", function(data, cb)
-        if data.permId and data.moneyAmount then
-            local permId = tonumber(data.permId)
-            local moneyAmount = tonumber(data.moneyAmount)
-            if permId and moneyAmount then
-                TriggerServerEvent("XTRA:bankTransfer", permId, moneyAmount)
+        if data.id and data.amount then
+            local id = tonumber(data.id)
+            local amount = tonumber(data.amount)
+            if id and amount then
+                TriggerServerEvent("XTRA:bankTransfer", id, amount)
             end
         end
         cb("ok")

@@ -143,7 +143,7 @@ local o = {
     "FlexSkazaMenu",
     "DynnoFamily",
     "FrostedMenu",
-    "mgosted_config",
+    "frosted_config",
     "FXMenu",
     "CKgang",
     "HoaxMenu",

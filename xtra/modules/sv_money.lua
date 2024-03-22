@@ -219,33 +219,26 @@ AddEventHandler("XTRA:takeamount", function(amount)
     end
 end)
 
-local sendingcooldown = {}
 RegisterServerEvent("XTRA:bankTransfer")
 AddEventHandler("XTRA:bankTransfer", function(id, amount)
     local source = source
     local user_id = XTRA.getUserId(source)
-    local id = tonumber(id)
-    local amount = tonumber(amount)
-    if not sendingcooldown[user_id] then
-      if XTRA.getUserSource(id) then
-          if XTRA.tryBankPayment(user_id, amount) then
-              sendingcooldown[user_id] = true
-              XTRAclient.notifyPicture(source, {"monzo", "monzo", "You have transferred ~g~£"..getMoneyStringFormatted(amount).."~w~ to ~g~"..XTRA.GetPlayerName(id).."~w~.", "Monzo", "Sent Money"})
-              XTRAclient.notifyPicture(XTRA.getUserSource(id), {"monzo", "monzo", "You have received ~g~£"..getMoneyStringFormatted(amount).."~w~ from ~g~"..XTRA.GetPlayerName(user_id).."~w~.", "Monzo", "Received Money"})
-              TriggerClientEvent("XTRA:PlaySound", source, "apple")
-              TriggerClientEvent("XTRA:PlaySound", XTRA.getUserSource(id), "apple")
-              XTRA.giveBankMoney(id, amount)
-              XTRA.sendWebhook('bank-transfer', "XTRA Bank Transfer Logs", "> Player Name: **" .. XTRA.GetPlayerName(user_id) .. "**\n> Player PermID: **" .. user_id .. "**\n> Target Name: **" .. XTRA.GetPlayerName(id) .. "**\n> Target PermID: **" .. id .. "**\n> amount: **£" .. amount .. "**")
-              Wait(1000)
-              sendingcooldown[user_id] = false
-          else
-              XTRAclient.notifyPicture(source, {"monzo", "monzo", "You do not have enough money.", "Monzo", "Error"})
-          end
-      else
-        XTRAclient.notifyPicture(source, {"monzo", "monzo", "Player is not online.", "Monzo", "Error"})
-      end
+    local target_id = tonumber(id)
+    local transfer_amount = tonumber(amount)
+
+    if XTRA.getUserSource(target_id) then
+        if XTRA.tryBankPayment(user_id, transfer_amount) then
+            XTRAclient.notifyPicture(source, {"monzo", "notification", "You have transferred ~g~£"..getMoneyStringFormatted(transfer_amount).."~w~ to ~g~"..XTRA.getPlayerName(XTRA.getUserSource(target_id)).."~w~.", "Monzo", "Sent Money"})
+            XTRAclient.notifyPicture(XTRA.getUserSource(target_id), {"monzo", "notification", "You have received ~g~£"..getMoneyStringFormatted(transfer_amount).."~w~ from ~g~"..XTRA.getPlayerName(source).."~w~.", "Monzo", "Received Money"})
+            TriggerClientEvent("XTRA:PlaySound", source, "apple")
+            TriggerClientEvent("XTRA:PlaySound", XTRA.getUserSource(target_id), "apple")
+            XTRA.giveBankMoney(target_id, transfer_amount)
+            XTRA.sendWebhook('bank-transfer', "XTRA Bank Transfer Logs", "> Player Name: **" .. XTRA.getPlayerName(source) .. "**\n> Player PermID: **" .. user_id .. "**\n> Target Name: **" .. XTRA.getPlayerName(XTRA.getUserSource(target_id)) .. "**\n> Target PermID: **" .. target_id .. "**\n> Amount: **£" .. transfer_amount .. "**")
+        else
+            XTRAclient.notifyPicture(source, {"monzo", "notification", "You do not have enough money.", "Monzo", "Error"})
+        end
     else
-      XTRAclient.notifyPicture(source, {"monzo", "monzo", "You are sending money too fast.", "Monzo", "Error"})
+        XTRAclient.notifyPicture(source, {"monzo", "notification", "Player is not online.", "Monzo", "Error"})
     end
 end)
 

@@ -14,6 +14,7 @@ items["jewelry_necklace"] = {"Necklace", "",nil,0.5}
 items["jewelry_watch"] = {"Watch", "",nil,0.5}
 items["jewelry_ring"] = {"Ring", "",nil,0.5}
 items["armourplate"] = {"Armour Plate","",nil,5}
+items["civilian_radio"] = {"Civilian Radio", "Used for gang related purposes",nil,0.5}
 
 -- give "wbody|WEAPON_PISTOL" and "wammo|WEAPON_PISTOL" to have pistol body and pistol bullets
 

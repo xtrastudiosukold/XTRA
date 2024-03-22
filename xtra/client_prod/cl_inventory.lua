@@ -50,7 +50,7 @@ local function u()
                     TriggerEvent("XTRA:clCloseTrunk")
                 end
                 inventoryType = nil
-                FRSecondItemList = {}
+                XTRASecondItemList = {}
             end
         else
             tXTRA.notify("~r~Cannot open inventory right before a restart!")
@@ -71,7 +71,7 @@ Citizen.CreateThread(
 )
 local v = {}
 local w = 0
-local FRSecondItemList = {}
+local XTRASecondItemList = {}
 local x = 0
 local y = 14
 function tXTRA.getSpaceInFirstChest()
@@ -79,10 +79,10 @@ function tXTRA.getSpaceInFirstChest()
 end
 function tXTRA.getSpaceInSecondChest()
     local z = 0
-    if next(FRSecondItemList) == nil then
+    if next(XTRASecondItemList) == nil then
         return e
     else
-        for u, w in pairs(FRSecondItemList) do
+        for u, w in pairs(XTRASecondItemList) do
             z = z + w.amount * w.Weight
         end
         return e - z
@@ -103,7 +103,7 @@ RegisterNetEvent(
             r = E
             inventoryType = "CarBoot"
         end
-        FRSecondItemList = x
+        XTRASecondItemList = x
         e = D
         c = true
         drawInventoryUI = true
@@ -127,7 +127,7 @@ RegisterNetEvent("XTRA:CloseToRestart", function(x)
     TriggerServerEvent("XTRA:CloseToRestarting")
     Citizen.CreateThread(function()
         while true do
-            FRSecondItemList = {}
+            XTRASecondItemList = {}
             c = false
             drawInventoryUI = false
             setCursor(0)
@@ -138,7 +138,7 @@ end)
 RegisterNetEvent(
     "XTRA:closeSecondInventory",
     function()
-        FRSecondItemList = {}
+        XTRASecondItemList = {}
         c = false
         drawInventoryUI = false
         g = nil
@@ -154,7 +154,7 @@ AddEventHandler(
         setCursor(0)
         f = nil
         inGUIXTRA = false
-        FRSecondItemList = {}
+        XTRASecondItemList = {}
     end
 )
 AddEventHandler(
@@ -333,10 +333,10 @@ Citizen.CreateThread(function()
                     local V = 0.026
                     local W = 0
                     local X = 0
-                    for Y, Z in pairs(sortAlphabetically(FRSecondItemList)) do
+                    for Y, Z in pairs(sortAlphabetically(XTRASecondItemList)) do
                         X = X + Z["value"].amount * Z["value"].Weight
                     end
-                    local _ = L(FRSecondItemList, x)
+                    local _ = L(XTRASecondItemList, x)
                     if #_ == 0 then
                         x = 0
                     end
@@ -431,13 +431,13 @@ Citizen.CreateThread(function()
                             0
                         )
                     end
-                    if table.count(FRSecondItemList) > y then
+                    if table.count(XTRASecondItemList) > y then
                         DrawAdvancedText(0.84, 0.742, 0.005, 0.0008, 0.4, "Next", 255, 255, 255, 255, 6, 0)
                         if
                             CursorInArea(0.735, 0.755, 0.72, 0.76) and
                                 (IsControlJustPressed(1, 329) or IsDisabledControlJustPressed(1, 329))
                          then
-                            local T = math.floor(table.count(FRSecondItemList) / y)
+                            local T = math.floor(table.count(XTRASecondItemList) / y)
                             x = math.min(x + 1, T)
                         end
                         DrawAdvancedText(0.661, 0.742, 0.005, 0.0008, 0.4, "Previous", 255, 255, 255, 255, 6, 0)
@@ -971,7 +971,7 @@ Citizen.CreateThread(
     function()
         while true do
             if GetEntityHealth(tXTRA.getPlayerPed()) <= 102 then
-                FRSecondItemList = {}
+                XTRASecondItemList = {}
                 c = false
                 drawInventoryUI = false
                 inGUIXTRA = false
@@ -1052,7 +1052,7 @@ AddEventHandler(
         else
             drawInventoryUI = false
             setCursor(0)
-            FRSecondItemList = {}
+            XTRASecondItemList = {}
             inGUIXTRA = false
             inventoryType = nil
             local aa = PlayerPedId()

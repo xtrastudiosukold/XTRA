@@ -830,7 +830,7 @@ RegisterServerEvent(
                         if tostring(user_id) == A then
                             for C, D in pairs(gangmembers) do
                                 local temp = XTRA.getUserSource(tonumber(C))
-                                if temp ~= nil then
+                                if temp ~= nil and hasRadio ~= true then
                                     TriggerClientEvent("XTRA:drawGangMarker", temp, XTRA.GetPlayerName(user_id), coords)
                                 end
                             end

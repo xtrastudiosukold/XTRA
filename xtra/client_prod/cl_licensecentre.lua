@@ -1,7 +1,7 @@
 licensecentre = module("cfg/cfg_licensecentre")
 local a = {}
 RMenu.Add(
-    "mglicenses",
+    "xtralicenses",
     "main",
     RageUI.CreateMenu(
         "",
@@ -13,15 +13,15 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mglicenses",
+    "xtralicenses",
     "ownedlicenses",
-    RageUI.CreateSubMenu(RMenu:Get("mglicenses", "main", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight()))
+    RageUI.CreateSubMenu(RMenu:Get("xtralicenses", "main", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight()))
 )
 RMenu.Add(
-    "mglicenses",
+    "xtralicenses",
     "buyconfirm",
     RageUI.CreateSubMenu(
-        RMenu:Get("mglicenses", "main"),
+        RMenu:Get("xtralicenses", "main"),
         "",
         "Are you sure?",
         tXTRA.getRageUIMenuWidth(),
@@ -29,10 +29,10 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mglicenses",
+    "xtralicenses",
     "refundconfirm",
     RageUI.CreateSubMenu(
-        RMenu:Get("mglicenses", "ownedlicenses"),
+        RMenu:Get("xtralicenses", "ownedlicenses"),
         "",
         "Are you sure?",
         tXTRA.getRageUIMenuWidth(),
@@ -44,7 +44,7 @@ RageUI.CreateWhile(
     nil,
     function()
         RageUI.IsVisible(
-            RMenu:Get("mglicenses", "main"),
+            RMenu:Get("xtralicenses", "main"),
             true,
             false,
             true,
@@ -56,7 +56,7 @@ RageUI.CreateWhile(
                     true,
                     function(b, c, d)
                     end,
-                    RMenu:Get("mglicenses", "ownedlicenses")
+                    RMenu:Get("xtralicenses", "ownedlicenses")
                 )
                 for e, f in pairs(licensecentre.licenses) do
                     local g = not a[f.name]
@@ -71,7 +71,7 @@ RageUI.CreateWhile(
                                 cName = f.name
                             end
                         end,
-                        RMenu:Get("mglicenses", "buyconfirm")
+                        RMenu:Get("xtralicenses", "buyconfirm")
                     )
                 end
             end,
@@ -79,7 +79,7 @@ RageUI.CreateWhile(
             end
         )
         RageUI.IsVisible(
-            RMenu:Get("mglicenses", "buyconfirm"),
+            RMenu:Get("xtralicenses", "buyconfirm"),
             true,
             true,
             true,
@@ -102,7 +102,7 @@ RageUI.CreateWhile(
                                     TriggerServerEvent("XTRA:buyLicense", cGroup, cName)
                                 end
                             end,
-                            RMenu:Get("mglicenses", "main")
+                            RMenu:Get("xtralicenses", "main")
                         )
                         RageUI.ButtonWithStyle(
                             "Decline",
@@ -111,7 +111,7 @@ RageUI.CreateWhile(
                             true,
                             function(b, c, d)
                             end,
-                            RMenu:Get("mglicenses", "main")
+                            RMenu:Get("xtralicenses", "main")
                         )
                     end
                 end
@@ -120,7 +120,7 @@ RageUI.CreateWhile(
             end
         )
         RageUI.IsVisible(
-            RMenu:Get("mglicenses", "ownedlicenses"),
+            RMenu:Get("xtralicenses", "ownedlicenses"),
             true,
             true,
             true,
@@ -139,7 +139,7 @@ RageUI.CreateWhile(
                                     cName = f.name
                                 end
                             end,
-                            RMenu:Get("mglicenses", "refundconfirm")
+                            RMenu:Get("xtralicenses", "refundconfirm")
                         )
                     end
                 end
@@ -148,7 +148,7 @@ RageUI.CreateWhile(
             end
         )
         RageUI.IsVisible(
-            RMenu:Get("mglicenses", "refundconfirm"),
+            RMenu:Get("xtralicenses", "refundconfirm"),
             true,
             true,
             true,
@@ -166,7 +166,7 @@ RageUI.CreateWhile(
                                     TriggerServerEvent("XTRA:refundLicense", cGroup, cName)
                                 end
                             end,
-                            RMenu:Get("mglicenses", "ownedlicenses")
+                            RMenu:Get("xtralicenses", "ownedlicenses")
                         )
                         RageUI.ButtonWithStyle(
                             "Decline",
@@ -175,7 +175,7 @@ RageUI.CreateWhile(
                             true,
                             function(b, c, d)
                             end,
-                            RMenu:Get("mglicenses", "ownedlicenses")
+                            RMenu:Get("xtralicenses", "ownedlicenses")
                         )
                     end
                 end
@@ -192,17 +192,17 @@ AddEventHandler(
             local m = function(n)
             end
             local o = function(n)
-                RageUI.Visible(RMenu:Get("mglicenses", "main"), false)
-                RageUI.Visible(RMenu:Get("mglicenses", "ownedlicenses"), false)
-                RageUI.Visible(RMenu:Get("mglicenses", "buyconfirm"), false)
-                RageUI.Visible(RMenu:Get("mglicenses", "refundconfirm"), false)
+                RageUI.Visible(RMenu:Get("xtralicenses", "main"), false)
+                RageUI.Visible(RMenu:Get("xtralicenses", "ownedlicenses"), false)
+                RageUI.Visible(RMenu:Get("xtralicenses", "buyconfirm"), false)
+                RageUI.Visible(RMenu:Get("xtralicenses", "refundconfirm"), false)
                 RageUI.CloseAll()
             end
             local p = function(n)
                 if IsControlJustPressed(1, 38) then
                     TriggerServerEvent("XTRA:getOwnedLicenses")
                     Wait(500)
-                    RageUI.Visible(RMenu:Get("mglicenses", "main"), not RageUI.Visible(RMenu:Get("mglicenses", "main")))
+                    RageUI.Visible(RMenu:Get("xtralicenses", "main"), not RageUI.Visible(RMenu:Get("xtralicenses", "main")))
                 end
                 local i, q, r = table.unpack(GetFinalRenderedCamCoord())
                 DrawText3D(

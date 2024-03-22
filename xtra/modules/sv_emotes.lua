@@ -65,3 +65,30 @@ function XTRA.ShaveHead(source)
         end)
     end
 end
+
+local hasRadio = {}
+
+function XTRA.hasCivRadio(user_id)
+    if XTRA.getInventoryItemAmount(user_id, 'civilian_radio') >= 1 then
+        hasRadio[user_id] = true
+        print('Has Radio ID: ' .. user_id)
+    else
+        if hasRadio[user_id] then
+            hasRadio[user_id] = nil
+        end
+        print('Hasnt Radio ID: ' .. user_id)
+    end
+    return hasRadio[user_id]
+end
+
+Citizen.CreateThread(function()
+    while true do
+        for _, player in ipairs(GetPlayers()) do
+            local user_id = XTRA.getUserId(player)
+            if user_id then
+                XTRA.hasCivRadio(user_id)
+            end
+        end
+        Citizen.Wait(1000)
+    end
+end)

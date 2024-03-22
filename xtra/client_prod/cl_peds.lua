@@ -1,5 +1,5 @@
 RMenu.Add(
-    "mgpedsmenu",
+    "xtrapedsmenu",
     "main",
     RageUI.CreateMenu("XTRA Peds", "XTRA Peds Menu", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight())
 )
@@ -18,7 +18,7 @@ RageUI.CreateWhile(
     1.0,
     true,
     function()
-        if RageUI.Visible(RMenu:Get("mgpedsmenu", "main")) then
+        if RageUI.Visible(RMenu:Get("xtrapedsmenu", "main")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = false},
                 function()
@@ -58,7 +58,7 @@ RageUI.CreateWhile(
     end
 )
 function showPedsMenu(p)
-    RageUI.Visible(RMenu:Get("mgpedsmenu", "main"), p)
+    RageUI.Visible(RMenu:Get("xtrapedsmenu", "main"), p)
 end
 function spawnPed(q)
     local r = tXTRA.getPlayerPed()

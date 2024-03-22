@@ -1,5 +1,5 @@
 RMenu.Add(
-    "mgscenemenu",
+    "xtrascenemenu",
     "main",
     RageUI.CreateMenu(
         "",
@@ -11,10 +11,10 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mgscenemenu",
+    "xtrascenemenu",
     "objects",
     RageUI.CreateSubMenu(
-        RMenu:Get("mgscenemenu", "main"),
+        RMenu:Get("xtrascenemenu", "main"),
         "",
         "~b~Spawn Objects",
         tXTRA.getRageUIMenuWidth(),
@@ -24,10 +24,10 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mgscenemenu",
+    "xtrascenemenu",
     "speedZone",
     RageUI.CreateSubMenu(
-        RMenu:Get("mgscenemenu", "main"),
+        RMenu:Get("xtrascenemenu", "main"),
         "",
         "~b~Set a speed zone",
         tXTRA.getRageUIMenuWidth(),
@@ -37,10 +37,10 @@ RMenu.Add(
     )
 )
 RMenu.Add(
-    "mgscenemenu",
+    "xtrascenemenu",
     "spikes",
     RageUI.CreateSubMenu(
-        RMenu:Get("mgscenemenu", "main"),
+        RMenu:Get("xtrascenemenu", "main"),
         "",
         "~b~Set a spike trap",
         tXTRA.getRageUIMenuWidth(),
@@ -130,7 +130,7 @@ RageUI.CreateWhile(
     1.0,
     true,
     function()
-        if RageUI.Visible(RMenu:Get("mgscenemenu", "main")) then
+        if RageUI.Visible(RMenu:Get("xtrascenemenu", "main")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = false},
                 function()
@@ -142,7 +142,7 @@ RageUI.CreateWhile(
                         true,
                         function(J, K, L)
                         end,
-                        RMenu:Get("mgscenemenu", "objects")
+                        RMenu:Get("xtrascenemenu", "objects")
                     )
                     RageUI.ButtonWithStyle(
                         "Speed Zone",
@@ -151,7 +151,7 @@ RageUI.CreateWhile(
                         true,
                         function(J, K, L)
                         end,
-                        RMenu:Get("mgscenemenu", "speedZone")
+                        RMenu:Get("xtrascenemenu", "speedZone")
                     )
                     if tXTRA.globalOnPoliceDuty() then
                         RageUI.ButtonWithStyle(
@@ -161,7 +161,7 @@ RageUI.CreateWhile(
                             true,
                             function(J, K, L)
                             end,
-                            RMenu:Get("mgscenemenu", "spikes")
+                            RMenu:Get("xtrascenemenu", "spikes")
                         )
                     end
                     RageUI.ButtonWithStyle(
@@ -171,14 +171,14 @@ RageUI.CreateWhile(
                         true,
                         function(J, K, L)
                             if L then
-                                RageUI.Visible(RMenu:Get("mgscenemenu", "main"), false)
+                                RageUI.Visible(RMenu:Get("xtrascenemenu", "main"), false)
                             end
                         end
                     )
                 end
             )
         end
-        if RageUI.Visible(RMenu:Get("mgscenemenu", "objects")) then
+        if RageUI.Visible(RMenu:Get("xtrascenemenu", "objects")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = false},
                 function()
@@ -293,7 +293,7 @@ RageUI.CreateWhile(
                 end
             )
         end
-        if RageUI.Visible(RMenu:Get("mgscenemenu", "speedZone")) then
+        if RageUI.Visible(RMenu:Get("xtrascenemenu", "speedZone")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = false},
                 function()
@@ -372,7 +372,7 @@ RageUI.CreateWhile(
                 end
             )
         end
-        if RageUI.Visible(RMenu:Get("mgscenemenu", "spikes")) then
+        if RageUI.Visible(RMenu:Get("xtrascenemenu", "spikes")) then
             RageUI.DrawContent(
                 {header = true, glare = false, instructionalButton = false},
                 function()
@@ -406,9 +406,9 @@ RageUI.CreateWhile(
 RegisterNetEvent(
     "XTRA:toggleTrafficMenu",
     function()
-        RageUI.Visible(RMenu:Get("mgscenemenu", "main"), not RageUI.Visible(RMenu:Get("mgscenemenu", "main")))
+        RageUI.Visible(RMenu:Get("xtrascenemenu", "main"), not RageUI.Visible(RMenu:Get("xtrascenemenu", "main")))
         if globalOnPoliceDuty and tXTRA.hasPoliceCallsign() then
-            RMenu:Get("mgscenemenu", "main"):SetSubtitle(
+            RMenu:Get("xtrascenemenu", "main"):SetSubtitle(
                 "~b~MPD~w~: " ..
                     tXTRA.getPoliceCallsign() .. " - " .. tXTRA.getPoliceRank() .. " - " .. tXTRA.getPoliceName()
             )
