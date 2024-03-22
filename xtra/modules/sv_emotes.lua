@@ -66,12 +66,17 @@ function XTRA.ShaveHead(source)
     end
 end
 
+local radioCreated = {}
+
 Citizen.CreateThread(function()
     while true do
         for _, player in ipairs(GetPlayers()) do
             local user_id = XTRA.getUserId(player)
-            if XTRA.getInventoryItemAmount(user_id, 'civilian_radio') >= 1 then
+            if radioCreated[user_id] ~= nil and XTRA.getInventoryItemAmount(user_id, 'civilian_radio') >= 1 then
                createRadio(player)
+               radioCreated[user_id] = true
+            else
+                radioCreated[user_id] = nil
             end
         end
         Citizen.Wait(1000)
