@@ -69,7 +69,7 @@ function createRadio(source)
                 TriggerEvent("XTRA:ChatClockOn", source, radioType, true)
             end
         end
-    elseif XTRA.hasCivRadio(user_id) ~= nil then
+    elseif XTRA.getInventoryItemAmount(user_id, 'civilian_radio') >= 1 then
         local gang = XTRA.getGangName(user_id)
         if gang and gang ~= "" then
             if not radioChannels[gang] then
