@@ -72,11 +72,11 @@ Citizen.CreateThread(function()
     while true do
         for _, player in ipairs(GetPlayers()) do
             local user_id = XTRA.getUserId(player)
-            if radioCreated[user_id] ~= nil and XTRA.getInventoryItemAmount(user_id, 'civilian_radio') >= 1 then
-               createRadio(player)
-               radioCreated[user_id] = true
-            else
-                radioCreated[user_id] = nil
+            if user_id then
+                if radioCreated[user_id] == nil and XTRA.getInventoryItemAmount(user_id, 'civilian_radio') >= 1 then
+                    createRadio(player)
+                    radioCreated[user_id] = true
+                end
             end
         end
         Citizen.Wait(1000)
