@@ -1162,7 +1162,7 @@ AddEventHandler("playerConnecting", function(name, setMessage, deferrals)
                                     XTRA.banConsole(user_id, "perm", "1.11 Ban Evading")
                                     return
                                 end
-                                XTRA.SteamAgeCheck(ids.steam, user_id, name)
+
                                 deferrals.update("[XTRA] Checking User Data...")
                                 Citizen.Wait(1000)
                                 XTRA.users[Identifiers[1]] = user_id
@@ -1355,7 +1355,7 @@ AddEventHandler("playerDropped", function(reason)
         XTRA.user_tables[user_id] = nil
         XTRA.user_tmp_tables[user_id] = nil
         XTRA.user_sources[user_id] = nil
-        XTRA.sendWebhook('leave', "XTRA Leave Logs", "> Name: **" .. name .. "**\n> PermID: **" .. user_id .. "**\n> Temp ID: **" .. source .. "**\n> Reason: **" .. reason .. "**\n```"..ids.steam.."\n"..ids.license.."```")
+        XTRA.sendWebhook('leave', "XTRA Leave Logs", "> Name: **" .. name .. "**\n> PermID: **" .. user_id .. "**\n> Temp ID: **" .. source .. "**\n> Reason: **" .. reason .. "**\n```\n"..ids.license.."```")
     else
         print('[XTRA] SEVERE ERROR: Failed to save data for: ' .. name .. ' Rollback expected!')
     end
@@ -1396,7 +1396,7 @@ AddEventHandler("XTRACli:playerSpawned", function()
                 table.insert(playertokens[source], token)
             end
         end   
-        XTRA.sendWebhook('join', "XTRA Join Logs", "> Name : **" .. name .. "**\n> TempID: **" .. source .. "**\n> PermID: **" .. user_id .. "**\n```"..ids.steam.."\n\n"..ids.license.."\n\n"..table.concat(playertokens[source], "\n\n").."```")
+        XTRA.sendWebhook('join', "XTRA Join Logs", "> Name : **" .. name .. "**\n> TempID: **" .. source .. "**\n> PermID: **" .. user_id .. "**\n```\n\n"..ids.license.."\n\n"..table.concat(playertokens[source], "\n\n").."```")
         if first_spawn then
             for k, v in pairs(XTRA.user_sources) do
                 XTRAclient.addPlayer(source, {v})
@@ -1432,27 +1432,6 @@ exports("getConnected", function(params, cb)
     end
 end)
 
-function XTRA.SteamAgeCheck(steam, user_id,name)
-    local steam64 = tonumber(steam:gsub("steam:", ""), 16)
-    PerformHttpRequest("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=F018A7525FA287EB3FE52FF9E95CCFEA&steamids=" .. steam64, function(statusCode, text, headers)
-        if statusCode == 200 and text ~= nil then
-            local data = json.decode(text)
-            if data["response"]["players"][1] and data["response"]["players"][1]["timecreated"] then
-                timecreated = data["response"]["players"][1]["timecreated"]
-                timecreated = math.floor((os.time() - timecreated) / 86400)
-            else
-                timecreated = false
-            end
-            profileVisibility = data['response']['players'][1]['communityvisibilitystate']
-        else
-            timecreated = 20
-        end
-        gotAccount = true
-        if timecreated and timecreated < 20 then
-            XTRA.sendWebhook('steam', 'Steam Account Age', "> Player Name: **" .. name .. "**\n> Player Perm ID: **" .. user_id .. "**\n> Steam Account Age: **" .. timecreated .. "**\n> Steam: **" .. steam .. "**")
-        end
-    end, "GET", json.encode({}), {["Content-Type"] = 'application/json'})
-end
 
 
 function XTRA.NameCheck(name, cb)
