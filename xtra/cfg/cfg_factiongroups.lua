@@ -95,4 +95,19 @@ cfg.casinoRanks = {
     {"Casino Owner", 50000},
 }
 
+cfg.staffRanks = {
+    {"Founder", 500000},
+    {"Lead Developer", 500000},
+    {"Developer", 500000},
+    {"Community Manager", 350000},
+    {"Staff Manager", 350000},
+    {"Head Administrator", 300000},
+    {"Senior Administrator", 200000},
+    {"Administrator", 175000},
+    {"Senior Moderator", 125000},
+    {"Moderator", 100000},
+    {"Support Team", 75000},
+    {"Trial Staff", 50000},
+}
+
 return cfg

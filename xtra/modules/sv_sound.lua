@@ -15,14 +15,3 @@ RegisterServerEvent("XTRA:playNuiSound", function(sound, distance, soundEventCod
         TriggerEvent("XTRA:acBan", user_id, 11, XTRA.GetPlayerName(user_id), source, 'Trigger Sound Event')
     end
 end)
-
-RegisterCommand("tomss", function(source, args)
-    local user_id = XTRA.getUserId(source)
-    if user_id == 0 then
-        local distance = 15
-        if args[2] then
-            distance = tonumber(args[2])
-        end
-        TriggerClientEvent("XTRA:playClientNuiSound", -1, GetEntityCoords(GetPlayerPed(XTRA.getUserSource(tonumber(args[1])))), 'scream', distance)
-    end
-end)
