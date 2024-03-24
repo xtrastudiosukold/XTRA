@@ -1015,6 +1015,26 @@ RegisterCommand(
     end
 )
 RegisterCommand(
+    "hideallui",
+    function()
+        tXTRA.notify("~g~/showui to re-enable UI")
+        globalHideUi = true
+        TriggerEvent("XTRA:showHUD", false)
+        TriggerEvent("XTRA:hideChat", true)
+        ExecuteCommand("hideids")
+    end
+)
+RegisterCommand(
+    "showallui",
+    function()
+        tXTRA.notify("~g~/showui to re-enable UI")
+        globalHideUi = true
+        TriggerEvent("XTRA:showHUD", false)
+        TriggerEvent("XTRA:hideChat", true)
+        ExecuteCommand("showids")
+    end
+)
+RegisterCommand(
     "showchat",
     function()
         TriggerEvent("XTRA:hideChat", false)
