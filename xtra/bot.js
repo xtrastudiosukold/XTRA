@@ -244,7 +244,7 @@ if (settingsjson.settings.StatusEnabled) {
                     "inline": true
                 },
                 {
-                    "name": "<:xtra:1209823755422142464> Staff",
+                    "name": "<:NEWLOGO:1221748502380417064> Staff",
                     "value": `${onlineStaff}`,
                     "inline": true
                 },
@@ -253,11 +253,11 @@ if (settingsjson.settings.StatusEnabled) {
                     "value": `${GetNumPlayerIndices()}/${GetConvarInt("sv_maxclients", 60)}`,
                     "inline": true
                 },
-                {
-                    "name": "<:cord:1209805930502561832> Members",
-                    "value": `${memberCount}`,
-                    "inline": true
-                },
+                // {
+                //     "name": "<:cord:1209805930502561832> Members",
+                //     "value": `${memberCount}`,
+                //     "inline": true
+                // },
                 {
                     "name": "",
                     "value": ``,
@@ -266,7 +266,7 @@ if (settingsjson.settings.StatusEnabled) {
                 {
                     "name": "How do I direct connect?",
                     "value": '``F8 -> Search XTRA on The FiveM Main Menu!``',
-                    "inline": true
+                    "inline": false
                 },
                 {
                     "name": "",
@@ -275,8 +275,8 @@ if (settingsjson.settings.StatusEnabled) {
                 }
             ],
             "author": {
-                "name": "XTRA Status",
-                "icon_url": "https://cdn.discordapp.com/attachments/1195851571150467097/1209823333349072946/XTRA_logo.png?ex=65e852c8&is=65d5ddc8&hm=a969962d0a243906dd80323519699d01a6609b207259b1ee717b4e4be3563b8d&"
+                "name": "XTRA Server #1 Status",
+                "icon_url": "https://i.imgur.com/418xn77.png"
             },
             "footer": {
                 "text": `${currentFooterEmoji} XTRA`

@@ -12,7 +12,7 @@ exports.runcmd = async (fivemexports, client, message, params) => {
            // icon_url: "" 
         },
         "thumbnail": {
-            url: "https://cdn.discordapp.com/attachments/1195851571150467097/1209823333349072946/XTRA_logo.png?ex=65fac7c8&is=65e852c8&hm=8792dc7f461306b148e667829cc473640f3ab31f41df547881c387c7221e81a8&" 
+            url: "https://i.imgur.com/418xn77.png" 
         }
     };
     const sentMessage = await message.channel.send({ embed });
