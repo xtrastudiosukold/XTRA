@@ -7,7 +7,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
         let embed = {
             "title": "An Error Occurred",
             "description": "Incorrect Usage\n\nCorrect Usage: " + process.env.PREFIX + '\n`!dm [user_id] [message]`',
-            "color": 0x9c5cb4,
+            "color": 0x57F288,
         };
         return message.channel.send({ embed });
     }
@@ -55,7 +55,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
                                         let embed = {
                                             "title": "Error",
                                             "description": "An error occurred while sending the message.",
-                                            "color": 0x9c5cb4,
+                                            "color": 0x57F288,
                                         };
                                         message.channel.send({ embed });
                                     });
@@ -63,7 +63,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
                                 let embed = {
                                     "title": "User Not Found",
                                     "description": `User with Discord ID ${discordID} not found.`,
-                                    "color": 0x9c5cb4,
+                                    "color": 0x57F288,
                                 };
                                 message.channel.send({ embed });
                             }
@@ -71,7 +71,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
                             let embed = {
                                 "title": "Admin Not Found",
                                 "description": "No admin found for the provided admin user ID.",
-                                "color": 0x9c5cb4,
+                                "color": 0x57F288,
                             };
                             message.channel.send({ embed });
                         }
@@ -80,7 +80,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
                     let embed = {
                         "title": "User Not Found",
                         "description": `No Discord ID found for the provided User ID.`,
-                        "color": 0x9c5cb4,
+                        "color": 0x57F288,
                     };
                     message.channel.send({ embed });
                 }
@@ -89,7 +89,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
             let embed = {
                 "title": "Admin Not Found",
                 "description": "No admin found for the provided message author's Discord ID.",
-                "color": 0x9c5cb4,
+                "color": 0x57F288,
             };
             message.channel.send({ embed });
         }

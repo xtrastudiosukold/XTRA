@@ -207,10 +207,10 @@ if (settingsjson.settings.StatusEnabled) {
         if (serverStatus === '❌ Offline') {
           embedColor = 0xff0001; // Red color
         } else if (serverStatus === '✅ Online') {
-          embedColor = 0x9c5cb4; // Dark gray color
+          embedColor = 0x57F288; // Dark gray color
         } else {
          // Default color in case the status is something else
-          embedColor = 0x9c5cb4; // Black color
+          embedColor = 0x57F288; // Black color
         }
 
         let botPing = Math.round(client.ws.ping);

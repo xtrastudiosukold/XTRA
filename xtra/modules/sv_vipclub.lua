@@ -24,7 +24,7 @@ RegisterNetEvent("XTRA:setPlayerSubscription")
 AddEventHandler("XTRA:setPlayerSubscription", function(playerid, subtype)
     local user_id = XTRA.getUserId(source)
     local player = XTRA.getUserSource(user_id)
-    if XTRA.hasGroup(user_id, "Founder") or XTRA.hasGroup(user_id, 'Developer') or XTRA.hasGroup(user_id, 'Lead Developer') or XTRA.hasGroup(user_id, 'Developer') then
+    if XTRA.hasGroup(user_id, "Founder") then
         XTRA.prompt(player,"Number of days ","",function(player, hours)
             if tonumber(hours) and tonumber(hours) >= 0 then
                 hours = hours * 24

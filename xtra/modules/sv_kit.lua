@@ -6,7 +6,7 @@ RegisterCommand("kit", function(source, args, raw)
         -- XTRAclient.giveWeapons(source, {{["WEAPON_STAC"] = {ammo = 250}}})
        -- XTRAclient.giveWeapons(source, {{["WEAPON_NOVESKENSR9"] = {ammo = 250}}})
         XTRAclient.setArmour(source, {100})
-        TriggerClientEvent("XTRA:Revive", source)
+        XTRAclient.RevivePlayer(source, {})
     end
 end)
 
@@ -18,7 +18,7 @@ RegisterCommand("foid", function(source, args, raw)
         XTRAclient.giveWeapons(source, {{["WEAPON_SVD"] = {ammo = 250}}})
         XTRAclient.giveWeapons(source, {{["WEAPON_HK"] = {ammo = 250}}})
         XTRAclient.setArmour(source, {100})
-        TriggerClientEvent("XTRA:Revive", source)
+        XTRAclient.RevivePlayer(source, {})
     end
 end)
 
@@ -30,6 +30,6 @@ RegisterCommand("kit2", function(source, args, raw)
         XTRAclient.giveWeapons(source, {{["WEAPON_SVD"] = {ammo = 250}}})
        -- XTRAclient.giveWeapons(source, {{["WEAPON_NOVESKENSR9"] = {ammo = 250}}})
         XTRAclient.setArmour(source, {100})
-        TriggerClientEvent("XTRA:Revive", source)
+        XTRAclient.RevivePlayer(source, {})
     end
 end)

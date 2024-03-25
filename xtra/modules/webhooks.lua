@@ -108,9 +108,9 @@ Citizen.CreateThread(function()
                 Citizen.Wait(100)
                 if webhooks[v.webhook] ~= nil then
                     PerformHttpRequest(webhooks[v.webhook], function(err, text, headers) 
-                    end, "POST", json.encode({username = "XTRA Logs", avatar_url = 'https://cdn.discordapp.com/attachments/1195851571150467097/1209823333349072946/XTRA_logo.png?ex=65e852c8&is=65d5ddc8&hm=a969962d0a243906dd80323519699d01a6609b207259b1ee717b4e4be3563b8d&', embeds = {
+                    end, "POST", json.encode({username = "XTRA Logs", avatar_url = 'https://i.imgur.com/418xn77.png', embeds = {
                         {
-                            ["color"] = 0x9c5cb4,
+                            ["color"] = 0x57F288,
                             ["title"] = v.name,
                             ["description"] = v.message,
                             ["footer"] = {

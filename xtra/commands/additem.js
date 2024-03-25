@@ -20,7 +20,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
         const embed = {
             "title": "An Error Occurred",
             "description": "Incorrect Usage\n\nCorrect Usage: " + process.env.PREFIX + "additem [user_id] [item]",
-            "color": 0x9c5cb4,
+            "color": 0x57F288,
         };
         return message.channel.send({ embed });
     }
@@ -88,7 +88,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
                     const cancelEmbed = {
                         "title": "Action Canceled",
                         "description": "Item addition has been canceled.",
-                        "color": 0x9c5cb4
+                        "color": 0x57F288
                     };
                     message.channel.send({ embed: cancelEmbed }).then(cancelMsg => {
                         setTimeout(() => {
@@ -107,7 +107,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
                     const timeoutEmbed = {
                         "title": "Confirmation Timeout",
                         "description": "Confirmation has timed out. Item addition was not confirmed.",
-                        "color": 0x9c5cb4
+                        "color": 0x57F288
                     };
                     message.channel.send({ embed: timeoutEmbed }).then(timeoutMsg => {
                         setTimeout(() => {

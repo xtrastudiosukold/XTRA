@@ -34,7 +34,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
                 const embed = {
                     "title": "An Error Occurred",
                     "description": "User ID not found for your Discord ID.",
-                    "color": 0x9c5cb4,
+                    "color": 0x57F288,
                 };
                 return message.author.send({ embed }); // Send the embed to the author's DM
             }

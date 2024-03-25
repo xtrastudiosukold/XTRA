@@ -7,7 +7,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
         let embed = {
             "title": "Error",
             "description": "Incorrect Usage\n\nCorrect Usage: `" + process.env.PREFIX + "\n!comban [permid]`",
-            "color": 0x9c5cb4,
+            "color": 0x57F288,
         };
         return message.channel.send({ embed });
     }
@@ -89,7 +89,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
             let embed = {
                 "title": "Error",
                 "description": "No Discord ID found for the provided Perm ID.",
-                "color": 0x9c5cb4,
+                "color": 0x57F288,
                 "thumbnail": {
                     "url": ""
                 }

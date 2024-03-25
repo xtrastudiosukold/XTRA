@@ -15,7 +15,7 @@ exports.settings = {
     StatusEnabled: true,
     GuildID: "1195851569472741437",
     StatusChannel: "status",
-    botColour: 0x9c5cb4,
+    botColour: 0x57F288,
     RuleChangesChannel: "rule-changes",
     VoteChannel: "votes",
     minBid: 100000, 

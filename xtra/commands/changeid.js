@@ -8,7 +8,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
         let embed = {
             "title": "An Error Occurred",
             "description": "Incorrect Usage\n\nCorrect Usage" + process.env.PREFIX + '\n`!changeid [old perm id] [new perm id]`',
-            "color": 0x9c5cb4,
+            "color": 0x57F288,
     }
     return message.channel.send({ embed })
     }

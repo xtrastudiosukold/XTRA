@@ -9,7 +9,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
         let embed = {
             "title": "An Error Occurred",
             "description": "Incorrect Usage\n\nCorrect Usage" + process.env.PREFIX + '\n`!gco [spawn code]`',
-            "color": 0x9c5cb4,
+            "color": 0x57F288,
     }
     return message.channel.send({ embed })
     }
@@ -67,7 +67,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
         if (result.length == 0){
             let embed = {
                 "description": `No one owns this vehicle`,
-                "color": 0x9c5cb4,
+                "color": 0x57F288,
             }
             return message.channel.send({ embed })
         }

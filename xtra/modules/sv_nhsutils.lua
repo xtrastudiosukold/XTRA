@@ -122,8 +122,7 @@ AddEventHandler('XTRA:attemptCPR', function(playersrc)
                 Citizen.Wait(15000) -- Wait for 15 seconds
 
                 if playersInCPR[user_id] then
-                    local cprChance = math.random(1, 10)
-
+                    local cprChance = math.random(1, 5)
                     if cprChance == 1 then
                         XTRAclient.RevivePlayer(playersrc, {})
                         XTRAclient.notify(playersrc, {"~b~Your life has been saved."})
