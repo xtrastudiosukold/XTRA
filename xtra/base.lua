@@ -13,50 +13,160 @@ local verify_card = {
     ["$schema"] = "http://adaptivecards.io/schemas/adaptive-card.json",
     ["version"] = "1.3",
     ["backgroundImage"] = {
-        ["url"] = "https://media.discordapp.net/attachments/1218992842114859199/1222293637396955178/banner.png?ex=6615b0a8&is=66033ba8&hm=79e620ebc25355c93cec232d4d18331eb4a318ee6dd39ebc4bc66c9481e2ffa8&=&format=webp&quality=lossless&width=720&height=240",
+        ["url"] = "https://cdn.discordapp.com/attachments/1195851571150467097/1210381117983694908/yup.png?ex=660609c2&is=65f394c2&hm=54b2baacf47d017d0046bc0c37612bda6bde0231b174b29b94fe9f50d5a14124&",
     },
     ["body"] = {
         {
             ["type"] = "TextBlock",
-            ["text"] = "In order to connect to XTRA you must be in our discord and verify your account, please follow the instructions below",
+            ["text"] = "",
+            ["horizontalAlignment"] = "Center",
+            ["size"] = "Large",
             ["wrap"] = true,
             ["weight"] = "Bolder"
         },
         {
             ["type"] = "Container",
+            ["horizontalAlignment"] = "Center",
+            ["size"] = "Large",
             ["items"] = {
                 {
                     ["type"] = "TextBlock",
-                    ["text"] = "1. Join the XTRA discord (discord.gg/xtra5m)",
-                    ["wrap"] = true,
+                    ["text"] = "In order to connect to XTRA you must be in our discord and verify your account",
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ["wrap"] = false,
                 },
                 {
                     ["type"] = "TextBlock",
-                    ["text"] = "2. In the #verify channel (or any channel you can type in), type the following command:",
-                    ["wrap"] = true,
+                    ["text"] = "Join the XTRA discord (discord.gg/xtra)",
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ["wrap"] = false,
+                },
+                {
+                    ["type"] = "TextBlock",
+                    ["text"] = "In the #verify channel, type the following command",
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ["wrap"] = false,
                 },
                 {
                     ["type"] = "TextBlock",
                     ["color"] = "Attention",
-                    ["text"] = "3. !verify NULL",
-                    ["wrap"] = true,
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ["text"] = "!verify NULL",
+                    ["wrap"] = false,
+                },
+                {
+                    ["type"] = "TextBlock",
+                    ["color"] = "Attention",
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ["text"] = "Your account has not beem verified yet. (Attempt 0)",
+                    ["wrap"] = false,
                 }
             }
         },
         {
-            {
-                ['type'] = 'Action.Submit',
-                ['title'] = 'Enter XTRA',
-                ["horizontalAlignment"] = "Center",
-                ["size"] = "Large",
-                ['id'] = 'connectButton', -- Add an ID to the button action
-                ['data'] = {
-                    ['action'] = 'connectClicked',
-                },
-            },             
+            ['type'] = 'ActionSet',
+            ["horizontalAlignment"] = "Center",
+            ["size"] = "Large",
+            ['actions'] = {
+                {
+                    ['type'] = 'Action.Submit',
+                    ['title'] = 'Enter XTRA',
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ['id'] = 'connectButton', -- Add an ID to the button action
+                    ['data'] = {
+                        ['action'] = 'connectClicked',
+                    },
+                },             
+            },
         },
-    },
+    }
 }
+local ban_card = {
+    ["type"] = "AdaptiveCard",
+    ["$schema"] = "http://adaptivecards.io/schemas/adaptive-card.json",
+    ["version"] = "1.3",
+    ["backgroundImage"] = {
+        ["url"] = "https://cdn.discordapp.com/attachments/1195851571150467097/1210381117983694908/yup.png?ex=660609c2&is=65f394c2&hm=54b2baacf47d017d0046bc0c37612bda6bde0231b174b29b94fe9f50d5a14124&",
+    },
+    ["body"] = {
+        {
+            ["type"] = "TextBlock",
+            ["text"] = "XTRA Public",
+            ["highlight"] = true,
+            ["horizontalAlignment"] = "Center",
+            ["size"] = "Medium",
+            ["wrap"] = true,
+            ["weight"] = "Bolder",
+        },
+        {
+            ["type"] = "Container",
+            ["horizontalAlignment"] = "Center",
+            ["items"] = {
+                {
+                    ["type"] = "TextBlock",
+                    ["text"] = "Ban expires in NULL",
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ["wrap"] = false,
+
+                },
+                {
+                    ["type"] = "TextBlock",
+                    ["text"] = "Your ID: NULL",
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ["wrap"] = false,
+                },
+                {
+                    ["type"] = "TextBlock",
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ["text"] = "Reason: NULL",
+                    ["wrap"] = false,
+                },
+                {
+                    ["type"] = "TextBlock",
+                    ["color"] = "Attention",
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Medium",
+                    ["color"] = "Warning",
+                    ["text"] = "If you believe this ban is invalid, please appeal on our discord",
+                    ["wrap"] = false,
+                    ["isSubtle"] = true,
+                },
+            }
+        },
+        {
+            ['type'] = 'ActionSet',
+            ["horizontalAlignment"] = "Center",
+            ["size"] = "Large",
+            ['actions'] = {
+                {
+                    ['type'] = 'Action.OpenUrl',
+                    ['title'] = 'XTRA Discord',
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ["url"] = "https://discord.gg/xtra",
+                },
+                {
+                    ['type'] = 'Action.Submit',
+                    ['title'] = 'XTRA Support',
+                    ["horizontalAlignment"] = "Center",
+                    ["size"] = "Large",
+                    ["url"] = "https://discord.gg/xtrasupport",
+                },
+            },
+        }
+    }
+}
+
+
 
 
 
@@ -1114,10 +1224,17 @@ AddEventHandler("playerConnecting", function(name, setMessage, deferrals)
                                             end
                                         end
                                         print("[XTRA] "..GetPlayerName(source).." ^1Rejected: "..banreason.."^0 | Perm ID = "..user_id)
-                                        deferrals.done("\n[XTRA] Ban expires in "..calculateTimeRemaining(bantime).."\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra")
+                                        local baninfo = {}
+                                        local calbantime = calculateTimeRemaining(bantime)
+                                        baninfo[user_id] = {user_id = user_id, time = calbantime, reason = banreason}
+                                        show_ban_card(baninfo[user_id], deferrals)
+                                        --deferrals.done("\n[XTRA] Ban expires in "..calculateTimeRemaining(bantime).."\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra")
                                     else 
                                         print("[XTRA] "..GetPlayerName(source).." ^1Rejected: "..banreason.."^0 | Perm ID = "..user_id)
-                                        deferrals.done("\n[XTRA] Permanent Ban\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra")
+                                        local baninfo = {}
+                                        baninfo[user_id] = {user_id = user_id, time = "perm", reason = banreason}
+                                        show_ban_card(baninfo[user_id], deferrals)
+                                        --deferrals.done("\n[XTRA] Permanent Ban\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra")
                                     end
                                 end)
                             end
