@@ -1348,7 +1348,7 @@ AddEventHandler("playerDropped", function(reason)
         TriggerEvent("XTRA:playerLeave", user_id, source)
         XTRA.setUData(user_id, "XTRA:datatable", json.encode(XTRA.getUserDataTable(user_id)))
         print("[XTRA] " .. name .. " ^1Disconnected^0 | Perm ID: "..user_id)
-        XTRA.users[XTRA.users[user_id]] = nil
+        XTRA.users[XTRA.rusers[user_id]] = nil
         XTRA.rusers[user_id] = nil
         XTRA.user_tables[user_id] = nil
         XTRA.user_tmp_tables[user_id] = nil
