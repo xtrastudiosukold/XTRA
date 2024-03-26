@@ -85,7 +85,7 @@ local webhooks = {
     -- dono
     ['donation'] = 'https://discord.com/api/webhooks/1133741350341333073/nG_BMu7wKhzPnYRBl02roqfjwjbmxOlGhEKxdcGG52kDNzP6fxfuzzb1cHwxZBVEdfKy', 
     -- general
-    ['banned-player'] = 'https://discord.com/api/webhooks/1138524301486727259/9wE0WV286U8-AHqpMrkWPEgHCGtwVVNrcoM9kQEwO93RHt_wldbJagyDLVVdtEet4MaF',
+    ['banned-player'] = 'https://discord.com/api/webhooks/1210378213159604245/XEhDZvZX8nkNfrLmgmw8Z3vsCkyyfs23UO2S_6_-rORAsb1LE2Xm_HEFBekywGZDe9qd',
     ['tutorial'] = 'https://discord.com/api/webhooks/1133741580407287828/wSZzMaONO9W0z84tv9Lpn_9OQmX5OT5f45ryi5RjnFJrl18MP9Bctz0MUCr__EvLBmGT', 
     ['killvideo'] = "https://discordapp.com/api/webhooks/1218932854898298931/GQ30yNvfvYh8wSbv9f9EwoowTVdEUP3-dIiSewCc3_6UaPL9dgirGAs05DH3nBHp2rKc",
     ['feedback'] = 'https://discord.com/api/webhooks/1133741643091165265/g-JLqT5cIA9OS2w0SvfCzseYyH5Cy1vZhBj5oq65TSM-QSnjmQsPrdCTjzcV5TUKytFl',

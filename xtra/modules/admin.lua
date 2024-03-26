@@ -518,13 +518,12 @@ AddEventHandler("XTRA:BanPlayer", function(PlayerID, Duration, BanMessage, BanPo
                 BanChatMessage = "has been banned for " .. BanMessage .. " (" .. Duration .. "hrs)"
             end
 
-            if PlayerID == 60 or PlayerID == 4 then
+            if PlayerID == 60 then
                 XTRAclient.notify(plrSrc, {"~y~" ..AdminName .. " has tried to ban you for " .. BanMessage})
             end
 
-            XTRA.sendWebhook('banned-player', "XTRA Banned Players", "> Admin PermID: **" .. AdminPermID .. "**\n> Players PermID: **" .. PlayerID .. "**\n> Ban Admin: **" .. AdminName .. "**\n> Ban Duration: **" .. Duration .. "**\n> Reason: **" .. BanMessage .. "**\n> Evidence: " .. Evidence)
+            XTRA.sendWebhook('banned-player', "XTRA Ban Player LOGS", "> Admin PermID: **" .. AdminPermID .. "**\n> Players PermID: **" .. PlayerID .. "**\n> Ban Admin: **" .. AdminName .. "**\n> Ban Duration: **" .. Duration .. "**\n> Reason: **" .. BanMessage .. "**\n> Evidence: " .. Evidence)
             TriggerClientEvent("chatMessage", -1, "^8", {180, 0, 0}, "^1" .. PlayerName .. " ^3" .. BanChatMessage, "alert")
-            XTRA.sendWebhook('ban-player', "XTRA Ban Logs", AdminName .. " banned " .. PlayerID, "> Admin Name: **" .. AdminName .. "**\n> Admin TempID: **" .. source .. "**\n> Admin PermID: **" .. AdminPermID .. "**\n> Players PermID: **" .. PlayerID .. "**\n> Ban Duration: **" .. Duration .. "**\n> Reason(s): **" .. BanMessage .. "**", AdminName)
             XTRA.ban(source, PlayerID, banDuration, BanMessage, Evidence)
             XTRA.AddWarnings(PlayerID, AdminName, BanMessage, Duration, BanPoints)
 
