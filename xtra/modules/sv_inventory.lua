@@ -252,7 +252,7 @@ AddEventHandler('XTRA:searchPlayer', function(playersrc)
         TriggerClientEvent('XTRA:startSearchingSuspect', source)
         TriggerClientEvent('XTRA:startBeingSearching', playersrc, source)
         XTRAclient.notify(playersrc, {'~b~You are being searched.'})
-        Wait(10000)
+        Wait(5000)
         if currentlySearching[user_id] then
             local FormattedInventoryData = {}
             for i,v in pairs(data.inventory) do

@@ -590,7 +590,7 @@ RegisterNetEvent(
         TaskPlayAnim(PlayerPedId(), "custom@police", "police", 8.0, 8.0, -1, 0, 0.0, false, false, false)
         RemoveAnimDict("custom@police")
         local W = GetGameTimer()
-        while GetGameTimer() - W < 10000 do
+        while GetGameTimer() - W < 5000 do
             if IsDisabledControlJustPressed(0, 73) then
                 TriggerServerEvent("XTRA:cancelPlayerSearch")
                 return
