@@ -1107,7 +1107,7 @@ function func_drawGangUI()
             DrawRect(0.651, 0.443, 0.065, 0.056, h.theme.r, h.theme.g, h.theme.b, 150)
             if IsControlJustPressed(1, 329) or IsDisabledControlJustPressed(1, 329) then
                 PlaySound(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
-                tXTRA.gangMenuTheme(156, 92, 180)
+                tXTRA.gangMenuTheme(18, 82, 228)
             end
         else
             DrawRect(0.651, 0.443, 0.065, 0.056, 0, 0, 0, 150)
@@ -1140,7 +1140,7 @@ function func_drawGangUI()
             DrawRect(0.326, 0.689, 0.045, 0.036, h.theme.r, h.theme.g, h.theme.b, 150)
             if IsControlJustPressed(1, 329) or IsDisabledControlJustPressed(1, 329) then
                 PlaySound(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
-                tXTRA.gangMenuTheme(156, 92, 180)
+                tXTRA.gangMenuTheme(18, 82, 228)
             end
         else
             DrawRect(0.326, 0.689, 0.045, 0.036, 0, 0, 0, 150)

@@ -261,7 +261,7 @@ function func_licenseMenuControl()
     if j then
         drawNativeNotification("Press ~INPUT_SELECT_CHARACTER_FRANKLIN~ to toggle the License Menu.")
 
-        DrawRect(0.50, 0.222, 0.223, 0.075, 156, 92, 180, 255)
+        DrawRect(0.50, 0.222, 0.223, 0.075, 18, 82, 228, 255)
         DrawAdvancedText(0.595, 0.213, 0.005, 0.0028, 1.0, "XTRA Licenses", 255, 255, 255, 255, 1, 0)
         DrawAdvancedText(0.595, 0.275, 0.005, 0.0028, 0.4, "Licenses Owned", 0, 255, 50, 255, 6, 0)
         DrawRect(0.50, 0.272, 0.223, 0.026, 0, 0, 0, 222)

@@ -52,7 +52,7 @@ AddEventHandler(
                 local l = 0.033
                 local m = 0
                 local n = 0.306
-                DrawRect(0.5, 0.222, 0.223, 0.075, 156, 92, 180, 255)
+                DrawRect(0.5, 0.222, 0.223, 0.075, 18, 82, 228, 255)
                 DrawAdvancedText(0.595, 0.213, 0.005, 0.0028, 1.0, "XTRA Backpacks", 255, 255, 255, 255, 1, 0)
                 DrawAdvancedText(0.67, 0.275, 0.005, 0.0028, 0.4, "Price", 0, 255, 50, 255, 6, 0)
                 DrawAdvancedText(0.550, 0.275, 0.005, 0.0028, 0.4, "Name", 0, 242, 54, 255, 6, 0)
