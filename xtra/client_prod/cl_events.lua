@@ -41,17 +41,8 @@ RageUI.CreateWhile(1.0, true, function()
                             end)
                         end)
                     end
-                end)                    
+                end)                  
 
-                RegisterCommand("eventmenu", function()
-                    local userId = tXTRA.getUserId()
-                    if userId == 1 or userId == 2 then
-                    TriggerEvent("OpenEventMenu")
-                    else
-                    print("You do not have permission to open this menu.")
-                    end
-                    end)
-                    
                     RegisterNetEvent("StartKothEvent")
                     AddEventHandler("StartKothEvent", function()
                     -- Triggering the announcement for KOTH event
