@@ -19,7 +19,7 @@ exports.settings = {
     RuleChangesChannel: "rule-changes",
     VoteChannel: "votes",
     minBid: 100000, 
-    prevBid: 0,
+    prevBid: 1000000,
     carReportWebhook: "https://discord.com/api/webhooks/1189743778953707551/7QO9pJ8pYqexEPeJofKGRukfNx_G3w9dsUVz-cjvDE7Czb95aS_yO-iXSFSytOMFmQlB",
     botLogWebhook: "https://discord.com/api/webhooks/1210392405082251274/3LZDmnmgMIp6P7pK6LhhdNmt-DWQX0ggd78c10l80pEKtFbjfmtuBakReaZJmlQ0Ajym",
     reverifyLogWebhook: "https://discord.com/api/webhooks/1210392116371660802/MoaMvCTW1jrs4c7HhIKrqfVyqKsLpJStRK0Un_K9Oml7OHq-UX60ndC-G-A00yfUd8WO",
