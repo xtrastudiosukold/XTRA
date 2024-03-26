@@ -887,7 +887,7 @@ AddEventHandler("XTRA:Teleport2AdminIsland",function(id)
             local ped = GetPlayerPed(source)
             local ped2 = GetPlayerPed(id)
             SetEntityCoords(ped2, 3055.412109375,-4715.8071289062,15.261603355408)
-            XTRA.setBucket(id, 0)
+            XTRA.setBucket(id, 5)
             XTRAclient.notify(XTRA.getUserSource(player_id),{'~g~You are now in an admin situation, do not leave the game.'})
             XTRAclient.setPlayerCombatTimer(id, {0})
         else
@@ -905,6 +905,7 @@ AddEventHandler("XTRA:TeleportBackFromAdminZone",function(id, savedCoordsBeforeA
         if XTRA.hasPermission(admin_id, 'admin.tp2player') then
             local ped = GetPlayerPed(id)
             SetEntityCoords(ped, savedCoordsBeforeAdminZone)
+            XTRA.setBucket(id, 0)
             XTRA.sendWebhook('tp-back-from-admin-zone', 'XTRA Teleport Logs', "> Admin Name: **"..XTRA.GetPlayerName(admin_id).."**\n> Admin TempID: **"..source.."**\n> Admin PermID: **"..admin_id.."**\n> Player Name: **"..XTRA.GetPlayerName(id).."**\n> Player TempID: **"..id.."**\n> Player PermID: **"..XTRA.getUserId(id).."**")
             local name = XTRA.GetPlayerName(admin_id)
             TriggerEvent("XTRA:acBan", admin_id, 11, name, player, 'Attempted to Teleport Someone Back from Admin Zone')
