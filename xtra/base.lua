@@ -896,12 +896,10 @@ function XTRA.setBanned(user_id,banned,time,reason,admin,baninfo)
         MySQL.execute("XTRA/set_banned", {user_id = user_id, banned = banned, bantime = time, banreason = reason, banadmin = admin, baninfo = baninfo})
         XTRA.BanIdentifiers(user_id, true)
         XTRA.BanTokens(user_id, true)
-        XTRA.BanUserInfo(user_id, true)
     else 
         MySQL.execute("XTRA/set_banned", {user_id = user_id, banned = banned, bantime = "", banreason =  "", banadmin =  "", baninfo = ""})
         XTRA.BanIdentifiers(user_id, false)
         XTRA.BanTokens(user_id, false)
-        XTRA.BanUserInfo(user_id, false)
         MySQL.execute("ac/delete_ban", {user_id = user_id})
     end 
 end
