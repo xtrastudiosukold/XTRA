@@ -99,7 +99,7 @@ end)
  RegisterCommand('newbie', function(source, args)
     local source = source
     local user_id = XTRA.getUserId(source)
-    local AlreadyClaimed = XTRA.hasUserGroup(user_id, 'AlreadyClaimed')
+    local AlreadyClaimed = XTRA.hasGroup(user_id, 'AlreadyClaimed')
     if not AlreadyClaimed then
         XTRA.giveMoney(user_id, '2000000')
         TriggerClientEvent('XTRA:smallAnnouncement', source, 'Welcome To XTRA ❤', "You have received 2 Million because your a newbie, We appreciate your support!\n", 18, 10000)
