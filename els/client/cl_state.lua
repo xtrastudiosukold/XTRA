@@ -165,7 +165,7 @@ function VehicleEnteredScope(netId, state)
 		LoadConfigurationIntoState(state)
 	end
 
-	SetVehicleAutoRepairDisabled(entity, true)
+	--SetVehicleAutoRepairDisabled(entity, true)
 	SetVehicleHasMutedSirens(entity, true)
 
 	for patternName, _ in pairs(Config.Pattern) do
