@@ -45,7 +45,7 @@ RegisterNetEvent("XTRA:buyChips")
 AddEventHandler("XTRA:buyChips", function(amount)
     local source = source
     local user_id = XTRA.getUserId(source)
-    if not amount then amount = XTRA.getBankMoney(user_id) end
+    if not amount then amount = XTRA.getMoney(user_id) end
     if XTRA.tryBankPayment(user_id, amount) then
         MySQL.execute("casinochips/add_chips", {user_id = user_id, amount = amount})
         TriggerClientEvent('XTRA:chipsUpdated', source)
