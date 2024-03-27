@@ -64,23 +64,14 @@ RegisterCommand('cashtoall', function(source, args)
     end
 end)
 
-RegisterCommand('foundercartest', function(source, args)
-    local source = source -- source is the players client
-    local user_id = XTRA.getUserId(source) -- gets the user who enters the commands id
-    if XTRA.hasGroup(user_id, 'Founder') then
-        AddVehicle(user_id,"taxi") -- adds the vehicle, passed permid and adds the spawncode(taxi) to the userid!
-        XTRAclient.notify(source, {'enjoy the car mate'}) -- just a simple server side notify!
-    end
-end) -- closes the code bracket
-
-RegisterCommand('mosin', function(source, args)
-    local source = source -- source is the players client
-    local user_id = XTRA.getUserId(source) -- gets the user who enters the commands id
-    if user_id == 1 then -- this adds a **PERMISSION CHECK** tothe command so it can only be executed by permid **1**
-        XTRAclient.giveWeapons(source, {{["WEAPON_MOSIN"] = {ammo = 250}}})
-        XTRAclient.setArmour(source, {100})
-        XTRAclient.notify(source,{'~g~Hope this helps yu give guns in fivem! ✅'}) -- notify!!!
-    else -- if not user_id == 1 it will notify them this 🔽
-        XTRAclient.notify(source,{'~r~Unfortunately you cannot use this command 🚫'})
-    end
-end)
+--RegisterCommand('mosin', function(source, args)
+  --  local source = source -- source is the players client
+  --  local user_id = XTRA.getUserId(source) -- gets the user who enters the commands id
+   -- if user_id = 0 then -- this adds a **PERMISSION CHECK** tothe command so it can only be executed by permid **1**
+   --     XTRAclient.giveWeapons(source, {{["WEAPON_MOSIN"] = {ammo = 250}}})
+   --     XTRAclient.setArmour(source, {100})
+   --     XTRAclient.notify(source,{'~g~Hope this helps yu give guns in fivem! ✅'}) -- notify!!!
+  --  else -- if not user_id == 1 it will notify them this 🔽
+ --       XTRAclient.notify(source,{'~r~Unfortunately you cannot use this command 🚫'})
+  --  end
+--end)
