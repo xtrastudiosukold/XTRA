@@ -93,7 +93,7 @@ end)
     local AlreadyClaimed = XTRA.hasGroup(user_id, 'AlreadyClaimed')
     if not AlreadyClaimed then
         XTRA.giveMoney(user_id, '2000000')
-        TriggerClientEvent('XTRA:smallAnnouncement', source, 'Welcome To XTRA ❤', "You have received 2 Million because your a newbie, We appreciate your support!\n", 18, 10000)
+        TriggerClientEvent('XTRA:smallAnnouncement', source, 'Welcome To XTRA', "You have received 2 Million because your a newbie, We appreciate your support!\n", 18, 10000)
         XTRA.addUserGroup(user_id, 'AlreadyClaimed')
     else 
         XTRAclient.notify(source, {'~r~You Have Already Claimed this!'})   
@@ -106,7 +106,7 @@ RegisterCommand('thankyou', function(source, args)
     local hasRebel = XTRA.hasGroup(user_id, 'Rebel')
     if user_id <= 50 and not hasRebel then
         XTRA.addUserGroup(user_id, 'Rebel')
-        TriggerClientEvent('XTRA:smallAnnouncement', source, 'XTRA', "Thankyou for being one of our first 50 members, we appreciate your support, and for this we have given you Rebel Licence free of charge!\n", 18, 10000)
+        TriggerClientEvent('XTRA:smallAnnouncement', source, 'XTRA', "Thankyou for being one of our first 50 members, we appreciate your support!\n", 18, 10000)
     elseif user_id >= 51 then
         TriggerClientEvent('XTRA:smallAnnouncement', source, 'XTRA', "Unfortunately you wasn't one of the first 50 members!\n", 18, 10000)
     elseif hasRebel then
