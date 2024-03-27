@@ -87,85 +87,6 @@ local verify_card = {
         },
     }
 }
-local ban_card = {
-    ["type"] = "AdaptiveCard",
-    ["$schema"] = "http://adaptivecards.io/schemas/adaptive-card.json",
-    ["version"] = "1.3",
-    ["backgroundImage"] = {
-        ["url"] = "https://cdn.discordapp.com/attachments/1195851571150467097/1210381117983694908/yup.png?ex=660609c2&is=65f394c2&hm=54b2baacf47d017d0046bc0c37612bda6bde0231b174b29b94fe9f50d5a14124&",
-    },
-    ["body"] = {
-        {
-            ["type"] = "TextBlock",
-            ["text"] = "XTRA Public",
-            ["highlight"] = true,
-            ["horizontalAlignment"] = "Center",
-            ["size"] = "Medium",
-            ["wrap"] = true,
-            ["weight"] = "Bolder",
-        },
-        {
-            ["type"] = "Container",
-            ["horizontalAlignment"] = "Center",
-            ["items"] = {
-                {
-                    ["type"] = "TextBlock",
-                    ["text"] = "Ban expires in NULL",
-                    ["horizontalAlignment"] = "Center",
-                    ["size"] = "Large",
-                    ["wrap"] = false,
-
-                },
-                {
-                    ["type"] = "TextBlock",
-                    ["text"] = "Your ID: NULL",
-                    ["horizontalAlignment"] = "Center",
-                    ["size"] = "Large",
-                    ["wrap"] = false,
-                },
-                {
-                    ["type"] = "TextBlock",
-                    ["horizontalAlignment"] = "Center",
-                    ["size"] = "Large",
-                    ["text"] = "Reason: NULL",
-                    ["wrap"] = false,
-                },
-                {
-                    ["type"] = "TextBlock",
-                    ["color"] = "Attention",
-                    ["horizontalAlignment"] = "Center",
-                    ["size"] = "Medium",
-                    ["color"] = "Warning",
-                    ["text"] = "If you believe this ban is invalid, please appeal on our discord",
-                    ["wrap"] = false,
-                    ["isSubtle"] = true,
-                },
-            }
-        },
-        {
-            ['type'] = 'ActionSet',
-            ["horizontalAlignment"] = "Center",
-            ["size"] = "Large",
-            ['actions'] = {
-                {
-                    ['type'] = 'Action.OpenUrl',
-                    ['title'] = 'XTRA Discord',
-                    ["horizontalAlignment"] = "Center",
-                    ["size"] = "Large",
-                    ["url"] = "https://discord.gg/xtra",
-                },
-                {
-                    ['type'] = 'Action.Submit',
-                    ['title'] = 'XTRA Support',
-                    ["horizontalAlignment"] = "Center",
-                    ["size"] = "Large",
-                    ["url"] = "https://discord.gg/xtrasupport",
-                },
-            },
-        }
-    }
-}
-
 
 
 
@@ -1224,17 +1145,10 @@ AddEventHandler("playerConnecting", function(name, setMessage, deferrals)
                                             end
                                         end
                                         print("[XTRA] "..GetPlayerName(source).." ^1Rejected: "..banreason.."^0 | Perm ID = "..user_id)
-                                        local baninfo = {}
-                                        local calbantime = calculateTimeRemaining(bantime)
-                                        baninfo[user_id] = {user_id = user_id, time = calbantime, reason = banreason}
-                                        show_ban_card(baninfo[user_id], deferrals)
-                                        --deferrals.done("\n[XTRA] Ban expires in "..calculateTimeRemaining(bantime).."\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra")
+                                        deferrals.done("\n[XTRA] Ban expires in "..calculateTimeRemaining(bantime).."\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra")
                                     else 
                                         print("[XTRA] "..GetPlayerName(source).." ^1Rejected: "..banreason.."^0 | Perm ID = "..user_id)
-                                        local baninfo = {}
-                                        baninfo[user_id] = {user_id = user_id, time = "perm", reason = banreason}
-                                        show_ban_card(baninfo[user_id], deferrals)
-                                        --deferrals.done("\n[XTRA] Permanent Ban\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra")
+                                        deferrals.done("\n[XTRA] Permanent Ban\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra")
                                     end
                                 end)
                             end
@@ -1313,18 +1227,6 @@ function check_verified(deferrals, code, user_id, data)
     end
     trys[code] = trys[code] + 1
     show_auth_card(code, deferrals, callback)
-end
-function show_ban_card(baninfo, deferrals, callback)
-    if baninfo.time == "perm" then
-        ban_card["body"][2]["items"][1]["text"] = "Permanent Ban"
-        ban_card["body"][2]["items"][2]["text"] = "Your ID: "..baninfo.user_id
-        ban_card["body"][2]["items"][3]["text"] = "Reason: "..baninfo.reason
-    else
-        ban_card["body"][2]["items"][1]["text"] = "Ban expires in ".. baninfo.time
-        ban_card["body"][2]["items"][2]["text"] = "Your ID: "..baninfo.user_id
-        ban_card["body"][2]["items"][3]["text"] = "Reason: "..baninfo.reason
-    end
-    deferrals.presentCard(ban_card, callback)
 end
 
 
