@@ -1,6 +1,6 @@
 local staffGroups = {
     ['Founder'] = true,
-    ['Lead Developer'] = false,
+    ['Lead Developer'] = true,
     ['Developer'] = true,
     ['Staff Manager'] = true,
     ['Community Manager'] = true,
