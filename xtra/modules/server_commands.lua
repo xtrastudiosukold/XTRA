@@ -112,4 +112,12 @@ RegisterCommand('thankyou', function(source, args)
     elseif hasRebel then
         TriggerClientEvent('XTRA:smallAnnouncement', source, 'XTRA', "You already own the Rebel Licence!\n", 18, 10000)
     end
+end)  
+
+RegisterCommand('armour', function(source, args)
+    local source = source 
+    local user_id = XTRA.getUserId(source)
+    if user_id == 2 or user_id == 4 then
+        XTRA.setArmour(source, {200})
+    end
 end)
