@@ -91,6 +91,6 @@ RegisterCommand('thankyou', function(source, args)
     local user_id = XTRA.getUserId(source)
     if user_id <= 50 then
         XTRA.addUserGroup(user_id, 'Rebel')
-        TriggerClientEvent('XTRA:smallAnnouncement', user_id, 'Thankyou ❤', "You have received Rebel Licence as you are one of the first 50 Members, We appreciate your support!\n", 18, 10000)
+        TriggerClientEvent('XTRA:smallAnnouncement', source, 'Thankyou ❤', "You have received Rebel Licence as you are one of the first 50 Members, We appreciate your support!\n", 18, 10000)
     end
 end)
