@@ -1064,6 +1064,7 @@ cfg.groups = {
     ["G4S Driver"] = {},
     ["Taco Seller"] = {},
     ["Burger Shot Cook"] = {},
+    ["AlreadyClaimed"] = {},
 }
 
 return cfg
