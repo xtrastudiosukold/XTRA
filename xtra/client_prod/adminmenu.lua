@@ -514,15 +514,15 @@ RageUI.CreateWhile(
                             end,
                             RMenu:Get("adminmenu", "searchoptions")
                         )
-                        RageUI.ButtonWithStyle(
-                            "Staff Members",
-                            "",
-                            {RightLabel = "→→→"},
-                            true,
-                            function(R, S, T)
-                            end,
-                            RMenu:Get("adminmenu", "staffmembers")
-                        )
+                        -- RageUI.ButtonWithStyle(
+                        --     "Staff Members",
+                        --     "",
+                        --     {RightLabel = "→→→"},
+                        --     true,
+                        --     function(R, S, T)
+                        --     end,
+                        --     RMenu:Get("adminmenu", "staffmembers")
+                        -- )
                         RageUI.ButtonWithStyle(
                             "Functions",
                             "",
