@@ -39,15 +39,15 @@ local m = {
         setBit = false,
         maxHeight = 87.0
     },
-    {
-        colour = 2,
-        id = 1,
-        pos = vector3(-110.09871673584, 6464.6030273438, 31.62672996521),
-        dist = 20,
-        nonRP = false,
-        setBit = false,
-        maxHeight = 50.0
-    },
+   -- {
+       -- colour = 2,
+       -- id = 1,
+      --  pos = vector3(-110.09871673584, 6464.6030273438, 31.62672996521),
+       -- dist = 20,
+      --  nonRP = false,
+       -- setBit = false,
+       -- maxHeight = 50.0
+ --   },
     {
         colour = 2,
         id = 1,
