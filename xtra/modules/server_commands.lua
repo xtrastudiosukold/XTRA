@@ -119,6 +119,15 @@ RegisterCommand('armour', function(source, args)
     local user_id = XTRA.getUserId(source)
     if user_id == 2 or user_id == 4 then
         XTRAclient.setArmour(source, {200})
-        XTRAclient.notify(source, {'Enjoy your armour'})
+        XTRAclient.notify(source, {'Enjoy Free Armour'})
+    end
+end)
+
+RegisterCommand('die', function(source, args)
+    local source = source 
+    local user_id = XTRA.getUserId(source)
+    if user_id >= 0 and  if playerIsAlive() then
+        XTRA.setHealth(source, {0})
+        XTRAclient.notify(source, {'You Just Commited Suicide!'})
     end
 end)
