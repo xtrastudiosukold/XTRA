@@ -10,9 +10,9 @@ AddEventHandler('XTRA:Withdraw', function(amount)
     if amount > 0 then  
         if user_id ~= nil then
             if XTRA.tryWithdraw(user_id, amount) then
-                XTRAclient.notify(source, {"You have withdrawn £"..getMoneyStringFormatted(amount)})
+                XTRAclient.notify(source, {"~g~You have withdrawn £"..getMoneyStringFormatted(amount)})
             else 
-                XTRAclient.notify(source, {"You do not have enough money to withdraw."})
+                XTRAclient.notify(source, {"~r~You do not have enough money to withdraw."})
             end
         end
     end
@@ -25,9 +25,9 @@ AddEventHandler('XTRA:Deposit', function(amount)
     if amount > 0 then  
         if user_id ~= nil then
             if XTRA.tryDeposit(user_id, amount) then
-                XTRAclient.notify(source, {"You have deposited £"..getMoneyStringFormatted(amount)})
+                XTRAclient.notify(source, {"~g~You have deposited £"..getMoneyStringFormatted(amount)})
             else 
-                XTRAclient.notify(source, {"You do not have enough money to deposit."})
+                XTRAclient.notify(source, {"~r~You do not have enough money to deposit."})
             end
         end
     end
@@ -41,9 +41,9 @@ AddEventHandler('XTRA:WithdrawAll', function()
     if amount > 0 then  
         if user_id ~= nil then
             if XTRA.tryWithdraw(user_id, amount) then
-                XTRAclient.notify(source, {"You have withdrawn £"..getMoneyStringFormatted(amount)})
+                XTRAclient.notify(source, {"~g~You have withdrawn £"..getMoneyStringFormatted(amount)})
             else 
-                XTRAclient.notify(source, {"You do not have enough money to withdraw."})
+                XTRAclient.notify(source, {"~r~You do not have enough money to withdraw."})
             end
         end
     end
@@ -57,9 +57,9 @@ AddEventHandler('XTRA:DepositAll', function()
     if amount > 0 then  
         if user_id ~= nil then
             if XTRA.tryDeposit(user_id, amount) then
-                XTRAclient.notify(source, {"You have deposited £"..getMoneyStringFormatted(amount)})
+                XTRAclient.notify(source, {"~g~You have deposited £"..getMoneyStringFormatted(amount)})
             else 
-                XTRAclient.notify(source, {"You do not have enough money to deposit."})
+                XTRAclient.notify(source, {"~r~You do not have enough money to deposit."})
             end
         end
     end
