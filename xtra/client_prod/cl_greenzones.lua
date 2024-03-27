@@ -336,7 +336,7 @@ o(
         while true do
             local v = PlayerPedId()
             local O = GetVehiclePedIsIn(v, false)
-            SetVehicleAutoRepairDisabled(O, true)
+            --SetVehicleAutoRepairDisabled(O, true)
             if not tXTRA.areGreenzonesDisabled() then
                 isInGreenzone = c or d
                 local P = GetActivePlayers()

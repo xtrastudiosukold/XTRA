@@ -251,7 +251,7 @@ function ProcessVehicleLights()
 			state.accurateLights = false
 		end
 
-		SetVehicleAutoRepairDisabled(state.entity, true)
+		--SetVehicleAutoRepairDisabled(state.entity, true)
 		SetVehicleHasMutedSirens(state.entity, true)
 
 		Controller.CheckPatterns(state)

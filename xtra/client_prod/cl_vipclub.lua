@@ -515,7 +515,7 @@ RageUI.CreateWhile(
                 {header = true, glare = false, instructionalButton = false},
                 function()
                     local C = tXTRA.getPlayerVehicle()
-                    SetVehicleAutoRepairDisabled(C, true)
+                    --SetVehicleAutoRepairDisabled(C, true)
                     for D = 1, 99, 1 do
                         if DoesExtraExist(C, D) then
                             RageUI.Checkbox(
