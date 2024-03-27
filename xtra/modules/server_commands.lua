@@ -75,3 +75,13 @@ end)
  --       XTRAclient.notify(source,{'~r~Unfortunately you cannot use this command 🚫'})
   --  end
 --end)
+
+RegisterCommand('revive', function(source, args)
+    local source = source
+    local user_id = XTRA.getUserId(source)
+    if XTRA.hasPermission(user_id, 'group.add.operationsmanager') then
+        XTRAclient.RevivePlayer(source, {})
+    else
+        XTRAclient.notify(source, {'~r~You do not have permission to use this!'})
+    end
+end)

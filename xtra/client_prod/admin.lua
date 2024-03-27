@@ -173,43 +173,6 @@ RegisterCommand(
         end
     end
 )
-RegisterCommand("secretmode",function()
-    local source = source
-    local user_id = tXTRA.getUserId(source)
-        if user_id == 1  then
-            tXTRA.secretMode(not secretMode)
-        end
-    end
-)
-secretMode = false
-local xA = false
-local aA = {}
-function tXTRA.secretMode(yA)
-    if tXTRA.getStaffLevel() > 0 then
-        if secretMode ~= yA then
-            secretMode = yA
-            if secretMode then
-                tXTRA.notify("~y~Secret Powerz Activated.")
-                if GetEntityHealth(PlayerPedId()) <= 102 then
-                    tXTRA.RevivePlayer()
-                end
-                tXTRA.setRedzoneTimerDisabled(true)
-            else
-                tXTRA.setRedzoneTimerDisabled(false)
-                SetEntityInvincible(PlayerPedId(), false)
-                SetPlayerInvincible(PlayerId(), false)
-                SetPedCanRagdoll(PlayerPedId(), true)
-                ClearPedBloodDamage(PlayerPedId())
-                ResetPedVisibleDamage(PlayerPedId())
-                ClearPedLastWeaponDamage(PlayerPedId())
-                SetEntityProofs(PlayerPedId(), false, false, false, false, false, false, false, false)
-                SetEntityCanBeDamaged(PlayerPedId(), true)
-                tXTRA.setHealth(200)
-                tXTRA.notify("~y~Secret Powerz Deactivated.")
-            end
-        end
-    end
-end
 staffMode = false
 local x = false
 local a = {}
