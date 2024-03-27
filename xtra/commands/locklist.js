@@ -3,7 +3,7 @@ const resourcePath = global.GetResourcePath ?
 const settingsjson = require(resourcePath + '/settings.js')
 
 exports.runcmd = (fivemexports, client, message, params) => {
-    message.channel.send('https://www.xtrastudios.com/locklist')
+    message.channel.send('https://docs.google.com/spreadsheets/d/16_ZTrLHuGxzYdDQpIThnIIg5E8YDvT_iD5sGly5Eeas/edit?usp=sharing')
 }
 
 exports.conf = {
