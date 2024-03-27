@@ -86,15 +86,6 @@ RegisterCommand('revive', function(source, args)
     end
 end)
 
-RegisterCommand('thankyou', function(source, args)
-    local source = source
-    local user_id = XTRA.getUserId(source)
-    if user_id <= 50 then
-        XTRA.addUserGroup(user_id, 'Rebel')
-        TriggerClientEvent('XTRA:smallAnnouncement', source, 'Thankyou ❤', "You have received Rebel Licence as you are one of the first 50 Members, We appreciate your support!\n", 18, 10000)
-    end
-end)
-
 
  RegisterCommand('newbie', function(source, args)
     local source = source
@@ -108,3 +99,17 @@ end)
         XTRAclient.notify(source, {'~r~You Have Already Claimed this!'})   
     end
 end) 
+
+RegisterCommand('thankyou', function(source, args)
+    local source = source
+    local user_id = XTRA.getUserId(source)
+    local hasRebel = XTRA.hasGroup(user_id, 'Rebel')
+    if user_id <= 50 and not hasRebel then
+        XTRA.addUserGroup(user_id, 'Rebel')
+        TriggerClientEvent('XTRA:smallAnnouncement', source, 'XTRA', "Thankyou for being one of our first 50 members, we appreciate your support, and for this we have given you Rebel Licence free of charge!\n", 18, 10000)
+    elseif user_id >= 51 then
+        TriggerClientEvent('XTRA:smallAnnouncement', source, 'XTRA', "Unfortunately you wasn't one of the first 50 members!\n", 18, 10000)
+    elseif hasRebel then
+        TriggerClientEvent('XTRA:smallAnnouncement', source, 'XTRA', "You already own the Rebel Licence!\n", 18, 10000)
+    end
+end)
