@@ -59,5 +59,5 @@ exports.runcmd = (fivemexports, client, message, params) => {
 exports.conf = {
     name: "info",
     perm: 0,
-    guild: "1134592077808812105"
+    guild: "1162517121251692626"
 }
