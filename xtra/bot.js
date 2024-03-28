@@ -276,7 +276,7 @@ if (settingsjson.settings.StatusEnabled) {
             ],
             "author": {
                 "name": "XTRA Server #1 Status",
-                "icon_url": "https://i.imgur.com/418xn77.png"
+                "icon_url": "https://imgur.com/a/D2w4Ki7"
             },
             "footer": {
                 "text": `${currentFooterEmoji} XTRA`

@@ -12,7 +12,7 @@ exports.runcmd = async (fivemexports, client, message, params) => {
            // icon_url: "" 
         },
         "thumbnail": {
-            url: "https://i.imgur.com/418xn77.png" 
+            url: "https://imgur.com/a/D2w4Ki7" 
         }
     };
     const sentMessage = await message.channel.send({ embed });
