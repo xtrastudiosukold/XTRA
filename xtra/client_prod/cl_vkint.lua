@@ -49,9 +49,15 @@ local a = {
     },
     [76] = {
         id = 76,
-        position = vector3(-2336.55078125,266.02359008789,169.60194396973),
+        position = vector3(-2336.55078125,266.02359008789,169.80194396973),
         name = "Kortz Centre",
         destination = {74}
+    },
+    [77] = {
+        id = 77,
+        position = vector3(3462.7260742188,2623.2485351562,15.751091194153),
+        name = "Admin Island",
+        destination = {75,76},
     },
     [95] = {
         id = 95,
