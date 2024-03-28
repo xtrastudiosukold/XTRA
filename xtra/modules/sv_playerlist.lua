@@ -217,7 +217,7 @@ local paycheckscfg = module('cfg/cfg_factiongroups')
 local function paycheck(tempid, permid, money)
     local pay = grindBoost*money
     XTRA.giveBankMoney(permid, pay)
-    XTRAclient.notifyPicture(tempid, {'gov_uk_large', 'gov_uk_large', 'Payday: ~g~£'..getMoneyStringFormatted(tostring(pay)), "", 'PAYE', '', 1})
+    XTRAclient.notifyPicture(tempid, {'notification_images', 'gov_uk_large', 'Payday: ~g~£'..getMoneyStringFormatted(tostring(pay)), "", 'PAYE', '', 1})
 end
 
 Citizen.CreateThread(function()
