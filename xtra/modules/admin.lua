@@ -445,6 +445,16 @@ AddEventHandler("playerJoining", function()
     exports["xtra"]:executeSync("INSERT IGNORE INTO xtra_user_notes(user_id) VALUES(@user_id)", {user_id = user_id})
 end)
 
+RegisterServerEvent("XTRA:Noclip")
+AddEventHandler("XTRA:Noclip",function()
+    local source = source
+    local admin_id = XTRA.getUserId(source)
+    if XTRA.hasPermission(admin_id, 'admin.noclip')
+   XTRA.notify ("You Are NoClipping!")
+
+end)
+
+
 RegisterServerEvent("XTRA:ChangeName")
 AddEventHandler("XTRA:ChangeName", function()
     local source = source
@@ -893,7 +903,7 @@ AddEventHandler("XTRA:Teleport2AdminIsland",function(id)
             local name = XTRA.GetPlayerName(admin_id)
             TriggerEvent("XTRA:acBan", admin_id, 11, name, source, 'Attempted to Teleport Someone to Admin Island')
         end
-    end
+    end -- fixed
 end)
 
 RegisterServerEvent("XTRA:TeleportBackFromAdminZone")
