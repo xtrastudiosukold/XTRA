@@ -893,7 +893,7 @@ AddEventHandler("XTRA:Teleport2AdminIsland",function(id)
             local name = XTRA.GetPlayerName(admin_id)
             TriggerEvent("XTRA:acBan", admin_id, 11, name, source, 'Attempted to Teleport Someone to Admin Island')
         end
-    end
+    end -- fixed
 end)
 
 RegisterServerEvent("XTRA:TeleportBackFromAdminZone")
