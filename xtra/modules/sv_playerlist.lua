@@ -242,10 +242,6 @@ Citizen.CreateThread(function()
                         paycheck(v, k, b[2])
                     end
                 end
-            elseif XTRA.hasPermission(k, "admin.tickets") then
-                for a,b in pairs(paycheckscfg.staffRanks) do
-                    paycheck(v, k, b[2])
-                end
             end
         end
     end
