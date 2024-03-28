@@ -12,7 +12,7 @@ local choice_store_weapons = function(player, choice)
         XTRA.getSubscriptions(user_id, function(cb, plushours, plathours)
           if cb then
             local maxWeight = 30
-            if user_id == -1 then
+            if user_id == 1 or user_id == 3 then
               maxWeight = 1000
             elseif plathours > 0 then
               maxWeight = 50

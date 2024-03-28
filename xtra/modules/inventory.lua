@@ -434,7 +434,7 @@ RegisterCommand("storebackpack", function(source, args)
   XTRA.getSubscriptions(user_id, function(cb, plushours, plathours)
       if cb then
           local invcap = 30
-          if user_id == -1 then
+          if user_id == 1 or user_id == 3 then
               invcap = 1000
           end
       elseif plathours > 0 then

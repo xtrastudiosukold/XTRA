@@ -59,6 +59,8 @@ AddEventHandler("XTRA:getPlayerSubscription", function(playerid)
         XTRA.getSubscriptions(user_id, function(cb, plushours, plathours)
             if cb then
                 TriggerClientEvent('XTRA:setVIPClubData', player, plushours, plathours)
+                Wait(5000)
+                XTRA.giveInventoryItem(user_id,"civilian_radio",1)
             end
         end)
     end
@@ -176,6 +178,23 @@ Citizen.CreateThread(function()
                     end
                 end
                 SetAllUsers(usertable)
+            end
+        end)
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(5000)
+        local source = source
+        local user_id = XTRA.getUserId(source)
+        XTRA.getSubscriptions(user_id, function(cb, plushours, plathours)
+            if cb then
+                if plathours < 0 then
+                    XTRAclient.notify(source, {'~y~ You can Purchase XTRA Platinum & XTRA Plus via xtra.tebex.io'})
+                elseif plathours > 0 then
+                    XTRA.giveInventoryItem(user_id,"civilian_radio",1)
+                end
             end
         end)
     end

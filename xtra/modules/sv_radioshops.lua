@@ -1,14 +1,14 @@
-local cfg = module("cfg/cfg_stores")
+local cfg = module("cfg/cfg_radiostores")
 
 
 RegisterNetEvent("XTRA:BuyStoreItem")
 AddEventHandler("XTRA:BuyStoreItem", function(item, amount)
     local user_id = XTRA.getUserId(source)
     local ped = GetPlayerPed(source)
-    for k,v in pairs(cfg.shopItems) do
+    for k,v in pairs(cfg.RadioItems) do
         if item == v.itemID then
             if XTRA.getInventoryWeight(user_id) <= 25 then
-                if XTRA.tryBankPayment(user_id,v.price*amount) then
+                if XTRA.tryPayment(user_id,v.price*amount) then
                     XTRA.giveInventoryItem(user_id, item, amount, false)
                     XTRAclient.notifyPicture(source, {"monzo", "monzo", "~g~Paid ".. '£' ..getMoneyStringFormatted(v.price*amount)..'.'})
 

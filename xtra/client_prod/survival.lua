@@ -272,7 +272,7 @@ RegisterNetEvent(
             elseif L >= 3 and not globalNHSOnDuty then
                 bleedoutDuration = 290000
             else
-                bleedoutDuration = 50000
+                bleedoutDuration = 1000
             end
             c = bleedoutDuration + 10000
         else

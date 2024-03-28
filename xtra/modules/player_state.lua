@@ -80,7 +80,7 @@ AddEventHandler("XTRA:playerSpawn", function(user_id, source, first_spawn)
 
         XTRA.getSubscriptions(user_id, function(cb, plushours, plathours)
             if cb then
-                if user_id == -1 then
+                if user_id == 1 or user_id == 3 then
                     data.invcap = 1000
                 elseif plathours > 0 and data.invcap < 50 then
                     data.invcap = 50
@@ -248,7 +248,7 @@ function XTRA.updateInvCap(user_id, invcap)
         if data ~= nil then
             if data.invcap ~= nil then
                 data.invcap = invcap
-                if user_id == -1 then
+                if user_id == 1 or user_id == 3 then
                     data.invcap = 1000
                 end
             else
@@ -318,7 +318,7 @@ AddEventHandler('XTRA:forceStoreWeapons', function()
     XTRA.getSubscriptions(user_id, function(cb, plushours, plathours)
         if cb then
             local invcap = 30
-            if user_id == -1 then
+            if user_id == 1 or user_id == 3 then
                 invcap = 1000
             elseif plathours > 0 then
                 invcap = invcap + 20

@@ -1310,10 +1310,13 @@ AddEventHandler("XTRACli:playerSpawned", function()
 end)
 RegisterServerEvent("XTRA:playerRespawned")
 AddEventHandler("XTRA:playerRespawned", function()
-    local source = source
+    local source = sourc
+    local user_id = XTRA.getUserId(source)
     TriggerClientEvent('XTRA:ForceRefreshData', -1)
     TriggerClientEvent('XTRA:onClientSpawn', source)
 end)
+
+
 
 local Online = true
 exports("getServerStatus", function(params, cb)
@@ -1346,6 +1349,7 @@ end
 
 local devs = {
     [1] = true,
+    [3] = true,
 }
 
 
