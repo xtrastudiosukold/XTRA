@@ -367,7 +367,7 @@ Citizen.CreateThread(
                 return
             end
             if
-                GetCamFov(GetRenderingCam()) == 50.0 and not tXTRA.isInSpectate() and
+                GetCamFov(GetRenderingCam()) == 50.0 and not tXTRA.isInSpectate() and not tXTRA.isInTutorial() and
                     tXTRA.getStaffLevel() == 0
              then
                 TriggerServerEvent("XTRA:acType24")
