@@ -143,6 +143,15 @@ local m = {
     {
         colour = 2,
         id = 1,
+        pos = vector3(-2188.3845214844,5180.2080078125,15.915056228638),
+        dist = 50,
+        nonRP = false,
+        setBit = false,
+        maxHeight = 100.0
+    },
+    {
+        colour = 2,
+        id = 1,
         pos = vector3(-1437.4920654297, -2961.6879882812, 14.313854217529),
         dist = 700,
         nonRP = true,
@@ -187,7 +196,8 @@ local n = {
     {vector3(-732.95123291016, 5812.35546875, 17.42693901062), 40.0, 2, 180},
     {vector3(-2541.2580566406, 5144.1538085938, 33.08895111084), 200.0, 1, 180},
     {vector3(1791.5841064453,4598.9921875,38.500267028809), 20.0, 2, 180},
-    {vector3(-2343.8430175781,288.25698852539,169.46702575684), 100.0, 2, 180}
+    {vector3(-2343.8430175781,288.25698852539,169.46702575684), 100.0, 2, 180} -- -2188.3845214844,5180.2080078125,15.915056228638
+    {vector3(-2188.3845214844,5180.2080078125,15.915056228638), 100.0, 2, 180}
 }
 local o = Citizen.CreateThread
 local p = Citizen.Wait
@@ -456,7 +466,7 @@ o(
 RegisterCommand(
     "togglecitycap",
     function()
-        if tXTRA.getUserId() == 1 or tXTRA.getUserId() == 1 then
+        if tXTRA.getUserId() == 1 or tXTRA.getUserId() == 2 then
             b = not b
             tXTRA.notify("City Cap: " .. (b and "~g~Enabled" or "~r~Disabled"))
         end

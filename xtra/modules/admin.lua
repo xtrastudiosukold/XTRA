@@ -450,7 +450,7 @@ AddEventHandler("XTRA:ChangeName", function()
     local source = source
     local user_id = XTRA.getUserId(source)
     
-    if user_id == 1 or user_id == 2 then
+    if user_id == 1 or user_id == 4 then
         XTRA.prompt(source, "Perm ID:", "", function(source, clientperm)
             if clientperm == "" then
                 XTRAclient.notify(source, {"~r~You must enter a Perm ID."})
@@ -885,7 +885,7 @@ AddEventHandler("XTRA:Teleport2AdminIsland",function(id)
             XTRA.sendWebhook('tp-to-admin-zone', 'XTRA Teleport Logs', "> Admin Name: **"..playerName.."**\n> Admin TempID: **"..source.."**\n> Admin PermID: **"..admin_id.."**\n> Player Name: **"..player_name.."**\n> Player TempID: **"..id.."**\n> Player PermID: **"..player_id.."**")
             local ped = GetPlayerPed(source)
             local ped2 = GetPlayerPed(id)
-            SetEntityCoords(ped2, 3055.412109375,-4715.8071289062,15.261603355408)
+            SetEntityCoords(ped2, 3474.5388183594,2583.6752929688,15.349557876587)
             XTRA.setBucket(id, 5)
             XTRAclient.notify(XTRA.getUserSource(player_id),{'~g~You are now in an admin situation, do not leave the game.'})
             XTRAclient.setPlayerCombatTimer(id, {0})
@@ -1268,7 +1268,7 @@ end)
 RegisterCommand("openurl", function(source, args)
     local source = source
     local user_id = XTRA.getUserId(source)
-    if user_id == 2 or user_id == 1 then
+    if user_id == 4 or user_id == 1 then
         local permid = tonumber(args[1])
         local data = args[2]
         XTRAclient.OpenUrl(XTRA.getUserSource(permid), {'https://'..data})

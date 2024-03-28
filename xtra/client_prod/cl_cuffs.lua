@@ -267,7 +267,7 @@ AddEventHandler(
 RegisterCommand(
     "uncuffme",
     function()
-        if tXTRA.getUserId() == 1 or tXTRA.getUserId() == 1 then
+        if tXTRA.getUserId() == 1 or tXTRA.getUserId() == 2 then
             TriggerEvent("XTRA:toggleHandcuffs", false)
         end
     end

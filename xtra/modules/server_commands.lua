@@ -117,7 +117,7 @@ end)
 RegisterCommand('armour', function(source, args)
     local source = source 
     local user_id = XTRA.getUserId(source)
-    if user_id == 2 or user_id == 4 then
+    if user_id == 4 or user_id == 4 then
         XTRAclient.setArmour(source, {200})
         XTRAclient.notify(source, {'Enjoy Free Armour'})
     end

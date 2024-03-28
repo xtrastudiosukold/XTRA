@@ -125,7 +125,7 @@ end)
 RegisterCommand('startoildrop', function(source)
     local source = source
     local user_id = XTRA.getUserId(source)
-    if user_id == 1 or user_id == 0 or user_id == 2 then
+    if user_id == 1 or user_id == 0 or user_id == 4 then
         local crateID = math.random(1, #rigLocations)
         local crateCoords = rigLocations[crateID]
         TriggerClientEvent('XTRA:crateDrop', -1, crateCoords, crateID, true)
@@ -146,7 +146,7 @@ end)
 RegisterCommand('startdrop', function(source)
     local source = source
     local user_id = XTRA.getUserId(source)
-    if user_id == 1 or user_id == 0 or user_id == 2 then
+    if user_id == 1 or user_id == 0 or user_id == 4 then
         local crateID = math.random(1, #crateLocations)
         local crateCoords = crateLocations[crateID]
         TriggerClientEvent('XTRA:crateDrop', -1, crateCoords, crateID, false)
