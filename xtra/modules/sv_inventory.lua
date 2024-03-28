@@ -1026,6 +1026,7 @@ AddEventHandler('XTRA:InComa', function()
             local weight = XTRA.getInventoryWeight(user_id)
             if weight == 0 then return end
             local model = GetHashKey('xs_prop_arena_bag_01')
+            FreezeEntityPosition(xs_prop_arena_bag_01, true)
             local name1 = XTRA.GetPlayerName(user_id)
             local lootbag = CreateObjectNoOffset(model, GetEntityCoords(GetPlayerPed(source)) + 0.2, true, true, false)
             local lootbagnetid = NetworkGetNetworkIdFromEntity(lootbag)
