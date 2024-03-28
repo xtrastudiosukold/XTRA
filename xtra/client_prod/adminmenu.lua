@@ -816,20 +816,6 @@ RageUI.CreateWhile(
                         )
                     end
 
-                    if tXTRA.getStaffLevel() >= 1 then
-                        RageUI.ButtonWithStyle(
-                            "Noclip",
-                            "",
-                            {RightLabel = "→→→"},
-                            true,
-                            function(R, S, T)
-                                if T then
-                                    TriggerServerEvent("XTRA.Noclip")
-                                end
-                            end
-                        )
-                    end
-
                     if tXTRA.getStaffLevel() >= 3 then
                         RageUI.ButtonWithStyle(
                             "Spawn Taxi",
