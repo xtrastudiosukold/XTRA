@@ -60,11 +60,14 @@ AddEventHandler("XTRA:getPlayerSubscription", function(playerid)
             if cb then
                 TriggerClientEvent('XTRA:setVIPClubData', player, plushours, plathours)
                 Wait(5000)
-                XTRA.giveInventoryItem(user_id,"civilian_radio",1)
+                if not (XTRA.getInventoryItemAmount(source, 'civilian_radio') >= 1) then
+                    XTRA.giveInventoryItem(user_id,"civilian_radio",1)
+                end
             end
         end)
     end
 end)
+
 
 RegisterNetEvent("XTRA:beginSellSubscriptionToPlayer")
 AddEventHandler("XTRA:beginSellSubscriptionToPlayer", function(subtype)
