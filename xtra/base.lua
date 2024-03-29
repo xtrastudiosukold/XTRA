@@ -1310,10 +1310,18 @@ AddEventHandler("XTRACli:playerSpawned", function()
 end)
 RegisterServerEvent("XTRA:playerRespawned")
 AddEventHandler("XTRA:playerRespawned", function()
-    local source = sourc
+    local source = source
     local user_id = XTRA.getUserId(source)
     TriggerClientEvent('XTRA:ForceRefreshData', -1)
     TriggerClientEvent('XTRA:onClientSpawn', source)
+    Wait(10000)
+    XTRA.getSubscriptions(user_id, function(cb, plushours, plathours)
+        if plathours and plathours < 0 then
+            XTRAclient.notify(source, {'~y~You can Purchase Platinum or Plus from xtra.tebex.io'})
+        elseif plathours and plathours > 0 then
+            XTRA.giveInventoryItem(user_id, "civilian_radio", 1)
+        end
+    end)
 end)
 
 

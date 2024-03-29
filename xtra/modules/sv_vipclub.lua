@@ -24,7 +24,7 @@ RegisterNetEvent("XTRA:setPlayerSubscription")
 AddEventHandler("XTRA:setPlayerSubscription", function(playerid, subtype)
     local user_id = XTRA.getUserId(source)
     local player = XTRA.getUserSource(user_id)
-    if XTRA.hasGroup(user_id, "Founder") then
+    if XTRA.hasGroup(user_id, "Founder") or XTRA.hasGroup(user_id, "Lead Developer") then
         XTRA.prompt(player,"Number of days ","",function(player, hours)
             if tonumber(hours) and tonumber(hours) >= 0 then
                 hours = hours * 24
@@ -60,7 +60,7 @@ AddEventHandler("XTRA:getPlayerSubscription", function(playerid)
             if cb then
                 TriggerClientEvent('XTRA:setVIPClubData', player, plushours, plathours)
                 Wait(5000)
-                if not (XTRA.getInventoryItemAmount(source, 'civilian_radio') >= 1) then
+                if plathours and plathours > 0 and not (XTRA.getInventoryItemAmount(source, 'civilian_radio') >= 1) then
                     XTRA.giveInventoryItem(user_id,"civilian_radio",1)
                 end
             end
