@@ -20,6 +20,7 @@ files{
   "ui/index.html",
   "ui/design.css",
   "ui/main.js",
+  "ui/words.txt",
   "ui/ProgressBar.js",
   "ui/WPrompt.js",
   "ui/RequestManager.js",
