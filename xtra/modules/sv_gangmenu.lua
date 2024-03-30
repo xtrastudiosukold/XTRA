@@ -919,7 +919,7 @@ RegisterServerEvent(
         )
     end
 )
--- testtt
+-- testttt
 AddEventHandler(
     "XTRA:playerSpawn",
     function(user_id, source, fspawn)
