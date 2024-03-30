@@ -28,7 +28,7 @@ AddEventHandler("XTRA:joinOrganHeist", function()
                 civsInGame = civsInGame + 1
                 TriggerClientEvent('XTRA:addOrganHeistPlayer', -1, source, 'civ')
                 TriggerClientEvent('XTRA:teleportToOrganHeist', source, organlocation["civ"], timeTillOrgan, 'civ', 2)
-                XTRAclient.giveWeapons(source, { { ['WEAPON_MOSIN'] = { ammo = 250 } }, false })
+                XTRAclient.giveWeapons(source, { { ['WEAPON_MOSINCMG'] = { ammo = 250 } }, false })
             end
             XTRA.setBucket(source, 15)
             XTRAclient.setArmour(source, { 100, true })

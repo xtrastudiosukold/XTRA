@@ -216,22 +216,32 @@ function sendFullPlayerListData()
         )
     end
 end
-Citizen.CreateThread(
-    function()
-        while true do
-            Wait(5000)
-            if l ~= nil and m ~= nil and n ~= nil then
-                local A = tXTRA.getUserId()
-                SetDiscordAppId(1208412022820044851)
-                SetDiscordRichPresenceAsset("xtra")
-                SetDiscordRichPresenceAssetText("https://discord.gg/gKuGVFKmmN")
-                SetDiscordRichPresenceAssetSmall("xtra")
-                SetDiscordRichPresenceAssetSmallText(tXTRA.getPlayerName(PlayerId()))
-                SetRichPresence("[ID:" ..tostring(A) .."] | " .. tostring(m) .. "/" .. tostring(n) .. "\n")
- --               SetDiscordRichPresenceAction(0, "Join XTRA", "fivem://connect/s1.xtra.city")
-                SetDiscordRichPresenceAction(0, "Join Discord", "https://discord.gg/wcrZ7t9U4X")
+local a = {}
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(5000)
+        if l and m and n then
+            local A = BTF.getUserId()
+            local userHours = hourz[A] or 0
+            funny = false
+            local e = BTF.getPlayerCoords()
+            d = GetStreetNameAtCoord(e.x, e.y, e.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger()) or "N/A"
+            if not funny then
+                SetDiscordAppId(1045061513964159076)
+                SetDiscordRichPresenceAsset('btf')
+                SetDiscordRichPresenceAssetText('discord.gg/btf5m')
+                SetDiscordRichPresenceAssetSmallText(tBTF.getPlayerName(GetPlayerServerId(PlayerId())))
+                SetDiscordRichPresenceAction(1, "Join BTF", "https://discord.gg/MSs56ypC8N")
+                SetRichPresence("[ID:" .. tostring(A) .. "] | " .. tostring(m) .. "/" .. tostring(n) .. "\n" .. tBTF.getPlayerName(GetPlayerServerId(PlayerId())) .. " | Roaming On " .. tostring(GetStreetNameFromHashKey(d)))
+            else
+                SetDiscordAppId(1195076549993566239)
+                SetDiscordRichPresenceAsset('btf')
+                SetDiscordRichPresenceAssetText('Grand Theft Auto VI')
+                SetDiscordRichPresenceAssetSmallText("Welcome to Vice City!")
+                SetRichPresence("Playing Multiplayer")
             end
-            Wait(15000)
         end
+        Wait(15000)
     end
-)
+end)

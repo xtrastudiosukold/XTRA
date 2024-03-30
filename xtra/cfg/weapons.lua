@@ -487,7 +487,7 @@ cfg.weapons = {
         policeWeapon = true,
         model = "w_sr_remington700",
     },
-    ["WEAPON_MOSIN"] = {
+    ["WEAPON_MOSINCMG"] = {
         name = "Mosin Nagant",
         class = "Shotgun",
         ammo = "7.62mm Bullets",

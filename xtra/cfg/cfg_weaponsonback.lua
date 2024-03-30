@@ -30,7 +30,7 @@ cfg.weapons = {
 	[`WEAPON_MK18V2`] = {bone = 24818, offset = vector3(0.0, 0.18, 0.0), rotation = vector3(180.0, 148.0, 0.0), model = `w_ar_mk18v2`},
 
 	--?Mosin
-	[`WEAPON_MOSIN`] = {bone = 24818, offset = vector3(-0.12, -0.12, -0.13), rotation = vector3(100.0, -3.0, 5.0), model = `w_ar_mosin`},
+	[`WEAPON_MOSINCMG`] = {bone = 24818, offset = vector3(-0.12, -0.12, -0.13), rotation = vector3(100.0, -3.0, 5.0), model = `w_ar_mosin`},
 }
 
 return cfg

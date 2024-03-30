@@ -18,7 +18,7 @@ local dumpsterItems = {
     [12] = {chance = 3, id = 'jewelry_watch', name = 'Gold Watch', quantity = math.random(1,3)},
     [13] = {chance = 3, id = 'jewelry_necklace', name = 'Gold Necklace', quantity = math.random(1,3)},
     [14] = {chance = 2, id = 'armourplate', name = 'Armour Plate', quantity = math.random(1,3)},
-    [15] = {chance = 1, id = 'wbody|WEAPON_MOSIN', name = 'Mosin', quantity = math.random(1,2)}
+    [15] = {chance = 1, id = 'wbody|WEAPON_MOSINCMG', name = 'Mosin', quantity = math.random(1,2)}
 
     -- Add other items as needed
 }

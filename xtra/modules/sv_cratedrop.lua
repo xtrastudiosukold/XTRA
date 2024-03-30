@@ -27,7 +27,7 @@ local availableItems = {
     "WEAPON_PYTHON",
     "WEAPON_UMP45",
     "WEAPON_UZI",
-    "WEAPON_MOSIN",
+    "WEAPON_MOSINCMG",
     "WEAPON_AK200",
     "WEAPON_GOLDAK",
     "WEAPON_AKM",

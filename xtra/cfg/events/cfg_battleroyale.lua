@@ -649,7 +649,7 @@
 
 cfg.lootTable = {
     {"WEAPON_AK74", "7.62"},
-    {"WEAPON_MOSIN", "7.62"},
+    {"WEAPON_MOSINCMG", "7.62"},
     {"WEAPON_OLYMPIA", "12guage"},
     {"WEAPON_UZI", "9mm"},
     {"WEAPON_UMP45", "9mm"},

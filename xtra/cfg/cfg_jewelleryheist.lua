@@ -24,7 +24,7 @@ local cfg = {
         {coords = vector3(2165.6018066406,2923.2263183594,-81.075332641602), heading = 92.75, weaponHash = `weapon_pistol`},
         {coords = vector3(2165.2802734375,2918.5341796875,-81.075309753418), heading = 92.75, weaponHash = `weapon_appistol`},
         {coords = vector3(2179.0979003906,2918.5170898438,-81.075180053711), heading = 260.0, weaponHash = `weapon_snspistol`},
-        {coords = vector3(2178.0676269531,2924.8674316406,-81.075256347656), heading = 316.0, weaponHash = `weapon_mosin`},
+        {coords = vector3(2178.0676269531,2924.8674316406,-81.075256347656), heading = 316.0, weaponHash = `WEAPON_MOSINCMG`},
         {coords = vector3(2185.1748046875,2928.6281738281,-84.800033569336), heading = 280.0, weaponHash = `weapon_pistol`},
         {coords = vector3(2185.1948242188,2913.3120117188,-84.799728393555), heading = 260.0, weaponHash = `weapon_pistol`},
         {coords = vector3(2150.9968261719,2913.3540039063,-84.800033569336), heading = 92.41, weaponHash = `weapon_pistol`},

@@ -68,7 +68,7 @@ end)
   --  local source = source -- source is the players client
   --  local user_id = XTRA.getUserId(source) -- gets the user who enters the commands id
    -- if user_id = 0 then -- this adds a **PERMISSION CHECK** tothe command so it can only be executed by permid **1**
-   --     XTRAclient.giveWeapons(source, {{["WEAPON_MOSIN"] = {ammo = 250}}})
+   --     XTRAclient.giveWeapons(source, {{["WEAPON_MOSINCMG"] = {ammo = 250}}})
    --     XTRAclient.setArmour(source, {100})
    --     XTRAclient.notify(source,{'~g~Hope this helps yu give guns in fivem! ✅'}) -- notify!!!
   --  else -- if not user_id == 1 it will notify them this 🔽

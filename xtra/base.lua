@@ -1316,7 +1316,7 @@ AddEventHandler("XTRA:playerRespawned", function()
     TriggerClientEvent('XTRA:onClientSpawn', source)
     Wait(10000)
     XTRA.getSubscriptions(user_id, function(cb, plushours, plathours)
-        if plathours and plathours < 0 then
+        if plathours and plathours == 0 then
             XTRAclient.notify(source, {'~y~You can Purchase Platinum or Plus from xtra.tebex.io'})
         elseif plathours and plathours > 0 then
             XTRA.giveInventoryItem(user_id, "civilian_radio", 1)
