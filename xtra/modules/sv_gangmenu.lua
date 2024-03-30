@@ -830,7 +830,7 @@ RegisterServerEvent(
                         if tostring(user_id) == A then
                             for C, D in pairs(gangmembers) do
                                 local temp = XTRA.getUserSource(tonumber(C))
-                                if temp ~= nil and hasRadio ~= true then
+                                if temp ~= nil and (XTRA.getInventoryItemAmount(source, 'civilian_radio') >= 1) then
                                     TriggerClientEvent("XTRA:drawGangMarker", temp, XTRA.GetPlayerName(user_id), coords)
                                 end
                             end
@@ -919,7 +919,7 @@ RegisterServerEvent(
         )
     end
 )
-
+-- test
 AddEventHandler(
     "XTRA:playerSpawn",
     function(user_id, source, fspawn)
