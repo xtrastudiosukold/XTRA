@@ -1,141 +1,141 @@
-local a = module("cfg/cfg_housing")
-local b = false
-local c = false
-local d = false
-local e = nil
-local f = nil
-local g = 0
-local h = false
-wardrobe = {}
-ownedHouses = {}
+-- local a = module("cfg/cfg_housing")
+-- local b = false
+-- local c = false
+-- local d = false
+-- local e = nil
+-- local f = nil
+-- local g = 0
+-- local h = false
+-- wardrobe = {}
+-- ownedHouses = {}
 
-RMenu.Add("XTRAHousing", "main", RageUI.CreateMenu("", "", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight(), "banners", "homes"))
-RMenu.Add("XTRAHousing", "leave", RageUI.CreateMenu("", "", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight(), "banners", "homes"))
+-- RMenu.Add("XTRAHousing", "main", RageUI.CreateMenu("", "", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight(), "banners", "homes"))
+-- RMenu.Add("XTRAHousing", "leave", RageUI.CreateMenu("", "", tXTRA.getRageUIMenuWidth(), tXTRA.getRageUIMenuHeight(), "banners", "homes"))
 
-RageUI.CreateWhile(1.0, true, function()
-    if RageUI.Visible(RMenu:Get("XTRAHousing", "main")) then
-        maxKG = a.chestsize[e] or 500
-        RageUI.DrawContent({header = true, glare = false, instructionalButton = true}, function()
-            RageUI.Separator("Price: ~g~£" .. getMoneyStringFormatted(g))
-            RageUI.Separator("Storage: ~g~" .. maxKG .. "kg")
-            RageUI.Button("Enter House", "Enter this home", {RightLabel = "→→→"}, true, function(i, j, k)
-                if k then
-                    TriggerServerEvent("XTRAHousing:Enter", e)
-                end
-            end)
-            if h ~= true then
-                RageUI.Button("Buy Home", nil, {RightLabel = "→→→"}, true, function(i, j, k)
-                    if k then
-                        TriggerServerEvent("XTRAHousing:Buy", e)
-                    end
-                end)
-            end
-            RageUI.Button("Sell House to Player", nil, {RightLabel = "→→→"}, true, function(i, j, k)
-                if k then
-                    TriggerServerEvent("XTRAHousing:Sell", e)
-                end
-            end)
-            RageUI.Button("Rent House to Player", nil, {RightLabel = "→→→"}, true, function(i, j, k)
-                if k then
-                    TriggerServerEvent("XTRAHousing:Rent", e)
-                end
-            end)
-            RageUI.Button("House Robbery", "~r~Break into this house", {RightLabel = "→→→"}, true, function(i, j, k)
-                if k and not tXTRA.inEvent() then
-                    tXTRA.notify("~r~This feature is currently disabled.")
-                end
-            end)
-        end, function() end)
-    end
-    if RageUI.Visible(RMenu:Get("XTRAHousing", "leave")) then
-        RageUI.DrawContent({header = true, glare = false, instructionalButton = true}, function()
-            RageUI.Button("Leave Home", nil, {RightLabel = "→→→"}, true, function(i, j, k)
-                if k then
-                    TriggerServerEvent("XTRAHousing:Leave", e)
-                end
-            end)
-        end, function() end)
-    end
-end)
+-- RageUI.CreateWhile(1.0, true, function()
+--     if RageUI.Visible(RMenu:Get("XTRAHousing", "main")) then
+--         maxKG = a.chestsize[e] or 500
+--         RageUI.DrawContent({header = true, glare = false, instructionalButton = true}, function()
+--             RageUI.Separator("Price: ~g~£" .. getMoneyStringFormatted(g))
+--             RageUI.Separator("Storage: ~g~" .. maxKG .. "kg")
+--             RageUI.Button("Enter House", "Enter this home", {RightLabel = "→→→"}, true, function(i, j, k)
+--                 if k then
+--                     TriggerServerEvent("XTRAHousing:Enter", e)
+--                 end
+--             end)
+--             if h ~= true then
+--                 RageUI.Button("Buy Home", nil, {RightLabel = "→→→"}, true, function(i, j, k)
+--                     if k then
+--                         TriggerServerEvent("XTRAHousing:Buy", e)
+--                     end
+--                 end)
+--             end
+--             RageUI.Button("Sell House to Player", nil, {RightLabel = "→→→"}, true, function(i, j, k)
+--                 if k then
+--                     TriggerServerEvent("XTRAHousing:Sell", e)
+--                 end
+--             end)
+--             RageUI.Button("Rent House to Player", nil, {RightLabel = "→→→"}, true, function(i, j, k)
+--                 if k then
+--                     TriggerServerEvent("XTRAHousing:Rent", e)
+--                 end
+--             end)
+--             RageUI.Button("House Robbery", "~r~Break into this house", {RightLabel = "→→→"}, true, function(i, j, k)
+--                 if k and not tXTRA.inEvent() then
+--                     tXTRA.notify("~r~This feature is currently disabled.")
+--                 end
+--             end)
+--         end, function() end)
+--     end
+--     if RageUI.Visible(RMenu:Get("XTRAHousing", "leave")) then
+--         RageUI.DrawContent({header = true, glare = false, instructionalButton = true}, function()
+--             RageUI.Button("Leave Home", nil, {RightLabel = "→→→"}, true, function(i, j, k)
+--                 if k then
+--                     TriggerServerEvent("XTRAHousing:Leave", e)
+--                 end
+--             end)
+--         end, function() end)
+--     end
+-- end)
 
-Citizen.CreateThread(function()
-    if not HasStreamedTextureDictLoaded("clothing") then
-        RequestStreamedTextureDict("clothing", true)
-        while not HasStreamedTextureDictLoaded("clothing") do
-            Wait(1)
-        end
-    end
-    local function F(data)
-        e = data.currentHouse
-        g = data.currentHousePrice
-        RMenu:Get("XTRAHousing", "main"):SetSubtitle("" .. e)
-        RageUI.Visible(RMenu:Get("XTRAHousing", "main"), true)
-    end
-    local function H(data)
-        RageUI.CloseAll()
-        RageUI.Visible(RMenu:Get("XTRAHousing", "main"), false)
-    end
-    local function I(data) end
-    for k, v in pairs(cfghomes.homes) do
-        tXTRA.createArea("house_" .. k, v.entry_point, 1.5, 6, F, H, I, {currentHouse = k, currentHousePrice = v.buy_price})
-        tXTRA.addMarker(v.entry_point.x, v.entry_point.y, v.entry_point.z, 0.7, 0.7, 0.5, 0, 255, 125, 125, 50, 20, false, false, true)
-    end
-    while true do
-        Citizen.Wait(0)
-        for l, m in pairs(cfghomes.homes) do
-            if XTRA.isInHouse() and e == l then
-                local coords = GetEntityCoords(PlayerPedId())
-                DrawMarker(9, m.chest_point, 0.0, 0.0, 0.0, 90.0, 0.0, 0.0, 0.8, 0.8, 0.8, 224, 224, 244, 1.0, false, false, 2, true, "dp_clothing", "bag", false)
-                if #(coords - m.chest_point) <= 0.8 then
-                    alert("Press ~INPUT_VEH_HORN~ To Open House Chest!")
-                    if IsControlJustPressed(0, 51) then
-                        TriggerServerEvent('XTRA:FetchPersonalInventory')
-                        inventoryType = 'Housing'
-                        TriggerServerEvent('XTRA:FetchHouseInventory', e)
-                    end
-                end
-                DrawMarker(9, m.wardrobe_point, 0.0, 0.0, 0.0, 90.0, 0.0, 0.0, 0.5, 0.5, 0.5, 0, 0, 255, 60, false, true, 2, false, "clothing", "clothing", false)
-                if d == false and #(coords - m.wardrobe_point) <= 0.8 then
-                    e = l
-                    TriggerEvent('XTRA:openOutfitMenu')
-                    d = true
-                end
-                if d and e == l and #(coords - m.wardrobe_point) > 0.8 then
-                    TriggerEvent('XTRA:closeOutfitMenu')
-                    d = false
-                end
-                DrawMarker(20, m.leave_point, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 0, 255, 25, 100, false, true, 2, false)
-                if c == false and #(coords - m.leave_point) <= 0.8 then
-                    e = l
-                    RMenu:Get("XTRAHousing", "leave"):SetSubtitle("" .. e)
-                    RageUI.Visible(RMenu:Get("XTRAHousing", "leave"), true)
-                    c = true
-                end
-                if c and e == l and #(coords - m.leave_point) > 0.8 then
-                    RageUI.Visible(RMenu:Get("XTRAHousing", "leave"), false)
-                    c = false
-                end
-            end
-        end
-    end
-end)
+-- Citizen.CreateThread(function()
+--     if not HasStreamedTextureDictLoaded("clothing") then
+--         RequestStreamedTextureDict("clothing", true)
+--         while not HasStreamedTextureDictLoaded("clothing") do
+--             Wait(1)
+--         end
+--     end
+--     local function F(data)
+--         e = data.currentHouse
+--         g = data.currentHousePrice
+--         RMenu:Get("XTRAHousing", "main"):SetSubtitle("" .. e)
+--         RageUI.Visible(RMenu:Get("XTRAHousing", "main"), true)
+--     end
+--     local function H(data)
+--         RageUI.CloseAll()
+--         RageUI.Visible(RMenu:Get("XTRAHousing", "main"), false)
+--     end
+--     local function I(data) end
+--     for k, v in pairs(cfghomes.homes) do
+--         tXTRA.createArea("house_" .. k, v.entry_point, 1.5, 6, F, H, I, {currentHouse = k, currentHousePrice = v.buy_price})
+--         tXTRA.addMarker(v.entry_point.x, v.entry_point.y, v.entry_point.z, 0.7, 0.7, 0.5, 0, 255, 125, 125, 50, 20, false, false, true)
+--     end
+--     while true do
+--         Citizen.Wait(0)
+--         for l, m in pairs(cfghomes.homes) do
+--             if XTRA.isInHouse() and e == l then
+--                 local coords = GetEntityCoords(PlayerPedId())
+--                 DrawMarker(9, m.chest_point, 0.0, 0.0, 0.0, 90.0, 0.0, 0.0, 0.8, 0.8, 0.8, 224, 224, 244, 1.0, false, false, 2, true, "dp_clothing", "bag", false)
+--                 if #(coords - m.chest_point) <= 0.8 then
+--                     alert("Press ~INPUT_VEH_HORN~ To Open House Chest!")
+--                     if IsControlJustPressed(0, 51) then
+--                         TriggerServerEvent('XTRA:FetchPersonalInventory')
+--                         inventoryType = 'Housing'
+--                         TriggerServerEvent('XTRA:FetchHouseInventory', e)
+--                     end
+--                 end
+--                 DrawMarker(9, m.wardrobe_point, 0.0, 0.0, 0.0, 90.0, 0.0, 0.0, 0.5, 0.5, 0.5, 0, 0, 255, 60, false, true, 2, false, "clothing", "clothing", false)
+--                 if d == false and #(coords - m.wardrobe_point) <= 0.8 then
+--                     e = l
+--                     TriggerEvent('XTRA:openOutfitMenu')
+--                     d = true
+--                 end
+--                 if d and e == l and #(coords - m.wardrobe_point) > 0.8 then
+--                     TriggerEvent('XTRA:closeOutfitMenu')
+--                     d = false
+--                 end
+--                 DrawMarker(20, m.leave_point, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, 0, 255, 25, 100, false, true, 2, false)
+--                 if c == false and #(coords - m.leave_point) <= 0.8 then
+--                     e = l
+--                     RMenu:Get("XTRAHousing", "leave"):SetSubtitle("" .. e)
+--                     RageUI.Visible(RMenu:Get("XTRAHousing", "leave"), true)
+--                     c = true
+--                 end
+--                 if c and e == l and #(coords - m.leave_point) > 0.8 then
+--                     RageUI.Visible(RMenu:Get("XTRAHousing", "leave"), false)
+--                     c = false
+--                 end
+--             end
+--         end
+--     end
+-- end)
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        if XTRA.isInHouse() then
-            NetworkConcealPlayer(GetPlayerPed(-1), true, false)
-        else
-            NetworkConcealPlayer(GetPlayerPed(-1), false, false)
-        end
-    end
-end)
+-- Citizen.CreateThread(function()
+--     while true do
+--         Citizen.Wait(0)
+--         if XTRA.isInHouse() then
+--             NetworkConcealPlayer(GetPlayerPed(-1), true, false)
+--         else
+--             NetworkConcealPlayer(GetPlayerPed(-1), false, false)
+--         end
+--     end
+-- end)
 
-function alert(n)
-    SetTextComponentFormat("STRING")
-    AddTextComponentString(n)
-    DisplayHelpTextFromStringLabel(0, 0, 1, -1)
-end
+-- function alert(n)
+--     SetTextComponentFormat("STRING")
+--     AddTextComponentString(n)
+--     DisplayHelpTextFromStringLabel(0, 0, 1, -1)
+-- end
 
 function isInArea(m, o)
     if #(GetEntityCoords(PlayerPedId()) - m) <= o then

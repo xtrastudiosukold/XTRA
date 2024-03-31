@@ -223,12 +223,11 @@ Citizen.CreateThread(function()
         Wait(5000)
         if l and m and n then
             local A = tXTRA.getUserId()
-            local userHours = hourz[A] or 0
             funny = false
             local e = tXTRA.getPlayerCoords()
             d = GetStreetNameAtCoord(e.x, e.y, e.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger()) or "N/A"
             if not funny then
-                SetDiscordAppId(1045061513964159076)
+                SetDiscordAppId(1208412022820044851)
                 SetDiscordRichPresenceAsset('xtra')
                 SetDiscordRichPresenceAssetText('discord.gg/xtra5m')
                 SetDiscordRichPresenceAssetSmallText(tXTRA.getPlayerName(GetPlayerServerId(PlayerId())))

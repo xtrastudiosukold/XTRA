@@ -22,11 +22,11 @@ Citizen.CreateThread(function()
             print("Generated string: " .. theString)
             theReward = math.random(10000, 50000) * 2
             theString = Code
-            --TriggerClientEvent('chatMessage', -1, "~r~XTRA","^2[Mini-Event] Who writes the word: " .. theString .. " first gets £" .. getMoneyStringFormatted(theReward))
-            TriggerClientEvent('chatMessage', -1, "~r~XTRA",  { 255, 255, 255 }, "^2[Mini-Event] Who writes the word: " .. theString .. " first gets £" .. getMoneyStringFormatted(theReward),  "ooc", "OOC")
+            --TriggerClientEvent('chatMessage', -1, "~r~[XTRA]","^2[Mini-Event] Who writes the word: " .. theString .. " first gets £" .. getMoneyStringFormatted(theReward))
+            TriggerClientEvent('chatMessage', -1, "~r~[XTRA]",  { 255, 255, 255 }, "^2[Mini-Event] Who writes the word: " .. theString .. " first gets £" .. getMoneyStringFormatted(theReward),  "ooc", "OOC")
             SetTimeout(10000, function()
                 if not over then
-                    TriggerClientEvent('chatMessage', -1, "~r~XTRA",  { 255, 255, 255 }, "^2[Mini-Event] Time is over, no one wrote the word!",  "ooc", "OOC")
+                    TriggerClientEvent('chatMessage', -1, "~r~[XTRA]",  { 255, 255, 255 }, "^2[Mini-Event] Time is over, no one wrote the word!",  "ooc", "OOC")
                     over = true
                     theReward = 0
                     theString = ""
@@ -39,7 +39,7 @@ end)
 
 
 function HandleMoneys(user_id, theReward) 
-    TriggerClientEvent('chatMessage', -1, "~r~XTRA",  { 255, 255, 255 }, "^2[Mini-Event] " .. XTRA.GetPlayerName(user_id) .. " wrote the word and won £" .. getMoneyStringFormatted(theReward),  "ooc", "OOC")
+    TriggerClientEvent('chatMessage', -1, "~r~[XTRA]",  { 255, 255, 255 }, "^2[Mini-Event] " .. XTRA.GetPlayerName(user_id) .. " wrote the word and won £" .. getMoneyStringFormatted(theReward),  "ooc", "OOC")
     -- Reset Event
     theReward = 0
     theString = 0 
