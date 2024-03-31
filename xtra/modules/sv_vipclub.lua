@@ -59,10 +59,6 @@ AddEventHandler("XTRA:getPlayerSubscription", function(playerid)
         XTRA.getSubscriptions(user_id, function(cb, plushours, plathours)
             if cb then
                 TriggerClientEvent('XTRA:setVIPClubData', player, plushours, plathours)
-                Wait(5000)
-                if plathours and plathours > 0 and not (XTRA.getInventoryItemAmount(source, 'civilian_radio') >= 1) then
-                    XTRA.giveInventoryItem(user_id,"civilian_radio",1)
-                end
             end
         end)
     end

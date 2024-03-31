@@ -386,7 +386,7 @@ AddEventHandler("XTRA:buyWeapon",function(spawncode, price, name, weaponshop, pu
                                         if purchasetype == 'armour' then
                                             if string.find(spawncode, "fillUp") then
                                                 price = (100 - GetPedArmour(GetPlayerPed(source))) * 1000
-                                                if XTRA.tryBankPayment(user_id,price) then
+                                                if XTRA.tryPayment(user_id,price) then
                                                     XTRAclient.notifyPicture(source, {"monzo", "monzo", "Purchased " .. name .. " for ~g~£" .. getMoneyStringFormatted(price) .. ".", "Monzo", "Gunstore purchase"})
                                                     TriggerClientEvent("XTRA:PlaySound", source, "playMoney")
                                                     XTRAclient.setArmour(source, {100, true})
@@ -397,7 +397,7 @@ AddEventHandler("XTRA:buyWeapon",function(spawncode, price, name, weaponshop, pu
                                                 XTRAclient.notify(source, {'You already have '..GetPedArmour(GetPlayerPed(source))..'% armour.'})
                                                 return
                                             end
-                                            if XTRA.tryBankPayment(user_id,d[2]) then
+                                            if XTRA.tryPayment(user_id,d[2]) then
                                                 XTRAclient.notifyPicture(source, {"monzo", "monzo", "Purchased " .. name .. " for ~g~£" .. getMoneyStringFormatted(price) .. ".", "Monzo", "Gunstore purchase"})
                                                 TriggerClientEvent("XTRA:PlaySound", source, "playMoney")
                                                 XTRAclient.setArmour(source, {price/1000, true})
@@ -415,7 +415,7 @@ AddEventHandler("XTRA:buyWeapon",function(spawncode, price, name, weaponshop, pu
                                                     if hasWeapon then
                                                         XTRAclient.notify(source, {'You must store your current '..name..' before purchasing another.'})
                                                     else
-                                                        if XTRA.tryBankPayment(user_id,d[2]) then
+                                                        if XTRA.tryPayment(user_id,d[2]) then
                                                             if price > 0 then
                                                                 XTRAclient.notifyPicture(source, {"monzo", "monzo", "Purchased " .. name .. " for ~g~£" .. getMoneyStringFormatted(price) .. ".", "Monzo", "Gunstore purchase"})
                                                                 if weaponshop == 'LargeArmsDealer' then
@@ -435,7 +435,7 @@ AddEventHandler("XTRA:buyWeapon",function(spawncode, price, name, weaponshop, pu
                                                 end)
                                             else
                                                 if XTRA.getInventoryWeight(user_id) + 5 <= XTRA.getInventoryMaxWeight(user_id) then
-                                                    if XTRA.tryBankPayment(user_id,d[2]) then
+                                                    if XTRA.tryPayment(user_id,d[2]) then
                                                         XTRAclient.notifyPicture(source, {"monzo", "monzo", "Purchased " .. name .. " for ~g~£" .. getMoneyStringFormatted(price) .. ".", "Monzo", "Gunstore purchase"})
                                                         XTRA.giveInventoryItem(user_id, 'armourplate', 1)
                                                         TriggerClientEvent("XTRA:PlaySound", source, "playMoney")
@@ -451,7 +451,7 @@ AddEventHandler("XTRA:buyWeapon",function(spawncode, price, name, weaponshop, pu
                                             end
                                         elseif purchasetype == 'ammo' then
                                             price = price/2
-                                            if XTRA.tryBankPayment(user_id,price) then
+                                            if XTRA.tryPayment(user_id,price) then
                                                 if price > 0 then
                                                     XTRAclient.notifyPicture(source, {"monzo", "monzo", "Purchased 250x Ammo for ~g~£" .. getMoneyStringFormatted(price) .. ".", "Monzo", "Gunstore purchase"})
                                                     if weaponshop == 'LargeArmsDealer' then
