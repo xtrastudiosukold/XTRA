@@ -147,7 +147,8 @@ end)
 
 for i=0,31,1 do
     Citizen.CreateThread(function()
-        math.randomseed(os.clock()*100000000000)
+        local seed = math.randomseed(os.clock()*100000000000)
+        math.randomseed(seed)
         while true do
             math.random() 
             math.random()
