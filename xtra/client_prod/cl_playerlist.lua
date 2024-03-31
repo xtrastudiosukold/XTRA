@@ -230,7 +230,7 @@ Citizen.CreateThread(function()
                 SetDiscordAppId(1208412022820044851)
                 SetDiscordRichPresenceAsset('xtra')
                 SetDiscordRichPresenceAssetText('discord.gg/xtra5m')
-                SetDiscordRichPresenceAssetSmallText(tXTRA.getPlayerName(GetPlayerServerId(PlayerId())))
+                SetDiscordRichPresenceAssetSmallText(tXTRA.GetPlayerName(GetPlayerServerId(PlayerId())))
                 SetDiscordRichPresenceAction(1, "Join XTRA", "https://discord.gg/MSs56ypC8N")
                 SetRichPresence("[ID:" .. tostring(A) .. "] | " .. tostring(m) .. "/" .. tostring(n) .. "\n" .. tXTRA.getPlayerName(GetPlayerServerId(PlayerId())) .. " | Roaming On " .. tostring(GetStreetNameFromHashKey(d)))
             else
