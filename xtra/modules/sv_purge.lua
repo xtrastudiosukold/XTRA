@@ -1,4 +1,4 @@
-local weaponcfg = module("xtra-vehicles", "cfg/weapons").weapons
+local weaponcfg = module("cfg/weapons").weapons
 local purgeLB = {}
 local weapons = {
     "WEAPON_MK14", "WEAPON_MP5K", "WEAPON_WINCHESTER12", "WEAPON_YELLOWM4A1S", "WEAPON_BOMBGLOCK18C",

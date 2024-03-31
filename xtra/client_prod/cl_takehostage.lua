@@ -14,7 +14,7 @@ local a = {
         flag = 49
     }
 }
-local b = module("xtra-vehicles", "cfg/weapons")
+local b = module("cfg/weapons")
 Citizen.CreateThread(
     function()
         for c, d in pairs(b.weapons) do

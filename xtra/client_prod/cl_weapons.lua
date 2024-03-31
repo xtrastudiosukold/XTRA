@@ -1,4 +1,4 @@
-local a = module("xtra-vehicles", "cfg/weapons")
+local a = module("cfg/weapons")
 Citizen.CreateThread(
     function()
         for b, c in pairs(a.weapons) do
@@ -7,7 +7,7 @@ Citizen.CreateThread(
     end
 )
 allowedWeapons = {}
-weapons = module("xtra-vehicles", "cfg/weapons")
+weapons = module("cfg/weapons")
 
 function tXTRA.allowWeapon(d,e)
     TriggerServerEvent("XTRA:acType2","Attempted to spawn a weapon via allowWeapon")

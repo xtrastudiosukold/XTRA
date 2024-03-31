@@ -1,6 +1,6 @@
 local a = {}
 local b = nil
-local c = module("xtra-vehicles", "cfg/weapons")
+local c = module("cfg/weapons")
 local d = {
     vector3(457.0222, -983.0001, 30.68948),
     vector3(1844.323, 3692.164, 34.26707),

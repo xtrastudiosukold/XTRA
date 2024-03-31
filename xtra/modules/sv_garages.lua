@@ -724,7 +724,7 @@ AddEventHandler("XTRA:getGarageFolders",function()
     end)
 end)
 
-local cfg_weapons = module("xtra-vehicles", "cfg/weapons")
+local cfg_weapons = module("cfg/weapons")
 
 RegisterServerEvent("XTRA:searchVehicle")
 AddEventHandler('XTRA:searchVehicle', function(entity, permid)

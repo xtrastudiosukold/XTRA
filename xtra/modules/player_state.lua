@@ -1,5 +1,5 @@
 local cfg = module("cfg/player_state")
-local a = module("xtra-vehicles", "cfg/weapons")
+local a = module("cfg/weapons")
 local purgecfg = module("cfg/cfg_purge")
 local lang = XTRA.lang
 

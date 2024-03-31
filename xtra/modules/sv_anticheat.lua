@@ -1,4 +1,4 @@
-local a = module("xtra-vehicles", "cfg/weapons")
+local a = module("cfg/weapons")
 a = a.weapons
 local b = false
 local c = {

@@ -1,4 +1,4 @@
-local a = module("xtra-vehicles", "cfg/weapons")
+local a = module("cfg/weapons")
 local b = Citizen.Wait
 local c = Citizen.CreateThread
 local SetEntityHealth = SetEntityHealth

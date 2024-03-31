@@ -1,7 +1,7 @@
 bootinformation = {time = {hour = "12",minute = "00"},reward = {money = 5000000,items = {["wbody|WEAPON_MOSINCMG"] = 1,["7.62mm Bullets"] = 250}}}
 table1 = {Claimed = {},Processing = {}}
 BootRedeemable = false
-local weapons = module("xtra-vehicles", "cfg/weapons").weapons
+local weapons = module("cfg/weapons").weapons
 local weapontable = {
     weapons = {
         ["WEAPON_MOSINCMG"] = {

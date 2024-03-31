@@ -6,7 +6,7 @@ Tunnel.bindInterface("XTRA", tXTRA)
 XTRAserver = Tunnel.getInterface("XTRA", "XTRA")
 Proxy.addInterface("XTRA", tXTRA)
 allowedWeapons = {}
-weapons = module("xtra-vehicles", "cfg/weapons")
+weapons = module("cfg/weapons")
 function tXTRA.isDevMode()
     if tXTRA.isDev() then
         return true

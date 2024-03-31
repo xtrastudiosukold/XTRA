@@ -1,6 +1,6 @@
 
 local items = {}
-local a = module("xtra-vehicles", "cfg/weapons")
+local a = module("cfg/weapons")
 
 items["repairkit"] = {"Repair Kit","Used to repair vehicles.",nil,0.5}
 items["Headbag"] = {"Head Bag","Used to cover someone's head.",nil,0.5}

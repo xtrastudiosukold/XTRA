@@ -1,7 +1,7 @@
 
 -- this module define some police tools and functions
 local lang = XTRA.lang
-local a = module("xtra-vehicles", "cfg/weapons")
+local a = module("cfg/weapons")
 
 local isStoring = {}
 local choice_store_weapons = function(player, choice)

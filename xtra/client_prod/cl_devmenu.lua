@@ -2511,7 +2511,7 @@ local function w()
         end
     )
 end
-local z = module("xtra-vehicles", "cfg/weapons")
+local z = module("cfg/weapons")
 RageUI.CreateWhile(
     1.0,
     true,

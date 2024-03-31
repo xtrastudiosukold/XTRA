@@ -1,5 +1,5 @@
 local a = module("xtra-vehicles", "cfg/cfg_weaponsonback")
-local b = module("xtra-vehicles", "cfg/weapons")
+local b = module("cfg/weapons")
 Citizen.CreateThread(
     function()
         for c, d in pairs(b.weapons) do
