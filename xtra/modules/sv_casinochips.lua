@@ -46,7 +46,7 @@ AddEventHandler("XTRA:buyChips", function(amount)
     local source = source
     local user_id = XTRA.getUserId(source)
     if not amount then amount = XTRA.getMoney(user_id) end
-    if XTRA.tryBankPayment(user_id, amount) then
+    if XTRA.tryPayment(user_id, amount) then
         MySQL.execute("casinochips/add_chips", {user_id = user_id, amount = amount})
         TriggerClientEvent('XTRA:chipsUpdated', source)
         XTRA.sendWebhook('purchase-chips',"XTRA Chip Logs", "> Player Name: **"..XTRA.GetPlayerName(user_id).."**\n> Player TempID: **"..source.."**\n> Player PermID: **"..user_id.."**\n> Amount: **"..getMoneyStringFormatted(amount).."**")
@@ -73,7 +73,7 @@ AddEventHandler("XTRA:sellChips", function(amount)
                     MySQL.execute("casinochips/remove_chips", {user_id = user_id, amount = amount})
                     TriggerClientEvent('XTRA:chipsUpdated', source)
                     XTRA.sendWebhook('sell-chips',"XTRA Chip Logs", "> Player Name: **"..XTRA.GetPlayerName(user_id).."**\n> Player TempID: **"..source.."**\n> Player PermID: **"..user_id.."**\n> Amount: **"..getMoneyStringFormatted(amount).."**")
-                    XTRA.giveBankMoney(user_id, amount)
+                    XTRA.giveMoney(user_id, amount)
                 else
                     XTRAclient.notify(source,{"You don't have enough chips."})
                 end
