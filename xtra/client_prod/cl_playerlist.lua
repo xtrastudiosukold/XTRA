@@ -222,21 +222,21 @@ Citizen.CreateThread(function()
     while true do
         Wait(5000)
         if l and m and n then
-            local A = BTF.getUserId()
+            local A = tXTRA.getUserId()
             local userHours = hourz[A] or 0
             funny = false
-            local e = BTF.getPlayerCoords()
+            local e = tXTRA.getPlayerCoords()
             d = GetStreetNameAtCoord(e.x, e.y, e.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger()) or "N/A"
             if not funny then
                 SetDiscordAppId(1045061513964159076)
-                SetDiscordRichPresenceAsset('btf')
-                SetDiscordRichPresenceAssetText('discord.gg/btf5m')
-                SetDiscordRichPresenceAssetSmallText(tBTF.getPlayerName(GetPlayerServerId(PlayerId())))
-                SetDiscordRichPresenceAction(1, "Join BTF", "https://discord.gg/MSs56ypC8N")
-                SetRichPresence("[ID:" .. tostring(A) .. "] | " .. tostring(m) .. "/" .. tostring(n) .. "\n" .. tBTF.getPlayerName(GetPlayerServerId(PlayerId())) .. " | Roaming On " .. tostring(GetStreetNameFromHashKey(d)))
+                SetDiscordRichPresenceAsset('xtra')
+                SetDiscordRichPresenceAssetText('discord.gg/xtra5m')
+                SetDiscordRichPresenceAssetSmallText(tXTRA.getPlayerName(GetPlayerServerId(PlayerId())))
+                SetDiscordRichPresenceAction(1, "Join XTRA", "https://discord.gg/MSs56ypC8N")
+                SetRichPresence("[ID:" .. tostring(A) .. "] | " .. tostring(m) .. "/" .. tostring(n) .. "\n" .. tXTRA.getPlayerName(GetPlayerServerId(PlayerId())) .. " | Roaming On " .. tostring(GetStreetNameFromHashKey(d)))
             else
                 SetDiscordAppId(1195076549993566239)
-                SetDiscordRichPresenceAsset('btf')
+                SetDiscordRichPresenceAsset('xtra')
                 SetDiscordRichPresenceAssetText('Grand Theft Auto VI')
                 SetDiscordRichPresenceAssetSmallText("Welcome to Vice City!")
                 SetRichPresence("Playing Multiplayer")
