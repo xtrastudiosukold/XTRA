@@ -390,22 +390,9 @@ function func_drawGangUI()
             DrawAdvancedText(0.486, 0.361 + 0.0287 * x, 0.005, 0.0028, 0.4, id, 255, 255, 255, 255, 6, 0)
             DrawAdvancedText(0.535, 0.361 + 0.0287 * x, 0.005, 0.0028, 0.4, rank, 255, 255, 255, 255, 6, 0)
             DrawAdvancedText(0.605, 0.361 + 0.0287 * x, 0.005, 0.0028, 0.4, lastseen, 255, 255, 255, 255, 6, 0)
-            DrawAdvancedText(
-                0.665,
-                0.361 + 0.0287 * x,
-                0.005,
-                0.0028,
-                0.4,
-                playtime .. " hours",
-                255,
-                255,
-                255,
-                255,
-                6,
-                0
-            )
+            DrawAdvancedText(0.665, 0.361 + 0.0287 * x, 0.005, 0.0028, 0.4,playtime .. " hours",255,255,255,255,6,0)
             local A = h.pinnedPlayers[id] and "📌" or "⭕"
-            DrawAdvancedText(0.700, 0.361 + 0.0287 * x, 0.005, 0.0028, 0.4, A, 255, 255, 255, 255, 6, 0)
+            DrawAdvancedText(0.700, 0.361 + 0.0287 * x, 0.005, 0.0028, 0.3, A, 255, 255, 255, 255, 6, 0)
             if
                 CursorInArea(0.3005, 0.5955, 0.3731 + 0.0287 * (x - 1), 0.4018 + 0.0287 * (x - 1)) and
                     selectedMember ~= id
