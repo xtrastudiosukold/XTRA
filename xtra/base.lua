@@ -38,7 +38,7 @@ local verify_card = {
                 },
                 {
                     ["type"] = "TextBlock",
-                    ["text"] = "Join the XTRA discord (discord.gg/xtra)",
+                    ["text"] = "Join the XTRA discord (discord.gg/xtra5m)",
                     ["horizontalAlignment"] = "Center",
                     ["size"] = "Large",
                     ["wrap"] = false,
@@ -834,11 +834,11 @@ function XTRA.ban(adminsource,permid,time,reason,baninfo)
         if tonumber(time) then
             XTRA.setBucket(PlayerSource, permid)
             XTRA.setBanned(permid,true,time,reason,adminname,baninfo)
-            XTRA.kick(getBannedPlayerSrc,"[XTRA] Ban expires in: "..calculateTimeRemaining(time).."\nYour ID is: "..permid.."\nReason: " .. reason .. "\nAppeal @ discord.gg/xtra") 
+            XTRA.kick(getBannedPlayerSrc,"[XTRA] Ban expires in: "..calculateTimeRemaining(time).."\nYour ID is: "..permid.."\nReason: " .. reason .. "\nAppeal @ discord.gg/xtra5m") 
         else
             XTRA.setBucket(PlayerSource, permid)
             XTRA.setBanned(permid,true,"perm",reason,adminname,baninfo)
-            XTRA.kick(getBannedPlayerSrc,"[XTRA] Permanent Ban\nYour ID is: "..permid.."\nReason: " .. reason .. "\nAppeal @ discord.gg/xtra") 
+            XTRA.kick(getBannedPlayerSrc,"[XTRA] Permanent Ban\nYour ID is: "..permid.."\nReason: " .. reason .. "\nAppeal @ discord.gg/xtra5m") 
         end
         XTRAclient.notify(adminsource,{"~g~Success banned! User PermID: " .. permid})
     else 
@@ -859,10 +859,10 @@ function XTRA.banConsole(permid,time,reason)
             local banTime = os.time()
             banTime = banTime  + (60 * 60 * tonumber(time))  
             XTRA.setBanned(permid,true,banTime,reason, adminPermID)
-            XTRA.kick(getBannedPlayerSrc,"[XTRA] Ban expires in "..calculateTimeRemaining(banTime).."\nYour ID is: "..permid.."\nReason: " .. reason .. "\nBanned by XTRA \nAppeal @ discord.gg/xtra") 
+            XTRA.kick(getBannedPlayerSrc,"[XTRA] Ban expires in "..calculateTimeRemaining(banTime).."\nYour ID is: "..permid.."\nReason: " .. reason .. "\nBanned by XTRA \nAppeal @ discord.gg/xtra5m") 
         else 
             XTRA.setBanned(permid,true,"perm",reason, adminPermID)
-            XTRA.kick(getBannedPlayerSrc,"[XTRA] Permanent Ban\nYour ID is: "..permid.."\nReason: " .. reason .. "\nBanned by XTRA \nAppeal @ discord.gg/xtra") 
+            XTRA.kick(getBannedPlayerSrc,"[XTRA] Permanent Ban\nYour ID is: "..permid.."\nReason: " .. reason .. "\nBanned by XTRA \nAppeal @ discord.gg/xtra5m") 
         end
         print("Successfully banned Perm ID: " .. permid)
     else 
@@ -885,11 +885,11 @@ function XTRA.banAnticheat(permid,time,reason)
             banTime = banTime  + (60 * 60 * tonumber(time))  
             XTRA.setBanned(permid,true,banTime,reason, adminPermID)
             Citizen.Wait(20000)
-            XTRA.kick(getBannedPlayerSrc,"[XTRA] Ban expires in "..calculateTimeRemaining(banTime).."\nYour ID is: "..permid.."\nReason: " .. reason .. "\nBanned by XTRA \nAppeal @ discord.gg/xtra") 
+            XTRA.kick(getBannedPlayerSrc,"[XTRA] Ban expires in "..calculateTimeRemaining(banTime).."\nYour ID is: "..permid.."\nReason: " .. reason .. "\nBanned by XTRA \nAppeal @ discord.gg/xtra5m") 
         else 
             XTRA.setBanned(permid,true,"perm",reason, adminPermID)
             Citizen.Wait(20000)
-            XTRA.kick(getBannedPlayerSrc,"[XTRA] Permanent Ban\nYour ID is: "..permid.."\nReason: " .. reason .. "\nBanned by XTRA \nAppeal @ discord.gg/xtra") 
+            XTRA.kick(getBannedPlayerSrc,"[XTRA] Permanent Ban\nYour ID is: "..permid.."\nReason: " .. reason .. "\nBanned by XTRA \nAppeal @ discord.gg/xtra5m") 
         end
     else 
         if tonumber(time) then 
@@ -909,12 +909,12 @@ function XTRA.banDiscord(permid,time,reason,adminPermID,baninfo)
         banTime = banTime  + (60 * 60 * tonumber(time))
         XTRA.setBanned(permid,true,banTime,reason, adminPermID, baninfo)
         if getBannedPlayerSrc then 
-            XTRA.kick(getBannedPlayerSrc,"[XTRA] Ban expires in "..calculateTimeRemaining(banTime).."\nYour ID is: "..permid.."\nReason: " .. reason .. "\nAppeal @ discord.gg/xtra") 
+            XTRA.kick(getBannedPlayerSrc,"[XTRA] Ban expires in "..calculateTimeRemaining(banTime).."\nYour ID is: "..permid.."\nReason: " .. reason .. "\nAppeal @ discord.gg/xtra5m") 
         end
     else 
         XTRA.setBanned(permid,true,"perm",reason,  adminPermID)
         if getBannedPlayerSrc then
-            XTRA.kick(getBannedPlayerSrc,"[XTRA] Permanent Ban\nYour ID is: "..permid.."\nReason: " .. reason .. "\nAppeal @ discord.gg/xtra") 
+            XTRA.kick(getBannedPlayerSrc,"[XTRA] Permanent Ban\nYour ID is: "..permid.."\nReason: " .. reason .. "\nAppeal @ discord.gg/xtra5m") 
         end
     end
 end
@@ -1037,7 +1037,7 @@ AddEventHandler("playerConnecting", function(name, setMessage, deferrals)
             deferrals.update("[XTRA] Checking For  Identifiers...")
             XTRA.checkidentifiers(user_id, ids, function(banned, userid, reason, identifier)
                 if banned and reason == "Ban Evading" then
-                    deferrals.done("\n[XTRA] Permanently Banned\nUser ID: "..user_id.."\nReason: "..reason.."\nAppeal: https://discord.gg/xtra")
+                    deferrals.done("\n[XTRA] Permanently Banned\nUser ID: "..user_id.."\nReason: "..reason.."\nAppeal: https://discord.gg/xtra5m")
                     XTRA.setBanned(user_id,true,"perm","Ban Evading","XTRA","ID Banned: "..userid)
                     XTRA.sendWebhook('ban-evaders', 'XTRA Ban Evade Logs', "> Player Name: **"..GetPlayerName(source).."**\n> Player Current Perm ID: **"..user_id.."**\n> Player Banned PermID: **"..userid.."**\n> Banned Identifier: **"..identifier.."**")
                     return
@@ -1071,7 +1071,7 @@ AddEventHandler("playerConnecting", function(name, setMessage, deferrals)
                             if not banned then
                                 deferrals.update("[XTRA] Checking For Discord...")
                                 if not XTRA.checkForRole(user_id, '1195851569472741441') then
-                                    deferrals.done("[XTRA]: Your Perm ID Is [".. user_id .."] you are required to be in the discord to join (discord.gg/xtra)")
+                                    deferrals.done("[XTRA]: Your Perm ID Is [".. user_id .."] you are required to be in the discord to join (discord.gg/xtra5m)")
                                     return
                                 end
                                 deferrals.update("[XTRA] Getting User Name...")
@@ -1145,10 +1145,10 @@ AddEventHandler("playerConnecting", function(name, setMessage, deferrals)
                                             end
                                         end
                                         print("[XTRA] "..GetPlayerName(source).." ^1Rejected: "..banreason.."^0 | Perm ID = "..user_id)
-                                        deferrals.done("\n[XTRA] Ban expires in "..calculateTimeRemaining(bantime).."\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra")
+                                        deferrals.done("\n[XTRA] Ban expires in "..calculateTimeRemaining(bantime).."\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra5m")
                                     else 
                                         print("[XTRA] "..GetPlayerName(source).." ^1Rejected: "..banreason.."^0 | Perm ID = "..user_id)
-                                        deferrals.done("\n[XTRA] Permanent Ban\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra")
+                                        deferrals.done("\n[XTRA] Permanent Ban\nYour ID: "..user_id.."\nReason: "..banreason.."\nAppeal @ discord.gg/xtra5m")
                                     end
                                 end)
                             end
@@ -1187,7 +1187,7 @@ function check_verified(deferrals, code, user_id, data)
         deferrals.presentCard(verify_card, callback)
         Wait(2000)
         verify_card["body"][2]["items"][1]["text"] = "In order to connect to XTRA you must be in our discord and verify your account"
-        verify_card["body"][2]["items"][2]["text"] = "Join the XTRA discord (discord.gg/xtra)"
+        verify_card["body"][2]["items"][2]["text"] = "Join the XTRA discord (discord.gg/xtra5m)"
         verify_card["body"][2]["items"][3]["text"] = "In the #verify channel, type the following command"
         verify_card["body"][2]["items"][4]["text"] = "!verify "..code
     else
@@ -1214,7 +1214,7 @@ function check_verified(deferrals, code, user_id, data)
         Wait(3000)
         deferrals.update("[XTRA] Checking For Discord...")
         if not XTRA.checkForRole(user_id, '1195851569472741441') then
-            deferrals.done("[XTRA]: Your Perm ID Is [".. user_id .."] you are required to be in the discord to join (discord.gg/xtra)")
+            deferrals.done("[XTRA]: Your Perm ID Is [".. user_id .."] you are required to be in the discord to join (discord.gg/xtra5m)")
             return
         end
         Wait(1000)

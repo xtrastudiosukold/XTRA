@@ -3,7 +3,7 @@ const resourcePath = global.GetResourcePath ?
 const settingsjson = require(resourcePath + '/settings.js')
 
 exports.runcmd = (fivemexports, client, message, params) => {
-    message.channel.send('discord.gg/xtra')
+    message.channel.send('discord.gg/xtra5m')
 }
 
 exports.conf = {

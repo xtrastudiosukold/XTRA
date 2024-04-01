@@ -17,7 +17,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
     }
     let embed = {
         "title": `Promotion Leaderboard`,
-        "description": 'To take part in the competition for **£100 Paypal**, place `discord.gg/xtra` in your status.'+descriptionText+'\n'+promoters.join('').replace(',', '')+'',
+        "description": 'To take part in the competition for **£100 Paypal**, place `discord.gg/xtra5m` in your status.'+descriptionText+'\n'+promoters.join('').replace(',', '')+'',
         "color": settingsjson.settings.botColour,
         "footer": {
             "text": ""

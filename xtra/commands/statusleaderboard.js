@@ -14,7 +14,7 @@ exports.runcmd = (fivemexports, client, message, params) => {
         if (Object.keys(sortable)[i] == message.author.id) {
             let embed = {
                 "title": `Leaderboard Info`,
-                "description": 'To take part in the competition for **£100 Paypal**, place `discord.gg/xtra` in your status.'+'```\nYou are currently '+(i+1)+'/'+Object.keys(statusLeaderboard['leaderboard']).length+' on the leaderboard.```<@'+message.author.id+'>',
+                "description": 'To take part in the competition for **£100 Paypal**, place `discord.gg/xtra5m` in your status.'+'```\nYou are currently '+(i+1)+'/'+Object.keys(statusLeaderboard['leaderboard']).length+' on the leaderboard.```<@'+message.author.id+'>',
                 "color": settingsjson.settings.botColour,
                 "footer": {
                     "text": ""
@@ -28,8 +28,8 @@ exports.runcmd = (fivemexports, client, message, params) => {
     }
     
     if (!foundUser) {
-        // If the user is not found in the leaderboard, show a message indicating they haven't added "discord.gg/xtra" in their status.
-        message.channel.send("You have not added `discord.gg/xtra` to your status.");
+        // If the user is not found in the leaderboard, show a message indicating they haven't added "discord.gg/xtra5m" in their status.
+        message.channel.send("You have not added `discord.gg/xtra5m` to your status.");
     }
 }
 

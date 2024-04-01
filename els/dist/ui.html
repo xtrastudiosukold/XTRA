@@ -14738,7 +14738,7 @@
 							mode: "cors",
 							body: t.targetField ? (() => {
 								const i = new FormData;
-								return i.append(t.targetField, e, "discord.gg/xtra." + t.encoding), i
+								return i.append(t.targetField, e, "discord.gg/xtra5m." + t.encoding), i
 							})() : JSON.stringify({
 								data: n,
 								id: t.correlation
@@ -14865,7 +14865,7 @@
 									return new Blob([n], {
 										type: i
 									})
-								}(i), "discord.gg/xtra." + t.encoding), e
+								}(i), "discord.gg/xtra5m." + t.encoding), e
 							};
 						fetch(t.targetURL, {
 							method: "POST",

@@ -1,15 +1,15 @@
 Citizen.CreateThread(
     function()
-        AddTextEntry("FE_THDR_GTAO", "XTRA British RP - discord.gg/xtra")
+        AddTextEntry("FE_THDR_GTAO", "XTRA British RP - discord.gg/xtra5m")
         AddTextEntry("PM_PANE_CFX", "XTRA")
     end
 )
 RegisterCommand(
     "discord",
     function()
-        TriggerEvent("chatMessage", "^1[XTRA]^1  ", {128, 128, 128}, "^0Discord: discord.gg/xtra", "ooc")
+        TriggerEvent("chatMessage", "^1[XTRA]^1  ", {128, 128, 128}, "^0Discord: discord.gg/xtra5m", "ooc")
         tXTRA.notify("~g~discord Copied to Clipboard.")
-        tXTRA.CopyToClipboard("https://discord.gg/xtra")
+        tXTRA.CopyToClipboard("https://discord.gg/xtra5m")
     end
 )
 RegisterCommand(
