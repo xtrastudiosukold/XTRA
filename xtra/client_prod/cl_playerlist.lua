@@ -244,3 +244,20 @@ Citizen.CreateThread(function()
         Wait(15000)
     end
 end)
+
+
+AddEventHandler("onResourceStop", function(resourceName)
+    if resourceName == GetCurrentResourceName() then
+        tXTRA.notify("~r~[XTRA] \nThe server has stopped")
+    else
+        tXTRA.notify("~r~[" .. resourceName .. "] \nThe resource has stopped")
+    end
+end)
+
+AddEventHandler("onResourceStart", function(resourceName)
+    if resourceName == GetCurrentResourceName() then
+        tXTRA.notify("~r~[XTRA] \nThe server has started")
+    else
+        tXTRA.notify("~r~[" .. resourceName .. "] \nThe resource has started")
+    end
+end)
