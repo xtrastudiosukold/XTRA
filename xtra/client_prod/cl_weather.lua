@@ -1,5 +1,13 @@
-local a = "OVERCAST"
-local b = {h = 10, m = 0, s = 0}
+local function a()
+    if tXTRA.isHalloween() then
+        return "HALLOWEEN"
+    elseif tXTRA.isChristmas() then
+        return "XMAS"
+    else
+        return "EXTRASUNNY"
+    end
+end
+local b = {h = 12, m = 0, s = 0}
 local c = false
 local function d(e)
     a = e

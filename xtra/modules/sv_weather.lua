@@ -1,5 +1,5 @@
 voteCooldown = 1800
-currentWeather = "OVERCAST"
+currentWeather = "EXTRASUNNY"
 
 weatherVoterCooldown = voteCooldown
 
