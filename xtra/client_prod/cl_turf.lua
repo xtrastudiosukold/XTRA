@@ -42,7 +42,6 @@ Citizen.CreateThread(
         local o = tXTRA.addBlip(5065.6201171875, -4591.3857421875, 2.8652405738831, 150, 1, "Large Arms Trader")
         local p = tXTRA.addBlip(1317.0300292969, 4309.8359375, 38.005485534668, 604, 8, "LSD North Trader", 1.0)
         local q = tXTRA.addBlip(2485.7429199219, -430.13989257813, 92.992835998535, 604, 8, "LSD South Trader", 1.0)
-        local s = tXTRA.addBlip(2485.7429199219, -430.13989257813, 92.992835998535, 604, 8, "Large Arms City")
         local r = {
             {
                 title = "Weed Trader",
@@ -100,14 +99,6 @@ Citizen.CreateThread(
                 position = vector3(2539.0964355469, -376.51586914063, 92.986785888672),
                 blipsize = 120.0
             },
-            {
-                title = "Large Arms City",
-                type = "radius",
-                colour = 1,
-                id = 1,
-                position = vector3(-2298.6223144531,336.02749633789,174.60159301758),
-                blipsize = 120.0
-            }
         }
         for s, t in pairs(r) do
             local u
