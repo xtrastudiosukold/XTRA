@@ -1,4 +1,3 @@
-@ -1,50 +0,0 @@
 fx_version "cerulean"
 game "gta5"
 lua54 "yes"
@@ -28,8 +27,7 @@ files {
 ui_page "ui/dist/index.html"
 
 dependencies {
-    "",
-    "mysql-async"
+
 }
 
 escrow_ignore {
