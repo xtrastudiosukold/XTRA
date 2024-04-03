@@ -17,6 +17,10 @@ files{
     "ui/*.png",
     "ui/main.js",
     "ui/index.html",
+    "ui/index.html",
+    "images/*.png",
+    "ui/*.otf",
+    "ui/*.mp3",
     -- Loading Screen
     'loading/**',
 }
